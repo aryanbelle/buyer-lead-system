@@ -1,0 +1,68 @@
+import type { Buyer } from "./types"
+
+// Mock data for demonstration (in production, this would come from a database)
+export const mockBuyers: Buyer[] = [
+  {
+    id: "1",
+    fullName: "Rajesh Kumar",
+    email: "rajesh.kumar@email.com",
+    phone: "9876543210",
+    city: "Chandigarh",
+    propertyType: "Apartment",
+    bhk: "2",
+    purpose: "Buy",
+    budgetMin: 4500000,
+    budgetMax: 5500000,
+    timeline: "3-6m",
+    source: "Website",
+    status: "New",
+    notes: "Looking for a property near IT Park",
+    tags: ["urgent", "family"],
+    ownerId: "user-1",
+    updatedAt: new Date("2024-01-15"),
+  },
+  {
+    id: "2",
+    fullName: "Priya Sharma",
+    email: "priya.sharma@email.com",
+    phone: "9876543211",
+    city: "Mohali",
+    propertyType: "Villa",
+    bhk: "3",
+    purpose: "Buy",
+    budgetMin: 7000000,
+    budgetMax: 9000000,
+    timeline: "0-3m",
+    source: "Referral",
+    status: "Contacted",
+    notes: "Prefers Phase 7 location",
+    tags: ["premium", "garden"],
+    ownerId: "user-1",
+    updatedAt: new Date("2024-01-16"),
+  },
+  {
+    id: "3",
+    fullName: "Amit Patel",
+    email: "amit.patel@email.com",
+    phone: "9876543212",
+    city: "Zirakpur",
+    propertyType: "Office",
+    purpose: "Rent",
+    budgetMin: 50000,
+    budgetMax: 80000,
+    timeline: "Exploring",
+    source: "Call",
+    status: "Qualified",
+    notes: "Looking for commercial space near highway",
+    tags: ["commercial", "highway"],
+    ownerId: "user-1",
+    updatedAt: new Date("2024-01-17"),
+  },
+]
+
+// Mock user for authentication
+export const mockUser = {
+  id: "user-1",
+  name: "Admin User",
+  email: "admin@company.com",
+}
