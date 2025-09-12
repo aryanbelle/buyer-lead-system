@@ -1,9 +1,10 @@
-import type { Buyer } from "./types"
+import { db } from "./index"
+import { buyers, buyerHistory } from "./schema"
+import { nanoid } from "nanoid"
 
-// Mock data for demonstration (in production, this would come from a database)
-export const mockBuyers: Buyer[] = [
+const seedBuyers = [
   {
-    id: "1",
+    id: nanoid(),
     fullName: "Rajesh Kumar",
     email: "rajesh.kumar@email.com",
     phone: "9876543210",
@@ -17,12 +18,12 @@ export const mockBuyers: Buyer[] = [
     source: "Website",
     status: "New",
     notes: "Looking for a property near IT Park",
-    tags: ["urgent", "family"],
+    tags: JSON.stringify(["urgent", "family"]),
     ownerId: "admin-1",
     updatedAt: new Date("2024-01-15"),
   },
   {
-    id: "2",
+    id: nanoid(),
     fullName: "Priya Sharma",
     email: "priya.sharma@email.com",
     phone: "9876543211",
@@ -36,12 +37,12 @@ export const mockBuyers: Buyer[] = [
     source: "Referral",
     status: "Contacted",
     notes: "Prefers Phase 7 location",
-    tags: ["premium", "garden"],
+    tags: JSON.stringify(["premium", "garden"]),
     ownerId: "agent-1",
     updatedAt: new Date("2024-01-16"),
   },
   {
-    id: "3",
+    id: nanoid(),
     fullName: "Amit Patel",
     email: "amit.patel@email.com",
     phone: "9876543212",
@@ -54,15 +55,41 @@ export const mockBuyers: Buyer[] = [
     source: "Call",
     status: "Qualified",
     notes: "Looking for commercial space near highway",
-    tags: ["commercial", "highway"],
+    tags: JSON.stringify(["commercial", "highway"]),
     ownerId: "admin-1",
     updatedAt: new Date("2024-01-17"),
   },
 ]
 
-// Mock user for authentication
-export const mockUser = {
-  id: "user-1",
-  name: "Admin User",
-  email: "admin@company.com",
+export async function seedDatabase() {
+  try {
+    console.log("Seeding database...")
+    
+    // Clear existing data
+    await db.delete(buyerHistory)
+    await db.delete(buyers)
+    
+    // Insert seed data
+    await db.insert(buyers).values(seedBuyers)
+    
+    // Add initial history entries
+    for (const buyer of seedBuyers) {
+      await db.insert(buyerHistory).values({
+        id: nanoid(),
+        buyerId: buyer.id,
+        changedBy: buyer.ownerId,
+        changedAt: buyer.updatedAt,
+        diff: JSON.stringify({ created: { old: null, new: "Buyer created" } })
+      })
+    }
+    
+    console.log("Database seeded successfully!")
+  } catch (error) {
+    console.error("Error seeding database:", error)
+  }
+}
+
+// Run seed if this file is executed directly
+if (require.main === module) {
+  seedDatabase().then(() => process.exit(0))
 }

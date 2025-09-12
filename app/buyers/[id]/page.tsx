@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/header"
 import { Navigation } from "@/components/layout/navigation"
 import { PageLoading } from "@/components/layout/page-loading"
 import { ErrorBoundary } from "@/components/ui/error-boundary"
-import { getBuyers, getBuyerHistory } from "@/lib/storage"
+import { getBuyerById, getBuyerHistory } from "@/lib/storage"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -29,19 +29,28 @@ export default function BuyerDetailPage({ params }: { params: { id: string } }) 
     }
 
     if (user) {
-      const buyers = getBuyers()
-      const foundBuyer = buyers.find((b) => b.id === params.id)
+      const fetchBuyer = async () => {
+        try {
+          const foundBuyer = await getBuyerById(params.id)
+          
+          if (!foundBuyer) {
+            router.push("/buyers")
+            return
+          }
 
-      if (!foundBuyer) {
-        router.push("/buyers")
-        return
+          setBuyer(foundBuyer)
+
+          const buyerHistory = await getBuyerHistory(params.id)
+          setHistory(buyerHistory)
+        } catch (error) {
+          console.error("Error fetching buyer:", error)
+          router.push("/buyers")
+        } finally {
+          setLoading(false)
+        }
       }
 
-      setBuyer(foundBuyer)
-
-      const buyerHistory = getBuyerHistory().filter((h) => h.buyerId === params.id)
-      setHistory(buyerHistory)
-      setLoading(false)
+      fetchBuyer()
     }
   }, [user, isLoading, router, params.id])
 

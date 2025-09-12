@@ -1,112 +1,124 @@
 import type { Buyer, BuyerHistory } from "./types"
 import { mockBuyers } from "./mock-data"
 
-// Local storage utilities for persisting data (in production, this would be database operations)
-const BUYERS_KEY = "buyer-leads"
-const HISTORY_KEY = "buyer-history"
+// Client-side API calls for data operations
+export async function getBuyers(): Promise<Buyer[]> {
+  if (typeof window === "undefined") {
+    // Server-side: return mock data for SSR
+    return mockBuyers
+  }
 
-export function getBuyers(): Buyer[] {
-  if (typeof window === "undefined") return mockBuyers
-
-  const stored = localStorage.getItem(BUYERS_KEY)
-  return stored ? JSON.parse(stored) : mockBuyers
+  try {
+    const response = await fetch("/api/buyers")
+    if (!response.ok) throw new Error("Failed to fetch buyers")
+    
+    const data = await response.json()
+    return data.buyers || []
+  } catch (error) {
+    console.error("Error fetching buyers:", error)
+    // Fallback to localStorage for development
+    const stored = localStorage.getItem("buyer-leads")
+    return stored ? JSON.parse(stored) : mockBuyers
+  }
 }
 
-export function saveBuyers(buyers: Buyer[]): void {
-  if (typeof window === "undefined") return
+export async function getBuyerById(id: string): Promise<Buyer | null> {
+  if (typeof window === "undefined") {
+    return mockBuyers.find(b => b.id === id) || null
+  }
 
-  localStorage.setItem(BUYERS_KEY, JSON.stringify(buyers))
+  try {
+    const response = await fetch(`/api/buyers/${id}`)
+    if (!response.ok) {
+      if (response.status === 404) return null
+      throw new Error("Failed to fetch buyer")
+    }
+    
+    return await response.json()
+  } catch (error) {
+    console.error("Error fetching buyer:", error)
+    return null
+  }
 }
 
-export function getBuyerHistory(): BuyerHistory[] {
+export async function getBuyerHistory(buyerId: string): Promise<BuyerHistory[]> {
   if (typeof window === "undefined") return []
 
-  const stored = localStorage.getItem(HISTORY_KEY)
-  return stored ? JSON.parse(stored) : []
+  try {
+    const response = await fetch(`/api/buyers/${buyerId}/history`)
+    if (!response.ok) throw new Error("Failed to fetch buyer history")
+    
+    return await response.json()
+  } catch (error) {
+    console.error("Error fetching buyer history:", error)
+    return []
+  }
 }
 
-export function saveBuyerHistory(history: BuyerHistory[]): void {
-  if (typeof window === "undefined") return
-
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history))
-}
-
-export function addBuyer(buyer: Omit<Buyer, "id" | "updatedAt">): Buyer {
-  const buyers = getBuyers()
-  const newBuyer: Buyer = {
-    ...buyer,
-    id: Date.now().toString(),
-    updatedAt: new Date(),
+export async function addBuyer(buyer: Omit<Buyer, "id" | "updatedAt">): Promise<Buyer> {
+  if (typeof window === "undefined") {
+    throw new Error("Cannot add buyer on server side")
   }
 
-  buyers.push(newBuyer)
-  saveBuyers(buyers)
-
-  // Add to history
-  const history = getBuyerHistory()
-  history.push({
-    id: Date.now().toString() + Math.random(),
-    buyerId: newBuyer.id,
-    changedBy: buyer.ownerId,
-    changedAt: new Date(),
-    diff: { created: { old: null, new: "Buyer created" } }
-  })
-  saveBuyerHistory(history)
-
-  return newBuyer
-}
-
-export function updateBuyer(id: string, updates: Partial<Buyer>, changedBy: string): Buyer | null {
-  const buyers = getBuyers()
-  const index = buyers.findIndex((b) => b.id === id)
-
-  if (index === -1) return null
-
-  const oldBuyer = buyers[index]
-  const updatedBuyer = {
-    ...oldBuyer,
-    ...updates,
-    updatedAt: new Date(),
-  }
-
-  buyers[index] = updatedBuyer
-  saveBuyers(buyers)
-
-  // Track changes in history
-  const history = getBuyerHistory()
-  const diff: Record<string, { old: any; new: any }> = {}
-  
-  Object.keys(updates).forEach((field) => {
-    if (field !== "updatedAt" && oldBuyer[field as keyof Buyer] !== updates[field as keyof Buyer]) {
-      diff[field] = {
-        old: oldBuyer[field as keyof Buyer],
-        new: updates[field as keyof Buyer]
-      }
-    }
-  })
-
-  if (Object.keys(diff).length > 0) {
-    history.push({
-      id: Date.now().toString() + Math.random(),
-      buyerId: id,
-      changedBy,
-      changedAt: new Date(),
-      diff
+  try {
+    const response = await fetch("/api/buyers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(buyer),
     })
-    saveBuyerHistory(history)
-  }
 
-  return updatedBuyer
+    if (!response.ok) throw new Error("Failed to create buyer")
+    
+    return await response.json()
+  } catch (error) {
+    console.error("Error creating buyer:", error)
+    throw error
+  }
 }
 
-export function deleteBuyer(id: string): boolean {
-  const buyers = getBuyers()
-  const index = buyers.findIndex((b) => b.id === id)
+export async function updateBuyer(id: string, updates: Partial<Buyer>, changedBy: string): Promise<Buyer | null> {
+  if (typeof window === "undefined") {
+    throw new Error("Cannot update buyer on server side")
+  }
 
-  if (index === -1) return false
+  try {
+    const response = await fetch(`/api/buyers/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...updates, changedBy }),
+    })
 
-  buyers.splice(index, 1)
-  saveBuyers(buyers)
+    if (!response.ok) {
+      if (response.status === 404) return null
+      throw new Error("Failed to update buyer")
+    }
+    
+    return await response.json()
+  } catch (error) {
+    console.error("Error updating buyer:", error)
+    throw error
+  }
+}
 
-  return true
+export async function deleteBuyer(id: string): Promise<boolean> {
+  if (typeof window === "undefined") {
+    throw new Error("Cannot delete buyer on server side")
+  }
+
+  try {
+    const response = await fetch(`/api/buyers/${id}`, {
+      method: "DELETE",
+    })
+
+    if (!response.ok) throw new Error("Failed to delete buyer")
+    
+    return true
+  } catch (error) {
+    console.error("Error deleting buyer:", error)
+    return false
+  }
 }

@@ -6,7 +6,10 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx lib/db/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "latest",
@@ -50,6 +53,7 @@
     "geist": "latest",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
+    "nanoid": "^5.1.5",
     "next": "14.2.16",
     "next-themes": "^0.4.6",
     "react": "^18",
@@ -66,6 +70,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",

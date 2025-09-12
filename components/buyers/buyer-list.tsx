@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -9,7 +9,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { BuyerFiltersComponent } from "./buyer-filters"
 import { getBuyers } from "@/lib/storage"
-import type { BuyerFilters } from "@/lib/types"
+import type { BuyerFilters, Buyer } from "@/lib/types"
 import { Edit, Eye, MoreHorizontal, Phone, Mail, Plus, Upload } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -20,7 +20,23 @@ export function BuyerList() {
   const [currentPage, setCurrentPage] = useState(1)
   const router = useRouter()
 
-  const allBuyers = getBuyers()
+  const [allBuyers, setAllBuyers] = useState<Buyer[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchBuyers = async () => {
+      try {
+        const buyers = await getBuyers()
+        setAllBuyers(buyers)
+      } catch (error) {
+        console.error("Error fetching buyers:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchBuyers()
+  }, [])
 
   const filteredBuyers = useMemo(() => {
     return allBuyers.filter((buyer) => {
@@ -120,7 +136,11 @@ export function BuyerList() {
           <CardTitle>Buyers ({filteredBuyers.length})</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          {paginatedBuyers.length === 0 ? (
+          {loading ? (
+            <div className="text-center py-8 px-6">
+              <p className="text-muted-foreground">Loading buyers...</p>
+            </div>
+          ) : paginatedBuyers.length === 0 ? (
             <div className="text-center py-8 px-6">
               <p className="text-muted-foreground">No buyers found matching your criteria.</p>
               <Button variant="outline" className="mt-4 bg-transparent" onClick={() => setFilters({})}>
