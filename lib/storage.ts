@@ -78,7 +78,7 @@ export async function addBuyer(buyer: Omit<Buyer, "id" | "updatedAt">): Promise<
   }
 }
 
-export async function updateBuyer(id: string, updates: Partial<Buyer>, changedBy: string): Promise<Buyer | null> {
+export async function updateBuyer(id: string, updates: Partial<Buyer>, changedBy: string, currentUserId?: string, currentUserRole?: string): Promise<Buyer | null> {
   if (typeof window === "undefined") {
     throw new Error("Cannot update buyer on server side")
   }
@@ -89,7 +89,7 @@ export async function updateBuyer(id: string, updates: Partial<Buyer>, changedBy
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...updates, changedBy }),
+      body: JSON.stringify({ ...updates, changedBy, currentUserId, currentUserRole }),
     })
 
     if (!response.ok) {
@@ -104,13 +104,17 @@ export async function updateBuyer(id: string, updates: Partial<Buyer>, changedBy
   }
 }
 
-export async function deleteBuyer(id: string): Promise<boolean> {
+export async function deleteBuyer(id: string, currentUserId?: string, currentUserRole?: string): Promise<boolean> {
   if (typeof window === "undefined") {
     throw new Error("Cannot delete buyer on server side")
   }
 
   try {
-    const response = await fetch(`/api/buyers/${id}`, {
+    const params = new URLSearchParams()
+    if (currentUserId) params.append("currentUserId", currentUserId)
+    if (currentUserRole) params.append("currentUserRole", currentUserRole)
+    
+    const response = await fetch(`/api/buyers/${id}?${params}`, {
       method: "DELETE",
     })
 

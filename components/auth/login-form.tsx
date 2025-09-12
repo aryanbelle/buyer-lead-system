@@ -10,12 +10,14 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { login, demoUsers } from "@/lib/auth"
+import { useAuth } from "./auth-provider"
 
 export function LoginForm() {
   const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { login: authLogin } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,8 +27,8 @@ export function LoginForm() {
     try {
       const user = login(email)
       if (user) {
+        authLogin(user)
         router.push("/buyers")
-        router.refresh()
       } else {
         setError("Invalid email address. Please use one of the demo accounts.")
       }
@@ -41,8 +43,8 @@ export function LoginForm() {
     setEmail(demoEmail)
     const user = login(demoEmail)
     if (user) {
+      authLogin(user)
       router.push("/buyers")
-      router.refresh()
     }
   }
 

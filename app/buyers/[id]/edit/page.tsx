@@ -19,7 +19,7 @@ export default function EditBuyerPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     if (!isLoading && !user) {
-      router.push("/login")
+      router.replace("/login")
       return
     }
 

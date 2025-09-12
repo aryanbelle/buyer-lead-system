@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { eq } from "drizzle-orm"
 import { db } from "@/lib/db"
 import { buyers, buyerHistory } from "@/lib/db/schema"
-import { buyerSchema } from "@/lib/validation"
+import { buyerApiSchema } from "@/lib/validation"
 import { nanoid } from "nanoid"
 
 // GET /api/buyers/[id] - Get single buyer
@@ -47,10 +47,10 @@ export async function PUT(
 ) {
   try {
     const body = await request.json()
-    const { changedBy, ...updateData } = body
+    const { changedBy, currentUserId, currentUserRole, ...updateData } = body
     
     // Validate input
-    const validatedData = buyerSchema.parse(updateData)
+    const validatedData = buyerApiSchema.parse(updateData)
     
     // Get current buyer for history tracking
     const currentBuyer = await db
@@ -67,6 +67,15 @@ export async function PUT(
     }
     
     const oldBuyer = currentBuyer[0]
+    
+    // Ownership check: users can only edit their own buyers, unless they're admin
+    if (currentUserRole !== "admin" && oldBuyer.ownerId !== currentUserId) {
+      return NextResponse.json(
+        { error: "You can only edit your own buyers" },
+        { status: 403 }
+      )
+    }
+    
     const now = new Date()
     
     // Update buyer
@@ -128,7 +137,33 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const result = await db
+    const { searchParams } = new URL(request.url)
+    const currentUserId = searchParams.get("currentUserId")
+    const currentUserRole = searchParams.get("currentUserRole")
+    
+    // Get current buyer for ownership check
+    const currentBuyer = await db
+      .select()
+      .from(buyers)
+      .where(eq(buyers.id, params.id))
+      .limit(1)
+    
+    if (currentBuyer.length === 0) {
+      return NextResponse.json(
+        { error: "Buyer not found" },
+        { status: 404 }
+      )
+    }
+    
+    // Ownership check: users can only delete their own buyers, unless they're admin
+    if (currentUserRole !== "admin" && currentBuyer[0].ownerId !== currentUserId) {
+      return NextResponse.json(
+        { error: "You can only delete your own buyers" },
+        { status: 403 }
+      )
+    }
+    
+    await db
       .delete(buyers)
       .where(eq(buyers.id, params.id))
     

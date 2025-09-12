@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { eq, desc, and, or, like, gte, lte } from "drizzle-orm"
 import { db } from "@/lib/db"
 import { buyers, buyerHistory } from "@/lib/db/schema"
-import { buyerSchema } from "@/lib/validation"
+import { buyerApiSchema } from "@/lib/validation"
 import { nanoid } from "nanoid"
 
 // GET /api/buyers - List buyers with filtering, search, and pagination
@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     
     // Validate input
-    const validatedData = buyerSchema.parse(body)
+    const validatedData = buyerApiSchema.parse(body)
     
     // Create buyer
     const buyerId = nanoid()
@@ -108,6 +108,11 @@ export async function POST(request: NextRequest) {
     const newBuyer = {
       id: buyerId,
       ...validatedData,
+      email: validatedData.email || null,
+      bhk: validatedData.bhk || null,
+      budgetMin: validatedData.budgetMin || null,
+      budgetMax: validatedData.budgetMax || null,
+      notes: validatedData.notes || null,
       tags: validatedData.tags ? JSON.stringify(validatedData.tags) : null,
       updatedAt: now,
     }

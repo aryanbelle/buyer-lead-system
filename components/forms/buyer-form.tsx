@@ -43,7 +43,6 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
           budgetMax: buyer.budgetMax,
           timeline: buyer.timeline,
           source: buyer.source,
-          status: buyer.status,
           notes: buyer.notes || "",
           tags: buyer.tags || [],
         }
@@ -59,7 +58,6 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
           budgetMax: undefined,
           timeline: "0-3m",
           source: "Website",
-          status: "New",
           notes: "",
           tags: [],
         },
@@ -73,21 +71,26 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
 
     try {
       if (mode === "create") {
-        addBuyer({
+        const buyerData = {
           ...data,
           ownerId: user.id,
-        })
+          status: "New" as const,
+        }
+        await addBuyer(buyerData)
       } else if (buyer) {
-        updateBuyer(buyer.id, data, user.id)
+        await updateBuyer(buyer.id, { ...data, status: buyer.status }, user.id, user.id, user.role)
       }
 
       router.push("/buyers")
     } catch (err) {
-      setError("Failed to save buyer. Please try again.")
+      console.error("Error saving buyer:", err)
+      setError(`Failed to save buyer: ${err instanceof Error ? err.message : "Please try again."}`)
     } finally {
       setIsLoading(false)
     }
   }
+
+
 
   return (
     <div className="container max-w-2xl mx-auto py-6 space-y-6">
@@ -257,7 +260,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                           <Input
                             type="number"
                             placeholder="5000000"
-                            {...field}
+                            value={field.value || ""}
                             onChange={(e) => field.onChange(e.target.value ? Number(e.target.value) : undefined)}
                           />
                         </FormControl>
@@ -277,7 +280,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                           <Input
                             type="number"
                             placeholder="8000000"
-                            {...field}
+                            value={field.value || ""}
                             onChange={(e) => field.onChange(e.target.value ? Number(e.target.value) : undefined)}
                           />
                         </FormControl>
@@ -364,32 +367,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     )}
                   />
 
-                  <FormField
-                    control={form.control}
-                    name="status"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Status *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select status" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="New">New</SelectItem>
-                            <SelectItem value="Qualified">Qualified</SelectItem>
-                            <SelectItem value="Contacted">Contacted</SelectItem>
-                            <SelectItem value="Visited">Visited</SelectItem>
-                            <SelectItem value="Negotiation">Negotiation</SelectItem>
-                            <SelectItem value="Converted">Converted</SelectItem>
-                            <SelectItem value="Dropped">Dropped</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+
                 </div>
               </div>
 
@@ -408,6 +386,32 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                       />
                     </FormControl>
                     <FormDescription>Optional notes about the buyer's preferences or requirements</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Tags */}
+              <FormField
+                control={form.control}
+                name="tags"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Tags</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter tags separated by commas (e.g., urgent, family, premium)"
+                        value={field.value?.join(", ") || ""}
+                        onChange={(e) => {
+                          const tags = e.target.value
+                            .split(",")
+                            .map(tag => tag.trim())
+                            .filter(tag => tag.length > 0)
+                          field.onChange(tags)
+                        }}
+                      />
+                    </FormControl>
+                    <FormDescription>Optional tags to categorize this buyer (comma-separated)</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

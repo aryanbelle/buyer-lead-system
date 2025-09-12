@@ -9,6 +9,7 @@ interface AuthContextType {
   user: User | null
   isLoading: boolean
   logout: () => void
+  login: (user: User) => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -29,7 +30,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     window.location.href = "/login"
   }
 
-  return <AuthContext.Provider value={{ user, isLoading, logout: handleLogout }}>{children}</AuthContext.Provider>
+  const handleLogin = (user: User) => {
+    setUser(user)
+  }
+
+  return <AuthContext.Provider value={{ user, isLoading, logout: handleLogout, login: handleLogin }}>{children}</AuthContext.Provider>
 }
 
 export function useAuth() {

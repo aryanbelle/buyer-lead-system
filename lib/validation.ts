@@ -17,7 +17,9 @@ export const statusSchema = z.enum(["New", "Qualified", "Contacted", "Visited", 
 
 export const buyerSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters").max(80, "Full name must be less than 80 characters"),
-  email: z.string().email("Invalid email address").optional().or(z.literal("")),
+  email: z.string().optional().refine((val) => !val || z.string().email().safeParse(val).success, {
+    message: "Invalid email address"
+  }),
   phone: z.string().regex(/^\d{10,15}$/, "Phone must be 10-15 digits"),
   city: citySchema,
   propertyType: propertyTypeSchema,
@@ -27,7 +29,6 @@ export const buyerSchema = z.object({
   budgetMax: z.number().min(0).optional(),
   timeline: timelineSchema,
   source: sourceSchema,
-  status: statusSchema.default("New"),
   notes: z.string().max(1000, "Notes must be less than 1000 characters").optional(),
   tags: z.array(z.string()).optional(),
 }).refine((data) => {
@@ -63,5 +64,45 @@ export const buyerFiltersSchema = z.object({
   budgetMax: z.number().min(0).optional(),
 })
 
+// Schema for API that includes server-side fields
+export const buyerApiSchema = z.object({
+  fullName: z.string().min(2, "Full name must be at least 2 characters").max(80, "Full name must be less than 80 characters"),
+  email: z.string().optional().refine((val) => !val || z.string().email().safeParse(val).success, {
+    message: "Invalid email address"
+  }),
+  phone: z.string().regex(/^\d{10,15}$/, "Phone must be 10-15 digits"),
+  city: citySchema,
+  propertyType: propertyTypeSchema,
+  bhk: bhkSchema.optional(),
+  purpose: purposeSchema,
+  budgetMin: z.number().min(0).optional(),
+  budgetMax: z.number().min(0).optional(),
+  timeline: timelineSchema,
+  source: sourceSchema,
+  notes: z.string().max(1000, "Notes must be less than 1000 characters").optional(),
+  tags: z.array(z.string()).optional(),
+  ownerId: z.string().min(1, "Owner ID is required"),
+  status: statusSchema.default("New"),
+}).refine((data) => {
+  // BHK required for Apartment/Villa
+  if ((data.propertyType === "Apartment" || data.propertyType === "Villa") && !data.bhk) {
+    return false;
+  }
+  return true;
+}, {
+  message: "BHK is required for Apartment and Villa properties",
+  path: ["bhk"]
+}).refine((data) => {
+  // budgetMax >= budgetMin when both present
+  if (data.budgetMin && data.budgetMax && data.budgetMax < data.budgetMin) {
+    return false;
+  }
+  return true;
+}, {
+  message: "Maximum budget must be greater than or equal to minimum budget",
+  path: ["budgetMax"]
+})
+
 export type BuyerFormData = z.infer<typeof buyerSchema>
+export type BuyerApiData = z.infer<typeof buyerApiSchema>
 export type BuyerFiltersData = z.infer<typeof buyerFiltersSchema>
