@@ -11,7 +11,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { BuyerFiltersSSR } from "./buyer-filters-ssr"
 import type { BuyerFilters, Buyer } from "@/lib/types"
 import { Edit, Eye, MoreHorizontal, Phone, Mail, Plus, Upload } from "lucide-react"
-import type { User } from "@/lib/auth-server"
+import type { User } from "@/lib/auth"
 
 interface BuyerListSSRProps {
   initialBuyers: Buyer[]
@@ -26,12 +26,11 @@ interface BuyerListSSRProps {
 }
 
 export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }: BuyerListSSRProps) {
+  console.log('BuyerListSSR received:', { initialFilters, pagination, buyersCount: initialBuyers.length })
   const router = useRouter()
   const searchParams = useSearchParams()
-  const [isLoading, setIsLoading] = useState(false)
 
   const updateURL = (newFilters: BuyerFilters, newPage?: number) => {
-    setIsLoading(true)
     const params = new URLSearchParams()
     
     if (newPage && newPage !== 1) params.set("page", newPage.toString())
@@ -114,7 +113,6 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
         filters={initialFilters}
         onFiltersChange={handleFiltersChange}
         totalCount={pagination.total}
-        isLoading={isLoading}
       />
 
       {/* Buyers Table */}
@@ -123,11 +121,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
           <CardTitle>Buyers ({pagination.total})</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          {isLoading ? (
-            <div className="text-center py-8 px-6">
-              <p className="text-muted-foreground">Loading...</p>
-            </div>
-          ) : initialBuyers.length === 0 ? (
+          {initialBuyers.length === 0 ? (
             <div className="text-center py-8 px-6">
               <p className="text-muted-foreground">No buyers found matching your criteria.</p>
               <Button variant="outline" className="mt-4 bg-transparent" onClick={() => handleFiltersChange({})}>
@@ -259,7 +253,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                       variant="outline"
                       size="sm"
                       onClick={() => handlePageChange(pagination.page - 1)}
-                      disabled={pagination.page === 1 || isLoading}
+                      disabled={pagination.page === 1}
                     >
                       Previous
                     </Button>
@@ -272,7 +266,6 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                             variant={pageNum === pagination.page ? "default" : "outline"}
                             size="sm"
                             onClick={() => handlePageChange(pageNum)}
-                            disabled={isLoading}
                             className="w-8 h-8 p-0"
                           >
                             {pageNum}
@@ -284,7 +277,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                       variant="outline"
                       size="sm"
                       onClick={() => handlePageChange(pagination.page + 1)}
-                      disabled={pagination.page === pagination.totalPages || isLoading}
+                      disabled={pagination.page === pagination.totalPages}
                     >
                       Next
                     </Button>

@@ -14,45 +14,45 @@ interface BuyerFiltersSSRProps {
   filters: BuyerFilters
   onFiltersChange: (filters: BuyerFilters) => void
   totalCount: number
-  isLoading?: boolean
 }
 
-export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoading }: BuyerFiltersSSRProps) {
+export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerFiltersSSRProps) {
+  console.log('BuyerFiltersSSR received filters:', filters)
   const [isExpanded, setIsExpanded] = useState(false)
-  const [localFilters, setLocalFilters] = useState<BuyerFilters>(filters)
   const [searchValue, setSearchValue] = useState(filters.search || "")
 
-  // Debounced search
+  // Update search value when filters prop changes
+  useEffect(() => {
+    setSearchValue(filters.search || "")
+  }, [filters.search])
+
+  // Debounced search - directly call onFiltersChange
   const debounceSearch = useCallback(
     (() => {
       let timeoutId: NodeJS.Timeout
       return (value: string) => {
         clearTimeout(timeoutId)
         timeoutId = setTimeout(() => {
-          setLocalFilters(prev => ({ ...prev, search: value || undefined }))
+          onFiltersChange({ ...filters, search: value || undefined })
         }, 500) // 500ms debounce
       }
     })(),
-    []
+    [filters, onFiltersChange]
   )
 
   useEffect(() => {
     debounceSearch(searchValue)
   }, [searchValue, debounceSearch])
 
-  // Apply filters when localFilters change
-  useEffect(() => {
-    onFiltersChange(localFilters)
-  }, [localFilters, onFiltersChange])
-
   const updateFilter = (key: keyof BuyerFilters, value: any) => {
-    setLocalFilters(prev => ({ ...prev, [key]: value }))
+    const newFilters = { ...filters, [key]: value }
+    onFiltersChange(newFilters)
   }
 
   const clearFilter = (key: keyof BuyerFilters) => {
-    const newFilters = { ...localFilters }
+    const newFilters = { ...filters }
     delete newFilters[key]
-    setLocalFilters(newFilters)
+    onFiltersChange(newFilters)
     
     if (key === 'search') {
       setSearchValue("")
@@ -60,11 +60,11 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
   }
 
   const clearAllFilters = () => {
-    setLocalFilters({})
+    onFiltersChange({})
     setSearchValue("")
   }
 
-  const activeFiltersCount = Object.keys(localFilters).length
+  const activeFiltersCount = Object.keys(filters).length
 
   return (
     <Card className="shadow-sm">
@@ -73,7 +73,6 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
           <div className="flex items-center gap-2">
             <CardTitle className="text-lg">Filters</CardTitle>
             {activeFiltersCount > 0 && <Badge variant="secondary">{activeFiltersCount} active</Badge>}
-            {isLoading && <Badge variant="outline">Loading...</Badge>}
           </div>
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">
@@ -95,7 +94,6 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
             className="pl-10"
-            disabled={isLoading}
           />
           {searchValue && (
             <Button
@@ -106,7 +104,6 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
                 setSearchValue("")
                 clearFilter("search")
               }}
-              disabled={isLoading}
             >
               <X className="h-3 w-3" />
             </Button>
@@ -116,7 +113,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
         {/* Active Filters */}
         {activeFiltersCount > 0 && (
           <div className="flex flex-wrap gap-2">
-            {Object.entries(localFilters).map(([key, value]) => (
+            {Object.entries(filters).map(([key, value]) => (
               <Badge key={key} variant="outline" className="gap-1">
                 <span className="capitalize">{key}:</span>
                 <span>{String(value)}</span>
@@ -125,13 +122,12 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
                   size="sm"
                   className="h-3 w-3 p-0 hover:bg-transparent"
                   onClick={() => clearFilter(key as keyof BuyerFilters)}
-                  disabled={isLoading}
                 >
                   <X className="h-2 w-2" />
                 </Button>
               </Badge>
             ))}
-            <Button variant="ghost" size="sm" onClick={clearAllFilters} disabled={isLoading}>
+            <Button variant="ghost" size="sm" onClick={clearAllFilters}>
               Clear all
             </Button>
           </div>
@@ -143,15 +139,14 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
             <div className="space-y-2">
               <Label>City</Label>
               <Select
-                value={localFilters.city || ""}
-                onValueChange={(value) => updateFilter("city", value || undefined)}
-                disabled={isLoading}
+                value={filters.city || "all"}
+                onValueChange={(value) => updateFilter("city", value === "all" ? undefined : value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="All cities" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All cities</SelectItem>
+                  <SelectItem value="all">All cities</SelectItem>
                   <SelectItem value="Chandigarh">Chandigarh</SelectItem>
                   <SelectItem value="Mohali">Mohali</SelectItem>
                   <SelectItem value="Zirakpur">Zirakpur</SelectItem>
@@ -164,15 +159,14 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
             <div className="space-y-2">
               <Label>Property Type</Label>
               <Select
-                value={localFilters.propertyType || ""}
-                onValueChange={(value) => updateFilter("propertyType", value || undefined)}
-                disabled={isLoading}
+                value={filters.propertyType || "all"}
+                onValueChange={(value) => updateFilter("propertyType", value === "all" ? undefined : value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="All types" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All types</SelectItem>
+                  <SelectItem value="all">All types</SelectItem>
                   <SelectItem value="Apartment">Apartment</SelectItem>
                   <SelectItem value="Villa">Villa</SelectItem>
                   <SelectItem value="Plot">Plot</SelectItem>
@@ -185,15 +179,14 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
             <div className="space-y-2">
               <Label>Status</Label>
               <Select
-                value={localFilters.status || ""}
-                onValueChange={(value) => updateFilter("status", value || undefined)}
-                disabled={isLoading}
+                value={filters.status || "all"}
+                onValueChange={(value) => updateFilter("status", value === "all" ? undefined : value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="All statuses" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All statuses</SelectItem>
+                  <SelectItem value="all">All statuses</SelectItem>
                   <SelectItem value="New">New</SelectItem>
                   <SelectItem value="Qualified">Qualified</SelectItem>
                   <SelectItem value="Contacted">Contacted</SelectItem>
@@ -208,15 +201,14 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount, isLoadin
             <div className="space-y-2">
               <Label>Timeline</Label>
               <Select
-                value={localFilters.timeline || ""}
-                onValueChange={(value) => updateFilter("timeline", value || undefined)}
-                disabled={isLoading}
+                value={filters.timeline || "all"}
+                onValueChange={(value) => updateFilter("timeline", value === "all" ? undefined : value)}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="All timelines" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All timelines</SelectItem>
+                  <SelectItem value="all">All timelines</SelectItem>
                   <SelectItem value="0-3m">0-3 months</SelectItem>
                   <SelectItem value="3-6m">3-6 months</SelectItem>
                   <SelectItem value=">6m">6+ months</SelectItem>
