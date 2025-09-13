@@ -18,7 +18,9 @@ export async function getBuyersServer(
 ): Promise<BuyersPaginationResult> {
   try {
     // Parse pagination params
-    const page = parseInt(typeof searchParams.page === 'string' ? searchParams.page : '1')
+    const pageParam = searchParams.page
+    const page = parseInt(typeof pageParam === 'string' ? pageParam : '1')
+    console.log('SERVER: Parsing page from searchParams:', { pageParam, page, allParams: searchParams })
     const limit = 10 // Fixed page size as per requirement
     const offset = (page - 1) * limit
     
@@ -125,7 +127,6 @@ export async function getBuyersServer(
 export function getFiltersFromSearchParams(
   searchParams: Record<string, string | string[] | undefined>
 ): BuyerFilters {
-  console.log('getFiltersFromSearchParams input:', searchParams)
   const filters = {
     search: typeof searchParams.search === 'string' ? searchParams.search : undefined,
     city: typeof searchParams.city === 'string' ? searchParams.city : undefined,
@@ -138,6 +139,5 @@ export function getFiltersFromSearchParams(
     budgetMin: typeof searchParams.budgetMin === 'string' ? parseInt(searchParams.budgetMin) : undefined,
     budgetMax: typeof searchParams.budgetMax === 'string' ? parseInt(searchParams.budgetMax) : undefined,
   }
-  console.log('getFiltersFromSearchParams output:', filters)
   return filters
 }

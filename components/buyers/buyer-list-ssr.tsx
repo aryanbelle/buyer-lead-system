@@ -7,10 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { BuyerFiltersSSR } from "./buyer-filters-ssr"
+import { BuyerRowActions } from "./buyer-row-actions"
 import type { BuyerFilters, Buyer } from "@/lib/types"
-import { Edit, Eye, MoreHorizontal, Phone, Mail, Plus, Upload } from "lucide-react"
+import { Phone, Mail, Plus, Upload } from "lucide-react"
 import type { User } from "@/lib/auth"
 
 interface BuyerListSSRProps {
@@ -26,35 +26,34 @@ interface BuyerListSSRProps {
 }
 
 export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }: BuyerListSSRProps) {
-  console.log('BuyerListSSR received:', { initialFilters, pagination, buyersCount: initialBuyers.length })
   const router = useRouter()
   const searchParams = useSearchParams()
 
-  const updateURL = (newFilters: BuyerFilters, newPage?: number) => {
+  const navigateToPage = (page: number, filters: BuyerFilters = initialFilters) => {
     const params = new URLSearchParams()
     
-    if (newPage && newPage !== 1) params.set("page", newPage.toString())
-    if (newFilters.search) params.set("search", newFilters.search)
-    if (newFilters.city) params.set("city", newFilters.city)
-    if (newFilters.propertyType) params.set("propertyType", newFilters.propertyType)
-    if (newFilters.bhk) params.set("bhk", newFilters.bhk)
-    if (newFilters.purpose) params.set("purpose", newFilters.purpose)
-    if (newFilters.timeline) params.set("timeline", newFilters.timeline)
-    if (newFilters.source) params.set("source", newFilters.source)
-    if (newFilters.status) params.set("status", newFilters.status)
-    if (newFilters.budgetMin) params.set("budgetMin", newFilters.budgetMin.toString())
-    if (newFilters.budgetMax) params.set("budgetMax", newFilters.budgetMax.toString())
+    // Always set page (even if it's 1)
+    params.set("page", page.toString())
+    
+    // Add all non-empty filter values
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && value !== '') {
+        params.set(key, value.toString())
+      }
+    })
 
-    const url = params.toString() ? `/buyers?${params.toString()}` : "/buyers"
+    const url = `/buyers?${params.toString()}`
     router.push(url)
   }
 
   const handleFiltersChange = (newFilters: BuyerFilters) => {
-    updateURL(newFilters, 1) // Reset to page 1 when filters change
+    // When filters change, always go to page 1
+    navigateToPage(1, newFilters)
   }
 
   const handlePageChange = (newPage: number) => {
-    updateURL(initialFilters, newPage)
+    // When page changes, keep current filters
+    navigateToPage(newPage, initialFilters)
   }
 
   const getStatusColor = (status: string) => {
@@ -130,7 +129,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
             </div>
           ) : (
             <>
-              <div className="overflow-x-auto rounded-lg">
+              <div className="overflow-x-auto rounded-lg relative">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -217,23 +216,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                           </div>
                         </TableCell>
                         <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" className="h-8 w-8 p-0">
-                                <MoreHorizontal className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem onClick={() => router.push(`/buyers/${buyer.id}`)}>
-                                <Eye className="mr-2 h-4 w-4" />
-                                View Details
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => router.push(`/buyers/${buyer.id}/edit`)}>
-                                <Edit className="mr-2 h-4 w-4" />
-                                Edit
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                          <BuyerRowActions buyerId={buyer.id} />
                         </TableCell>
                       </TableRow>
                     ))}
@@ -247,6 +230,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                   <div className="text-sm text-muted-foreground">
                     Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
                     {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total} results
+                    (Page {pagination.page} of {pagination.totalPages})
                   </div>
                   <div className="flex gap-2">
                     <Button
@@ -258,20 +242,34 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                       Previous
                     </Button>
                     <div className="flex items-center gap-1">
-                      {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
-                        const pageNum = i + 1
-                        return (
-                          <Button
-                            key={pageNum}
-                            variant={pageNum === pagination.page ? "default" : "outline"}
-                            size="sm"
-                            onClick={() => handlePageChange(pageNum)}
-                            className="w-8 h-8 p-0"
-                          >
-                            {pageNum}
-                          </Button>
-                        )
-                      })}
+                      {(() => {
+                        const currentPage = pagination.page
+                        const totalPages = pagination.totalPages
+                        const maxVisible = 5
+                        
+                        let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2))
+                        let endPage = Math.min(totalPages, startPage + maxVisible - 1)
+                        
+                        // Adjust start page if we're near the end
+                        if (endPage - startPage < maxVisible - 1) {
+                          startPage = Math.max(1, endPage - maxVisible + 1)
+                        }
+                        
+                        return Array.from({ length: endPage - startPage + 1 }, (_, i) => {
+                          const pageNum = startPage + i
+                          return (
+                            <Button
+                              key={pageNum}
+                              variant={pageNum === currentPage ? "default" : "outline"}
+                              size="sm"
+                              onClick={() => handlePageChange(pageNum)}
+                              className="w-8 h-8 p-0"
+                            >
+                              {pageNum}
+                            </Button>
+                          )
+                        })
+                      })()}
                     </div>
                     <Button
                       variant="outline"

@@ -17,7 +17,6 @@ interface BuyerFiltersSSRProps {
 }
 
 export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerFiltersSSRProps) {
-  console.log('BuyerFiltersSSR received filters:', filters)
   const [isExpanded, setIsExpanded] = useState(false)
   const [searchValue, setSearchValue] = useState(filters.search || "")
 
@@ -26,7 +25,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
     setSearchValue(filters.search || "")
   }, [filters.search])
 
-  // Debounced search - directly call onFiltersChange
+  // Debounced search - only trigger when searchValue actually changes by user input
   const debounceSearch = useCallback(
     (() => {
       let timeoutId: NodeJS.Timeout
@@ -40,9 +39,16 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
     [filters, onFiltersChange]
   )
 
+  // Only trigger debounced search when user manually changes search input
+  // Don't trigger when searchValue changes due to props update
+  const [isUserInput, setIsUserInput] = useState(false)
+  
   useEffect(() => {
-    debounceSearch(searchValue)
-  }, [searchValue, debounceSearch])
+    if (isUserInput) {
+      debounceSearch(searchValue)
+      setIsUserInput(false)
+    }
+  }, [searchValue, debounceSearch, isUserInput])
 
   const updateFilter = (key: keyof BuyerFilters, value: any) => {
     const newFilters = { ...filters, [key]: value }
@@ -92,7 +98,10 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
           <Input
             placeholder="Search by name, email, or phone..."
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => {
+              setSearchValue(e.target.value)
+              setIsUserInput(true)
+            }}
             className="pl-10"
           />
           {searchValue && (
