@@ -58,29 +58,38 @@ export function CSVImport({ onImportComplete }: CSVImportProps) {
       const rows = parseCSV(text)
       const validationResult = validateCSVData(rows)
 
-      if (validationResult.success && validationResult.data) {
-        // Update buyer data with current user info
-        const buyersWithUser = validationResult.data.map((buyer) => ({
-          ...buyer,
-          createdBy: user.id,
-          updatedBy: user.id,
-        }))
+      // Send data to API for import
+      const response = await fetch("/api/buyers/import", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: validationResult.data || [],
+          userId: user.id,
+        }),
+      })
 
-        // Add to existing buyers
-        const existingBuyers = getBuyers()
-        const allBuyers = [...existingBuyers, ...buyersWithUser]
-        saveBuyers(allBuyers)
-
+      const apiResult = await response.json()
+      
+      if (!response.ok) {
         setResult({
-          ...validationResult,
-          data: buyersWithUser,
+          success: false,
+          errors: [apiResult.error || "Failed to import data"],
         })
+        return
+      }
 
-        if (onImportComplete) {
-          onImportComplete()
-        }
-      } else {
-        setResult(validationResult)
+      setResult({
+        success: apiResult.success,
+        errors: apiResult.errors || [],
+        validRows: apiResult.validRows,
+        totalRows: apiResult.totalRows,
+        data: apiResult.results,
+      })
+
+      if (apiResult.success && onImportComplete) {
+        onImportComplete()
       }
     } catch (error) {
       setResult({

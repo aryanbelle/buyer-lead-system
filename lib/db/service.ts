@@ -71,10 +71,12 @@ export async function getBuyersFromDB(
   const whereClause = conditions.length > 0 ? and(...conditions) : undefined
   
   // Get total count
-  const [{ total }] = await db
-    .select({ total: count() })
+  const countResult = await db
+    .select({ count: count() })
     .from(buyers)
     .where(whereClause)
+  
+  const total = countResult[0]?.count || 0
   
   // Get paginated results
   const results = await db

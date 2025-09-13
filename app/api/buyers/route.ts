@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
-import { eq, desc, and, or, like, gte, lte } from "drizzle-orm"
+import { eq, desc, and, or, like, gte, lte, count } from "drizzle-orm"
 import { db } from "@/lib/db"
 import { buyers, buyerHistory } from "@/lib/db/schema"
 import { buyerApiSchema } from "@/lib/validation"
 import { nanoid } from "nanoid"
+import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit"
 
 // GET /api/buyers - List buyers with filtering, search, and pagination
 export async function GET(request: NextRequest) {
@@ -47,18 +48,33 @@ export async function GET(request: NextRequest) {
     if (timeline) conditions.push(eq(buyers.timeline, timeline))
     if (source) conditions.push(eq(buyers.source, source))
     if (status) conditions.push(eq(buyers.status, status))
-    if (budgetMin) conditions.push(gte(buyers.budgetMin, parseInt(budgetMin)))
-    if (budgetMax) conditions.push(lte(buyers.budgetMax, parseInt(budgetMax)))
+    // Simplified budget filters for now
+    if (budgetMin) {
+      conditions.push(
+        or(
+          gte(buyers.budgetMax, parseInt(budgetMin)),
+          gte(buyers.budgetMin, parseInt(budgetMin))
+        )
+      )
+    }
+    if (budgetMax) {
+      conditions.push(
+        or(
+          lte(buyers.budgetMin, parseInt(budgetMax)),
+          lte(buyers.budgetMax, parseInt(budgetMax))
+        )
+      )
+    }
     
     const whereClause = conditions.length > 0 ? and(...conditions) : undefined
     
     // Get total count
     const totalResult = await db
-      .select({ count: buyers.id })
+      .select({ count: count() })
       .from(buyers)
       .where(whereClause)
     
-    const total = totalResult.length
+    const total = totalResult[0]?.count || 0
     
     // Get paginated results
     const results = await db
@@ -95,6 +111,20 @@ export async function GET(request: NextRequest) {
 
 // POST /api/buyers - Create new buyer
 export async function POST(request: NextRequest) {
+  // Rate limiting: 5 creates per minute per IP
+  const clientIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+  const rateLimitResult = rateLimit(`create_${clientIP}`, 5, 60000)
+  
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { error: "Rate limit exceeded. Please wait before creating more buyers." },
+      { 
+        status: 429,
+        headers: getRateLimitHeaders(rateLimitResult)
+      }
+    )
+  }
+  
   try {
     const body = await request.json()
     
@@ -108,11 +138,11 @@ export async function POST(request: NextRequest) {
     const newBuyer = {
       id: buyerId,
       ...validatedData,
-      email: validatedData.email || null,
+      email: validatedData.email && validatedData.email.trim() !== "" ? validatedData.email : null,
       bhk: validatedData.bhk || null,
       budgetMin: validatedData.budgetMin || null,
       budgetMax: validatedData.budgetMax || null,
-      notes: validatedData.notes || null,
+      notes: validatedData.notes && validatedData.notes.trim() !== "" ? validatedData.notes : null,
       tags: validatedData.tags ? JSON.stringify(validatedData.tags) : null,
       updatedAt: now,
     }

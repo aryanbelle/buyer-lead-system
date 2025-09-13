@@ -17,7 +17,7 @@ export const statusSchema = z.enum(["New", "Qualified", "Contacted", "Visited", 
 
 export const buyerSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters").max(80, "Full name must be less than 80 characters"),
-  email: z.string().optional().refine((val) => !val || z.string().email().safeParse(val).success, {
+  email: z.string().optional().refine((val) => !val || val === "" || z.string().email().safeParse(val).success, {
     message: "Invalid email address"
   }),
   phone: z.string().regex(/^\d{10,15}$/, "Phone must be 10-15 digits"),
@@ -67,7 +67,7 @@ export const buyerFiltersSchema = z.object({
 // Schema for API that includes server-side fields
 export const buyerApiSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters").max(80, "Full name must be less than 80 characters"),
-  email: z.string().optional().refine((val) => !val || z.string().email().safeParse(val).success, {
+  email: z.string().optional().refine((val) => !val || val === "" || z.string().email().safeParse(val).success, {
     message: "Invalid email address"
   }),
   phone: z.string().regex(/^\d{10,15}$/, "Phone must be 10-15 digits"),

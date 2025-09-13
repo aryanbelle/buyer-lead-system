@@ -188,3 +188,55 @@
     letter-spacing: var(--tracking-normal);
   }
 }
+
+@layer components {
+  /* Cursor pointer for interactive elements */
+  button,
+  [role="button"],
+  [role="menuitem"],
+  .cursor-pointer,
+  a,
+  label,
+  select,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="submit"],
+  input[type="button"],
+  [data-state="open"],
+  [data-state="closed"],
+  .clickable {
+    cursor: pointer;
+  }
+
+  /* Disabled state cursor */
+  button:disabled,
+  [role="button"]:disabled,
+  input:disabled,
+  select:disabled,
+  .disabled {
+    cursor: not-allowed;
+  }
+
+  /* Text selection cursor for inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  textarea {
+    cursor: text;
+  }
+
+  /* Resize cursor for textareas */
+  textarea {
+    cursor: text;
+    resize: vertical;
+  }
+
+  /* Pointer for dropdown triggers */
+  [data-radix-collection-item],
+  [data-radix-dropdown-menu-trigger],
+  [data-radix-select-trigger] {
+    cursor: pointer;
+  }
+}

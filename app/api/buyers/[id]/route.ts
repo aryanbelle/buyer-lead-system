@@ -4,6 +4,7 @@ import { db } from "@/lib/db"
 import { buyers, buyerHistory } from "@/lib/db/schema"
 import { buyerApiSchema } from "@/lib/validation"
 import { nanoid } from "nanoid"
+import { rateLimit, getRateLimitHeaders } from "@/lib/rate-limit"
 
 // GET /api/buyers/[id] - Get single buyer
 export async function GET(
@@ -45,9 +46,23 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
+  // Rate limiting: 10 updates per minute per IP
+  const clientIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+  const rateLimitResult = rateLimit(`update_${clientIP}`, 10, 60000)
+  
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { error: "Rate limit exceeded. Please wait before updating more buyers." },
+      { 
+        status: 429,
+        headers: getRateLimitHeaders(rateLimitResult)
+      }
+    )
+  }
+  
   try {
     const body = await request.json()
-    const { changedBy, currentUserId, currentUserRole, ...updateData } = body
+    const { changedBy, currentUserId, currentUserRole, lastUpdated, ...updateData } = body
     
     // Validate input
     const validatedData = buyerApiSchema.parse(updateData)
@@ -68,6 +83,14 @@ export async function PUT(
     
     const oldBuyer = currentBuyer[0]
     
+    // Concurrency check: if lastUpdated is provided, ensure it matches the current updatedAt
+    if (lastUpdated && new Date(lastUpdated).getTime() !== new Date(oldBuyer.updatedAt).getTime()) {
+      return NextResponse.json(
+        { error: "Record has been modified by another user. Please refresh and try again." },
+        { status: 409 }
+      )
+    }
+    
     // Ownership check: users can only edit their own buyers, unless they're admin
     if (currentUserRole !== "admin" && oldBuyer.ownerId !== currentUserId) {
       return NextResponse.json(
@@ -81,6 +104,8 @@ export async function PUT(
     // Update buyer
     const updatedBuyer = {
       ...validatedData,
+      email: validatedData.email && validatedData.email.trim() !== "" ? validatedData.email : null,
+      notes: validatedData.notes && validatedData.notes.trim() !== "" ? validatedData.notes : null,
       tags: validatedData.tags ? JSON.stringify(validatedData.tags) : null,
       updatedAt: now,
     }

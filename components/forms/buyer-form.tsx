@@ -78,7 +78,14 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
         }
         await addBuyer(buyerData)
       } else if (buyer) {
-        await updateBuyer(buyer.id, { ...data, status: buyer.status }, user.id, user.id, user.role)
+        // For update, we need to include the original ownerId and status
+        const updateData = {
+          ...data,
+          ownerId: buyer.ownerId, // Keep the original owner
+          status: buyer.status,   // Keep the current status
+          lastUpdated: buyer.updatedAt, // For concurrency control
+        }
+        await updateBuyer(buyer.id, updateData, user.id, user.id, user.role)
       }
 
       router.push("/buyers")
