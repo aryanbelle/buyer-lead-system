@@ -1,0 +1,15 @@
+# Development files
+sqlite.db
+sqlite.db-journal
+.env.local
+
+# Test files
+__tests__
+*.test.*
+*.spec.*
+jest.config.js
+jest.setup.js
+
+# Development dependencies
+.kiro
+.swc
