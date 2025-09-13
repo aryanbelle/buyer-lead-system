@@ -15,7 +15,7 @@ export default function NewBuyerPage() {
 
   useEffect(() => {
     if (!isLoading && !user) {
-      router.push("/login")
+      router.replace("/login")
     }
   }, [user, isLoading, router])
 

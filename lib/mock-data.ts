@@ -18,7 +18,7 @@ export const mockBuyers: Buyer[] = [
     status: "New",
     notes: "Looking for a property near IT Park",
     tags: ["urgent", "family"],
-    ownerId: "user-1",
+    ownerId: "admin-1",
     updatedAt: new Date("2024-01-15"),
   },
   {
@@ -37,7 +37,7 @@ export const mockBuyers: Buyer[] = [
     status: "Contacted",
     notes: "Prefers Phase 7 location",
     tags: ["premium", "garden"],
-    ownerId: "user-1",
+    ownerId: "agent-1",
     updatedAt: new Date("2024-01-16"),
   },
   {
@@ -55,7 +55,7 @@ export const mockBuyers: Buyer[] = [
     status: "Qualified",
     notes: "Looking for commercial space near highway",
     tags: ["commercial", "highway"],
-    ownerId: "user-1",
+    ownerId: "admin-1",
     updatedAt: new Date("2024-01-17"),
   },
 ]

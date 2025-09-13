@@ -1,60 +1,72 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+// Removed dropdown imports - using custom dropdown instead
 import { BuyerFiltersComponent } from "./buyer-filters"
 import { getBuyers } from "@/lib/storage"
-import type { BuyerFilters } from "@/lib/types"
-import { Edit, Eye, MoreHorizontal, Phone, Mail, Plus, Upload } from "lucide-react"
+import type { BuyerFilters, Buyer } from "@/lib/types"
+import { useAuth } from "@/components/auth/auth-provider"
+import { Edit, Eye, MoreHorizontal, Phone, Mail, Plus, Upload, Users, Home, DollarSign, Activity, Clock, Calendar } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-const ITEMS_PER_PAGE = 10
+// Server-side pagination with page size 10 (handled by API)
 
 export function BuyerList() {
   const [filters, setFilters] = useState<BuyerFilters>({})
   const [currentPage, setCurrentPage] = useState(1)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const router = useRouter()
+  const { user } = useAuth()
 
-  const allBuyers = getBuyers()
+  const [allBuyers, setAllBuyers] = useState<Buyer[]>([])
+  const [loading, setLoading] = useState(true)
+  const [pagination, setPagination] = useState({
+    page: 1,
+    limit: 10,
+    total: 0,
+    totalPages: 0
+  })
 
-  const filteredBuyers = useMemo(() => {
-    return allBuyers.filter((buyer) => {
-      // Search filter
-      if (filters.search) {
-        const searchTerm = filters.search.toLowerCase()
-        const matchesSearch =
-          buyer.fullName.toLowerCase().includes(searchTerm) ||
-          (buyer.email && buyer.email.toLowerCase().includes(searchTerm)) ||
-          buyer.phone.toLowerCase().includes(searchTerm)
-        if (!matchesSearch) return false
+  const fetchBuyers = async (page = 1, searchFilters = filters) => {
+    setLoading(true)
+    try {
+      const params = new URLSearchParams()
+      params.set("page", page.toString())
+      params.set("limit", "10")
+      
+      // Add filters to API call
+      if (searchFilters.search) params.set("search", searchFilters.search)
+      if (searchFilters.city) params.set("city", searchFilters.city)
+      if (searchFilters.propertyType) params.set("propertyType", searchFilters.propertyType)
+      if (searchFilters.status) params.set("status", searchFilters.status)
+      if (searchFilters.timeline) params.set("timeline", searchFilters.timeline)
+
+      const response = await fetch(`/api/buyers?${params.toString()}`)
+      if (response.ok) {
+        const data = await response.json()
+        setAllBuyers(data.buyers || [])
+        setPagination(data.pagination || { page: 1, limit: 10, total: 0, totalPages: 0 })
+      } else {
+        console.error("Failed to fetch buyers")
       }
+    } catch (error) {
+      console.error("Error fetching buyers:", error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-      // Other filters
-      if (filters.city && buyer.city !== filters.city) return false
-      if (filters.propertyType && buyer.propertyType !== filters.propertyType) return false
-      if (filters.bhk && buyer.bhk !== filters.bhk) return false
-      if (filters.purpose && buyer.purpose !== filters.purpose) return false
-      if (filters.timeline && buyer.timeline !== filters.timeline) return false
-      if (filters.source && buyer.source !== filters.source) return false
-      if (filters.status && buyer.status !== filters.status) return false
-      if (filters.budgetMin && buyer.budgetMin && buyer.budgetMin < filters.budgetMin) return false
-      if (filters.budgetMax && buyer.budgetMax && buyer.budgetMax > filters.budgetMax) return false
+  useEffect(() => {
+    fetchBuyers(1, filters)
+  }, [filters])
 
-      return true
-    })
-  }, [allBuyers, filters])
-
-  const paginatedBuyers = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-    return filteredBuyers.slice(startIndex, startIndex + ITEMS_PER_PAGE)
-  }, [filteredBuyers, currentPage])
-
-  const totalPages = Math.ceil(filteredBuyers.length / ITEMS_PER_PAGE)
+  // Server-side filtering and pagination - no client-side processing needed
+  const paginatedBuyers = allBuyers
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -109,46 +121,92 @@ export function BuyerList() {
       {/* Filters */}
       <BuyerFiltersComponent
         filters={filters}
-        onFiltersChange={setFilters}
-        totalCount={allBuyers.length}
-        filteredCount={filteredBuyers.length}
+        onFiltersChange={(newFilters) => {
+          setFilters(newFilters)
+          setCurrentPage(1) // Reset to page 1 when filters change
+        }}
+        totalCount={pagination.total}
+        filteredCount={pagination.total}
       />
 
       {/* Buyers Table */}
       <Card className="w-full shadow-sm">
         <CardHeader>
-          <CardTitle>Buyers ({filteredBuyers.length})</CardTitle>
+          <CardTitle>Buyers ({pagination.total})</CardTitle>
         </CardHeader>
         <CardContent className="p-0">
-          {paginatedBuyers.length === 0 ? (
+          {loading ? (
+            <div className="text-center py-8 px-6">
+              <p className="text-muted-foreground">Loading buyers...</p>
+            </div>
+          ) : paginatedBuyers.length === 0 ? (
             <div className="text-center py-8 px-6">
               <p className="text-muted-foreground">No buyers found matching your criteria.</p>
-              <Button variant="outline" className="mt-4 bg-transparent" onClick={() => setFilters({})}>
+              <Button variant="outline" className="mt-4 bg-transparent" onClick={() => {
+                setFilters({})
+                setCurrentPage(1)
+              }}>
                 Clear Filters
               </Button>
             </div>
           ) : (
             <>
-              <div className="overflow-x-auto rounded-lg">
+              <div className="overflow-x-auto relative">
                 <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="min-w-[200px]">Buyer</TableHead>
-                      <TableHead className="min-w-[200px]">Contact</TableHead>
-                      <TableHead className="min-w-[150px]">Requirements</TableHead>
-                      <TableHead className="min-w-[120px]">Budget</TableHead>
-                      <TableHead className="min-w-[100px]">Status</TableHead>
-                      <TableHead className="min-w-[100px]">Timeline</TableHead>
-                      <TableHead className="w-[50px]"></TableHead>
+                  <TableHeader className="bg-muted/50">
+                    <TableRow className="hover:bg-muted/50">
+                      <TableHead className="min-w-[200px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <Users className="h-4 w-4" />
+                          Buyer
+                        </div>
+                      </TableHead>
+                      <TableHead className="min-w-[200px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-4 w-4" />
+                          Contact
+                        </div>
+                      </TableHead>
+                      <TableHead className="min-w-[150px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <Home className="h-4 w-4" />
+                          Requirements
+                        </div>
+                      </TableHead>
+                      <TableHead className="min-w-[120px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <DollarSign className="h-4 w-4" />
+                          Budget
+                        </div>
+                      </TableHead>
+                      <TableHead className="min-w-[100px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <Activity className="h-4 w-4" />
+                          Status
+                        </div>
+                      </TableHead>
+                      <TableHead className="min-w-[100px] font-semibold text-foreground">
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4" />
+                          Timeline
+                        </div>
+                      </TableHead>
+                      <TableHead className="w-[80px] text-center font-semibold text-foreground">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {paginatedBuyers.map((buyer) => (
-                      <TableRow key={buyer.id}>
-                        <TableCell>
+                    {paginatedBuyers.map((buyer, index) => (
+                      <TableRow 
+                        key={buyer.id} 
+                        className={`cursor-pointer hover:bg-muted/70 transition-all duration-200 border-b ${
+                          index % 2 === 0 ? 'bg-background' : 'bg-muted/20'
+                        }`}
+                        onClick={() => router.push(`/buyers/${buyer.id}`)}
+                      >
+                        <TableCell className="py-4">
                           <div className="flex items-center gap-3">
-                            <Avatar className="h-8 w-8">
-                              <AvatarFallback>
+                            <Avatar className="h-10 w-10 border-2 border-muted">
+                              <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                                 {buyer.fullName
                                   ? buyer.fullName
                                       .split(" ")
@@ -159,69 +217,153 @@ export function BuyerList() {
                               </AvatarFallback>
                             </Avatar>
                             <div>
-                              <div className="font-medium">{buyer.fullName}</div>
-                              <div className="text-sm text-muted-foreground">{buyer.city}</div>
+                              <div className="font-semibold text-foreground">{buyer.fullName}</div>
+                              <div className="text-sm text-muted-foreground flex items-center gap-1">
+                                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                {buyer.city}
+                              </div>
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <div className="space-y-1">
+                        <TableCell className="py-4">
+                          <div className="space-y-2">
                             {buyer.email && (
-                              <div className="flex items-center gap-1 text-sm">
-                                <Mail className="h-3 w-3" />
-                                {buyer.email}
+                              <div className="flex items-center gap-2 text-sm">
+                                <Mail className="h-3 w-3 text-muted-foreground" />
+                                <span className="text-foreground">{buyer.email}</span>
                               </div>
                             )}
-                            <div className="flex items-center gap-1 text-sm">
-                              <Phone className="h-3 w-3" />
-                              {buyer.phone}
+                            <div className="flex items-center gap-2 text-sm">
+                              <Phone className="h-3 w-3 text-muted-foreground" />
+                              <span className="font-medium text-foreground">{buyer.phone}</span>
                             </div>
                           </div>
                         </TableCell>
-                        <TableCell>
+                        <TableCell className="py-4">
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <Badge variant="secondary" className="text-xs">
+                                {buyer.propertyType}
+                              </Badge>
+                            </div>
+                            <div className="text-sm text-muted-foreground flex items-center gap-2">
+                              <span className="font-medium">
+                                {buyer.bhk ? `${buyer.bhk} BHK` : "N/A"}
+                              </span>
+                              <span>•</span>
+                              <span className="capitalize">{buyer.purpose}</span>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="py-4">
                           <div className="space-y-1">
-                            <div className="text-sm font-medium">{buyer.propertyType}</div>
-                            <div className="text-sm text-muted-foreground">
-                              {buyer.bhk ? `${buyer.bhk} BHK` : "N/A"} • {buyer.purpose}
+                            <div className="font-semibold text-foreground text-sm">
+                              {buyer.budgetMin && buyer.budgetMax 
+                                ? `${formatCurrency(buyer.budgetMin)} - ${formatCurrency(buyer.budgetMax)}`
+                                : buyer.budgetMin 
+                                  ? `${formatCurrency(buyer.budgetMin)}+`
+                                  : buyer.budgetMax
+                                    ? `Up to ${formatCurrency(buyer.budgetMax)}`
+                                    : "Not specified"
+                              }
                             </div>
+                            {buyer.budgetMin && buyer.budgetMax && (
+                              <div className="text-xs text-muted-foreground">
+                                Range: ₹{((buyer.budgetMax - buyer.budgetMin) / 100000).toFixed(1)}L spread
+                              </div>
+                            )}
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <div className="font-medium">
-                            {buyer.budgetMin && buyer.budgetMax 
-                              ? `${formatCurrency(buyer.budgetMin)} - ${formatCurrency(buyer.budgetMax)}`
-                              : buyer.budgetMin 
-                                ? `${formatCurrency(buyer.budgetMin)}+`
-                                : buyer.budgetMax
-                                  ? `Up to ${formatCurrency(buyer.budgetMax)}`
-                                  : "Not specified"
-                            }
+                        <TableCell className="py-4">
+                          <Badge 
+                            className={`${getStatusColor(buyer.status)} font-medium px-3 py-1`}
+                          >
+                            {buyer.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="py-4">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                            <span className="text-sm font-medium">{buyer.timeline}</span>
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <Badge className={getStatusColor(buyer.status)}>{buyer.status}</Badge>
-                        </TableCell>
-                        <TableCell>
-                          <div className="text-sm">{buyer.timeline}</div>
-                        </TableCell>
-                        <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" className="h-8 w-8 p-0">
-                                <MoreHorizontal className="h-4 w-4" />
-                              </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem onClick={() => router.push(`/buyers/${buyer.id}`)}>
-                                <Eye className="mr-2 h-4 w-4" />
-                                View Details
-                              </DropdownMenuItem>
-                              <DropdownMenuItem onClick={() => router.push(`/buyers/${buyer.id}/edit`)}>
-                                <Edit className="mr-2 h-4 w-4" />
-                                Edit
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                        <TableCell className="relative py-4 text-center">
+                          <div className="relative flex justify-center">
+                            <Button 
+                              variant="ghost" 
+                              size="sm"
+                              className={`h-8 w-8 p-0 rounded-full hover:bg-accent transition-colors ${
+                                openDropdown === buyer.id ? 'bg-accent shadow-sm' : ''
+                              }`}
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                setOpenDropdown(openDropdown === buyer.id ? null : buyer.id)
+                              }}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault()
+                                  e.stopPropagation()
+                                  setOpenDropdown(openDropdown === buyer.id ? null : buyer.id)
+                                }
+                                if (e.key === 'Escape') {
+                                  setOpenDropdown(null)
+                                }
+                              }}
+                              aria-expanded={openDropdown === buyer.id}
+                              aria-haspopup="menu"
+                            >
+                              <span className="sr-only">Open menu</span>
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                            
+                            {openDropdown === buyer.id && (
+                              <>
+                                {/* Backdrop to close dropdown */}
+                                <div 
+                                  className="fixed inset-0 z-10" 
+                                  onClick={() => setOpenDropdown(null)}
+                                />
+                                
+                                {/* Enhanced Dropdown Menu */}
+                                <div 
+                                  className="absolute right-0 top-10 z-20 min-w-[160px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl py-2 animate-in fade-in-0 zoom-in-95 duration-150"
+                                  role="menu"
+                                  aria-orientation="vertical"
+                                  onKeyDown={(e) => {
+                                    if (e.key === 'Escape') {
+                                      setOpenDropdown(null)
+                                    }
+                                  }}
+                                >
+                                  <div
+                                    role="menuitem"
+                                    className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 mx-1"
+                                    onClick={() => {
+                                      setOpenDropdown(null)
+                                      router.push(`/buyers/${buyer.id}`)
+                                    }}
+                                  >
+                                    <Eye className="mr-2 h-4 w-4" />
+                                    <span>View Details</span>
+                                  </div>
+                                  
+                                  {(user?.role === "admin" || buyer.ownerId === user?.id) && (
+                                    <div
+                                      role="menuitem"
+                                      className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 mx-1"
+                                      onClick={() => {
+                                        setOpenDropdown(null)
+                                        router.push(`/buyers/${buyer.id}/edit`)
+                                      }}
+                                    >
+                                      <Edit className="mr-2 h-4 w-4" />
+                                      <span>Edit</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </>
+                            )}
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -229,27 +371,55 @@ export function BuyerList() {
                 </Table>
               </div>
 
-              {/* Pagination */}
-              {totalPages > 1 && (
+              {/* Server-Side Pagination */}
+              {pagination.totalPages > 1 && (
                 <div className="flex items-center justify-between mt-4 px-6 pb-4">
                   <div className="text-sm text-muted-foreground">
-                    Showing {(currentPage - 1) * ITEMS_PER_PAGE + 1} to{" "}
-                    {Math.min(currentPage * ITEMS_PER_PAGE, filteredBuyers.length)} of {filteredBuyers.length} results
+                    Showing {(pagination.page - 1) * pagination.limit + 1} to{" "}
+                    {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total} results
                   </div>
                   <div className="flex gap-2">
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => setCurrentPage(currentPage - 1)}
-                      disabled={currentPage === 1}
+                      onClick={() => {
+                        const newPage = pagination.page - 1
+                        setCurrentPage(newPage)
+                        fetchBuyers(newPage, filters)
+                      }}
+                      disabled={pagination.page === 1 || loading}
                     >
                       Previous
                     </Button>
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
+                        const pageNum = i + 1
+                        return (
+                          <Button
+                            key={pageNum}
+                            variant={pageNum === pagination.page ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => {
+                              setCurrentPage(pageNum)
+                              fetchBuyers(pageNum, filters)
+                            }}
+                            disabled={loading}
+                            className="w-8 h-8 p-0"
+                          >
+                            {pageNum}
+                          </Button>
+                        )
+                      })}
+                    </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => setCurrentPage(currentPage + 1)}
-                      disabled={currentPage === totalPages}
+                      onClick={() => {
+                        const newPage = pagination.page + 1
+                        setCurrentPage(newPage)
+                        fetchBuyers(newPage, filters)
+                      }}
+                      disabled={pagination.page === pagination.totalPages || loading}
                     >
                       Next
                     </Button>

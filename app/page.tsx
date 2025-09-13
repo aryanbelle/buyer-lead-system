@@ -1,26 +1,13 @@
-"use client"
-
-import { useAuth } from "@/components/auth/auth-provider"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
+import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
 
 export default function HomePage() {
-  const { user, isLoading } = useAuth()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!isLoading) {
-      if (user) {
-        router.push("/buyers")
-      } else {
-        router.push("/login")
-      }
-    }
-  }, [user, isLoading, router])
-
-  if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>
+  const cookieStore = cookies()
+  const userCookie = cookieStore.get('demo-user')
+  
+  if (userCookie && userCookie.value) {
+    redirect('/buyers')
+  } else {
+    redirect('/login')
   }
-
-  return null
 }

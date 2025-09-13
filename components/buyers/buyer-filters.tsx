@@ -48,7 +48,7 @@ export function BuyerFiltersComponent({ filters, onFiltersChange, totalCount, fi
             <span className="text-sm text-muted-foreground">
               {filteredCount} of {totalCount} buyers
             </span>
-            <Button variant="ghost" size="sm" onClick={() => setIsExpanded(!isExpanded)}>
+            <Button variant="ghost" size="sm" onClick={() => setIsExpanded(!isExpanded)} className="cursor-pointer">
               <Filter className="h-4 w-4" />
             </Button>
           </div>
@@ -81,7 +81,7 @@ export function BuyerFiltersComponent({ filters, onFiltersChange, totalCount, fi
         {activeFiltersCount > 0 && (
           <div className="flex flex-wrap gap-2">
             {Object.entries(filters).map(([key, value]) => (
-              <Badge key={key} variant="outline" className="gap-1">
+              <Badge key={key} variant="outline" className="gap-1 cursor-pointer hover:bg-muted transition-colors">
                 <span className="capitalize">{key}:</span>
                 <span>{String(value)}</span>
                 <Button

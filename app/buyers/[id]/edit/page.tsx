@@ -6,7 +6,7 @@ import { Header } from "@/components/layout/header"
 import { Navigation } from "@/components/layout/navigation"
 import { PageLoading } from "@/components/layout/page-loading"
 import { ErrorBoundary } from "@/components/ui/error-boundary"
-import { getBuyers } from "@/lib/storage"
+import { getBuyerById } from "@/lib/storage"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import type { Buyer } from "@/lib/types"
@@ -19,21 +19,30 @@ export default function EditBuyerPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     if (!isLoading && !user) {
-      router.push("/login")
+      router.replace("/login")
       return
     }
 
     if (user) {
-      const buyers = getBuyers()
-      const foundBuyer = buyers.find((b) => b.id === params.id)
+      const fetchBuyer = async () => {
+        try {
+          const foundBuyer = await getBuyerById(params.id)
+          
+          if (!foundBuyer) {
+            router.push("/buyers")
+            return
+          }
 
-      if (!foundBuyer) {
-        router.push("/buyers")
-        return
+          setBuyer(foundBuyer)
+        } catch (error) {
+          console.error("Error fetching buyer:", error)
+          router.push("/buyers")
+        } finally {
+          setLoading(false)
+        }
       }
 
-      setBuyer(foundBuyer)
-      setLoading(false)
+      fetchBuyer()
     }
   }, [user, isLoading, router, params.id])
 

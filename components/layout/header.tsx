@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
@@ -16,7 +14,7 @@ import { LogOut } from "lucide-react"
 
 export function Header() {
   const { user, logout } = useAuth()
-
+  
   if (!user) return null
 
   const getRoleBadge = (role: string) => {
