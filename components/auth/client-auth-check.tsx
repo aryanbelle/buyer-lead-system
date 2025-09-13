@@ -17,7 +17,7 @@ export function ClientAuthCheck({ children }: ClientAuthCheckProps) {
     if (!isLoading && !user) {
       router.replace("/login")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading])
 
   // Show loading while checking auth
   if (isLoading) {

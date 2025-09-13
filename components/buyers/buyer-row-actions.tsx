@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,35 +16,27 @@ interface BuyerRowActionsProps {
 
 export function BuyerRowActions({ buyerId }: BuyerRowActionsProps) {
   const router = useRouter()
-  const [isOpen, setIsOpen] = useState(false)
 
   const handleView = () => {
-    setIsOpen(false)
     router.push(`/buyers/${buyerId}`)
   }
 
   const handleEdit = () => {
-    setIsOpen(false)
     router.push(`/buyers/${buyerId}/edit`)
   }
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          className="h-8 w-8 p-0 hover:bg-muted"
-          onClick={(e) => {
-            e.preventDefault()
-            e.stopPropagation()
-            setIsOpen(true)
-          }}
-        >
-          <span className="sr-only">Open menu</span>
+        <button className="inline-flex items-center justify-center h-8 w-8 rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
           <MoreHorizontal className="h-4 w-4" />
-        </Button>
+          <span className="sr-only">Open menu</span>
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[160px]">
+      <DropdownMenuContent 
+        align="end" 
+        className="z-[9999]"
+      >
         <DropdownMenuItem onClick={handleView}>
           <Eye className="mr-2 h-4 w-4" />
           View Details

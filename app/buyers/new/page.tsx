@@ -17,7 +17,7 @@ export default function NewBuyerPage() {
     if (!isLoading && !user) {
       router.replace("/login")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading])
 
   if (isLoading) {
     return <PageLoading />

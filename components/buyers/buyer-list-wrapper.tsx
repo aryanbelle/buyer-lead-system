@@ -26,7 +26,7 @@ export function BuyerListWrapper({ initialBuyers, initialFilters, pagination }: 
     if (!isLoading && !user) {
       router.replace("/login")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading])
 
   if (isLoading) {
     return <PageLoading />

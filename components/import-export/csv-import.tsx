@@ -21,7 +21,6 @@ import {
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { parseCSV, validateCSVData, generateSampleCSV, downloadCSV, type ImportResult } from "@/lib/csv-utils"
-import { getBuyers, saveBuyers } from "@/lib/storage"
 import { useAuth } from "@/components/auth/auth-provider"
 import { Upload, Download, FileText, CheckCircle, XCircle, AlertTriangle } from "lucide-react"
 

@@ -6,8 +6,6 @@ import { Header } from "@/components/layout/header"
 import { Navigation } from "@/components/layout/navigation"
 import { PageLoading } from "@/components/layout/page-loading"
 import { ErrorBoundary } from "@/components/ui/error-boundary"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 import type { Buyer, BuyerFilters } from "@/lib/types"
 
 interface BuyersPageClientProps {
@@ -27,20 +25,13 @@ export function BuyersPageClient({
   pagination 
 }: BuyersPageClientProps) {
   const { user, isLoading } = useAuth()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!isLoading && !user) {
-      router.replace("/login")
-    }
-  }, [user, isLoading, router])
 
   if (isLoading) {
     return <PageLoading />
   }
 
   if (!user) {
-    return null
+    return <PageLoading />
   }
 
   return (

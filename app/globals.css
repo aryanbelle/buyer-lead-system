@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --background: oklch(0.9940 0 0);
   --foreground: oklch(0 0 0);
@@ -186,6 +184,16 @@
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Smooth theme transitions */
+  html {
+    transition: color-scheme 0.3s ease;
+  }
+  
+  * {
+    transition: border-color 0.3s ease;
   }
 }
 
