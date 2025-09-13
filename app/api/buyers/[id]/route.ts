@@ -188,6 +188,12 @@ export async function DELETE(
       )
     }
     
+    // Delete buyer history first (foreign key constraint)
+    await db
+      .delete(buyerHistory)
+      .where(eq(buyerHistory.buyerId, params.id))
+    
+    // Then delete the buyer
     await db
       .delete(buyers)
       .where(eq(buyers.id, params.id))
