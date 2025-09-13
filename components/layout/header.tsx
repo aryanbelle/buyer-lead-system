@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useAuth } from "@/components/auth/auth-provider"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { LogOut } from "lucide-react"
 
 export function Header() {
@@ -43,7 +44,9 @@ export function Header() {
           <h1 className="text-xl font-semibold">Buyer Lead System</h1>
         </div>
 
-        <DropdownMenu>
+        <div className="flex items-center space-x-2">
+          <ThemeToggle />
+          <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-8 w-8 rounded-full">
               <Avatar className="h-8 w-8">
@@ -74,6 +77,7 @@ export function Header() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        </div>
       </div>
     </header>
   )

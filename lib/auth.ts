@@ -25,10 +25,42 @@ export const demoUsers: User[] = [
 ]
 
 export function getCurrentUser(): User | null {
-  if (typeof window === "undefined") return null
+  if (typeof window === "undefined") {
+    // Server-side: check cookies
+    try {
+      const { cookies } = require('next/headers')
+      const cookieStore = cookies()
+      const userCookie = cookieStore.get('demo-user')
+      return userCookie && userCookie.value ? JSON.parse(userCookie.value) : null
+    } catch {
+      return null
+    }
+  }
 
+  // Client-side: check localStorage first, then fallback to cookie
   const stored = localStorage.getItem(CURRENT_USER_KEY)
-  return stored ? JSON.parse(stored) : null
+  if (stored) {
+    return JSON.parse(stored)
+  }
+  
+  // Fallback to cookie for client-side
+  try {
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('demo-user='))
+      ?.split('=')[1]
+    
+    if (cookieValue) {
+      const user = JSON.parse(decodeURIComponent(cookieValue))
+      // Sync to localStorage
+      setCurrentUser(user)
+      return user
+    }
+  } catch {
+    // Ignore cookie parsing errors
+  }
+  
+  return null
 }
 
 export function setCurrentUser(user: User): void {
@@ -41,6 +73,9 @@ export function logout(): void {
   if (typeof window === "undefined") return
 
   localStorage.removeItem(CURRENT_USER_KEY)
+  
+  // Also clear the cookie
+  document.cookie = 'demo-user=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 }
 
 export function login(email: string): User | null {

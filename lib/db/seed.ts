@@ -2,7 +2,141 @@ import { db } from "./index"
 import { buyers, buyerHistory } from "./schema"
 import { nanoid } from "nanoid"
 
-const seedBuyers = [
+// Generate large dataset for testing pagination and performance
+const firstNames = [
+  "Rajesh", "Priya", "Amit", "Sunita", "Vikram", "Meera", "Rohit", "Kavita", "Deepak", "Anjali",
+  "Manish", "Neha", "Suresh", "Pooja", "Rakesh", "Divya", "Anil", "Geeta", "Manoj", "Sita",
+  "Ravi", "Madhuri", "Ajay", "Kiran", "Vinod", "Shweta", "Ashok", "Rekha", "Sanjay", "Nisha",
+  "Yogesh", "Asha", "Naveen", "Sapna", "Dinesh", "Ritu", "Ramesh", "Seema", "Pankaj", "Vandana",
+  "Umesh", "Preeti", "Sachin", "Anita", "Nitin", "Shruti", "Gopal", "Kavya", "Raghav", "Jyoti"
+]
+
+const lastNames = [
+  "Kumar", "Sharma", "Patel", "Gupta", "Singh", "Joshi", "Malhotra", "Agarwal", "Verma", "Kapoor",
+  "Bhardwaj", "Shah", "Mehta", "Bansal", "Arora", "Chopra", "Khurana", "Aggarwal", "Sood", "Bhatia",
+  "Goel", "Mittal", "Jain", "Sethi", "Khanna", "Tiwari", "Saxena", "Pandey", "Srivastava", "Yadav",
+  "Mishra", "Thakur", "Chauhan", "Rajput", "Nair", "Menon", "Pillai", "Reddy", "Rao", "Prasad"
+]
+
+const cities = ["Chandigarh", "Mohali", "Zirakpur", "Panchkula", "Other"]
+const propertyTypes = ["Apartment", "Villa", "Plot", "Office", "Retail"]
+const bhkOptions = ["1", "2", "3", "4", "Studio"]
+const purposes = ["Buy", "Rent"]
+const timelines = ["0-3m", "3-6m", ">6m", "Exploring"]
+const sources = ["Website", "Referral", "Walk-in", "Call", "Other"]
+const statuses = ["New", "Qualified", "Contacted", "Visited", "Negotiation", "Converted", "Dropped"]
+const owners = ["admin-1", "agent-1"]
+
+function getRandomElement<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function generatePhoneNumber(): string {
+  return "9" + Math.floor(Math.random() * 1000000000).toString().padStart(9, "0")
+}
+
+function generateBudget(propertyType: string, purpose: string): { min?: number; max?: number } {
+  const ranges = {
+    Apartment: purpose === "Buy" ? [3000000, 8000000] : [15000, 40000],
+    Villa: purpose === "Buy" ? [6000000, 20000000] : [30000, 80000],
+    Plot: purpose === "Buy" ? [2000000, 10000000] : [10000, 30000],
+    Office: purpose === "Buy" ? [5000000, 50000000] : [40000, 200000],
+    Retail: purpose === "Buy" ? [3000000, 30000000] : [30000, 150000]
+  }
+  
+  const [baseMin, baseMax] = ranges[propertyType as keyof typeof ranges] || [1000000, 5000000]
+  const min = Math.floor(Math.random() * (baseMax - baseMin) * 0.5 + baseMin)
+  const max = Math.floor(Math.random() * (baseMax - min) + min * 1.2)
+  
+  return { min, max }
+}
+
+function generateNotes(fullName: string, propertyType: string, purpose: string): string {
+  const templates = [
+    `${fullName} is looking for a ${propertyType.toLowerCase()} to ${purpose.toLowerCase()}.`,
+    `Interested in ${propertyType.toLowerCase()} with good connectivity.`,
+    `${purpose === "Buy" ? "Buying" : "Renting"} ${propertyType.toLowerCase()} for family.`,
+    `Needs ${propertyType.toLowerCase()} near good schools and hospitals.`,
+    `Looking for ${propertyType.toLowerCase()} in a prime location.`,
+    `Prefers ${propertyType.toLowerCase()} with modern amenities.`,
+    `${fullName} wants spacious ${propertyType.toLowerCase()}.`,
+    `Budget-conscious buyer looking for value for money.`,
+    `First-time ${purpose === "Buy" ? "buyer" : "renter"}, needs guidance.`,
+    `Urgent requirement for ${propertyType.toLowerCase()}.`
+  ]
+  return getRandomElement(templates)
+}
+
+function generateTags(propertyType: string, purpose: string, status: string): string[] {
+  const allTags = [
+    "urgent", "family", "premium", "budget", "first-time", "spacious", "modern", "furnished",
+    "parking", "garden", "pool", "luxury", "commercial", "residential", "investment",
+    "location", "amenities", "connectivity", "schools", "hospitals", "metro", "highway"
+  ]
+  
+  const tagCount = Math.floor(Math.random() * 3) + 1
+  const selectedTags = []
+  
+  for (let i = 0; i < tagCount; i++) {
+    const tag = getRandomElement(allTags)
+    if (!selectedTags.includes(tag)) {
+      selectedTags.push(tag)
+    }
+  }
+  
+  return selectedTags
+}
+
+function generateBuyerData(index: number): any {
+  const firstName = getRandomElement(firstNames)
+  const lastName = getRandomElement(lastNames)
+  const fullName = `${firstName} ${lastName}`
+  const propertyType = getRandomElement(propertyTypes)
+  const purpose = getRandomElement(purposes)
+  const city = getRandomElement(cities)
+  const timeline = getRandomElement(timelines)
+  const source = getRandomElement(sources)
+  const status = getRandomElement(statuses)
+  const owner = getRandomElement(owners)
+  
+  const email = Math.random() > 0.2 ? `${firstName.toLowerCase()}.${lastName.toLowerCase()}@email.com` : null
+  const phone = generatePhoneNumber()
+  const bhk = ["Apartment", "Villa"].includes(propertyType) ? getRandomElement(bhkOptions) : null
+  const budget = generateBudget(propertyType, purpose)
+  const notes = generateNotes(fullName, propertyType, purpose)
+  const tags = generateTags(propertyType, purpose, status)
+  
+  // Generate dates over the last 6 months
+  const baseDate = new Date()
+  baseDate.setMonth(baseDate.getMonth() - 6)
+  const updatedAt = new Date(baseDate.getTime() + Math.random() * (Date.now() - baseDate.getTime()))
+  
+  return {
+    id: nanoid(),
+    fullName,
+    email,
+    phone,
+    city,
+    propertyType,
+    bhk,
+    purpose,
+    budgetMin: budget.min,
+    budgetMax: budget.max,
+    timeline,
+    source,
+    status,
+    notes,
+    tags: JSON.stringify(tags),
+    ownerId: owner,
+    updatedAt
+  }
+}
+
+// Generate 250 buyer records for testing
+const seedBuyers = Array.from({ length: 250 }, (_, index) => generateBuyerData(index))
+
+// Original manual entries for reference (not used in seeding)
+/* const originalEntries = [
   {
     id: nanoid(),
     fullName: "Rajesh Kumar",
@@ -395,6 +529,7 @@ const seedBuyers = [
     updatedAt: new Date("2024-02-04"),
   },
 ]
+*/
 
 export async function seedDatabase() {
   try {

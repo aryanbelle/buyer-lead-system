@@ -21,7 +21,7 @@ export default function ImportExportPage() {
     if (!isLoading && !user) {
       router.replace("/login")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading])
 
   if (isLoading) {
     return <PageLoading />

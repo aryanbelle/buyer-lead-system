@@ -17,7 +17,7 @@ export function AuthWrapper({ children }: AuthWrapperProps) {
     if (!isLoading && !user) {
       router.replace("/login")
     }
-  }, [user, isLoading, router])
+  }, [user, isLoading])
 
   if (isLoading) {
     return <PageLoading />

@@ -129,7 +129,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
             </div>
           ) : (
             <>
-              <div className="overflow-x-auto rounded-lg relative">
+              <div className="overflow-x-auto rounded-lg">
                 <Table>
                   <TableHeader>
                     <TableRow>
