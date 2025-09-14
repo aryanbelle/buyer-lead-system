@@ -1,33 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { auth } from '@clerk/nextjs/server'
 import { db } from '@/lib/db'
 import { buyers } from '@/lib/db/schema'
-import { eq, and, or, ilike, gte, lte } from 'drizzle-orm'
+import { eq, and, or, like, gte, lte } from 'drizzle-orm'
 
 export const maxDuration = 30
 
 export async function GET(request: NextRequest) {
   try {
-    const { userId } = await auth()
-    
-    if (!userId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-    }
-
     const { searchParams } = new URL(request.url)
     
-    // Build query conditions
-    const conditions = [eq(buyers.userId, userId)]
+    // Build query conditions (no auth filtering like other APIs)
+    const conditions = []
     
     // Add search filter
     const search = searchParams.get('search')
     if (search) {
       conditions.push(
         or(
-          ilike(buyers.name, `%${search}%`),
-          ilike(buyers.email, `%${search}%`),
-          ilike(buyers.phone, `%${search}%`),
-          ilike(buyers.company, `%${search}%`)
+          like(buyers.fullName, `%${search}%`),
+          like(buyers.email, `%${search}%`),
+          like(buyers.phone, `%${search}%`),
+          like(buyers.notes, `%${search}%`)
         )
       )
     }
@@ -50,11 +43,13 @@ export async function GET(request: NextRequest) {
       conditions.push(lte(buyers.createdAt, toDate))
     }
 
+    const whereClause = conditions.length > 0 ? and(...conditions) : undefined
+
     // Fetch buyers data
     const buyersData = await db
       .select()
       .from(buyers)
-      .where(and(...conditions))
+      .where(whereClause)
       .limit(1000) // Reasonable limit
       .orderBy(buyers.createdAt)
 

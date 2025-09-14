@@ -51,7 +51,7 @@ export function CSVExport() {
       }
       
       // Generate CSV content with proper headers
-      const headers = ['Name', 'Email', 'Phone', 'Company', 'Status', 'Budget', 'Notes', 'Created Date', 'Updated Date']
+      const headers = ['Full Name', 'Email', 'Phone', 'City', 'Property Type', 'BHK', 'Purpose', 'Budget Min', 'Budget Max', 'Timeline', 'Source', 'Status', 'Notes', 'Tags', 'Updated Date']
       const csvRows = [headers.join(',')]
       
       buyers.forEach((buyer: any) => {
@@ -62,14 +62,20 @@ export function CSVExport() {
         }
         
         const row = [
-          cleanValue(buyer.name || ''),
+          cleanValue(buyer.fullName || ''),
           cleanValue(buyer.email || ''),
           cleanValue(buyer.phone || ''),
-          cleanValue(buyer.company || ''),
+          cleanValue(buyer.city || ''),
+          cleanValue(buyer.propertyType || ''),
+          cleanValue(buyer.bhk || ''),
+          cleanValue(buyer.purpose || ''),
+          cleanValue(buyer.budgetMin || ''),
+          cleanValue(buyer.budgetMax || ''),
+          cleanValue(buyer.timeline || ''),
+          cleanValue(buyer.source || ''),
           cleanValue(buyer.status || ''),
-          cleanValue(buyer.budget || ''),
           cleanValue(buyer.notes || ''),
-          cleanValue(buyer.createdAt ? new Date(buyer.createdAt).toLocaleDateString() : ''),
+          cleanValue(buyer.tags ? (typeof buyer.tags === 'string' ? buyer.tags : JSON.stringify(buyer.tags)) : ''),
           cleanValue(buyer.updatedAt ? new Date(buyer.updatedAt).toLocaleDateString() : '')
         ]
         
