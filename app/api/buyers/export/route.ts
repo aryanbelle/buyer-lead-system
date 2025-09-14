@@ -6,133 +6,91 @@ import { buyers } from "@/lib/db/schema"
 // GET /api/buyers/export - Export filtered buyers as CSV
 export async function GET(request: NextRequest) {
   try {
-    // For Vercel serverless - handle URL construction properly
-    const url = new URL(request.url)
-    const { searchParams } = url
+    console.log("Starting CSV export...");
     
-    // Get the same filters as the main buyers list
-    const search = searchParams.get("search")
-    const city = searchParams.get("city")
-    const propertyType = searchParams.get("propertyType")
-    const bhk = searchParams.get("bhk")
-    const purpose = searchParams.get("purpose")
-    const timeline = searchParams.get("timeline")
-    const source = searchParams.get("source")
-    const status = searchParams.get("status")
-    const budgetMin = searchParams.get("budgetMin")
-    const budgetMax = searchParams.get("budgetMax")
-    
-    // Build where conditions (same logic as main buyers API)
-    const conditions = []
-    
-    if (search) {
-      conditions.push(
-        or(
-          like(buyers.fullName, `%${search}%`),
-          like(buyers.email, `%${search}%`),
-          like(buyers.phone, `%${search}%`)
-        )
-      )
-    }
-    
-    if (city) conditions.push(eq(buyers.city, city))
-    if (propertyType) conditions.push(eq(buyers.propertyType, propertyType))
-    if (bhk) conditions.push(eq(buyers.bhk, bhk))
-    if (purpose) conditions.push(eq(buyers.purpose, purpose))
-    if (timeline) conditions.push(eq(buyers.timeline, timeline))
-    if (source) conditions.push(eq(buyers.source, source))
-    if (status) conditions.push(eq(buyers.status, status))
-    
-    if (budgetMin) {
-      conditions.push(
-        or(
-          gte(buyers.budgetMax, parseInt(budgetMin)),
-          gte(buyers.budgetMin, parseInt(budgetMin))
-        )
-      )
-    }
-    if (budgetMax) {
-      conditions.push(
-        or(
-          lte(buyers.budgetMin, parseInt(budgetMax)),
-          lte(buyers.budgetMax, parseInt(budgetMax))
-        )
-      )
-    }
-    
-    const whereClause = conditions.length > 0 ? and(...conditions) : undefined
-    
-    // Get all matching results (limited to 1000 for Vercel performance)
+    // Simple query - get all buyers without complex filtering for now
     const results = await db
-      .select()
+      .select({
+        fullName: buyers.fullName,
+        email: buyers.email,
+        phone: buyers.phone,
+        city: buyers.city,
+        propertyType: buyers.propertyType,
+        bhk: buyers.bhk,
+        purpose: buyers.purpose,
+        budgetMin: buyers.budgetMin,
+        budgetMax: buyers.budgetMax,
+        timeline: buyers.timeline,
+        source: buyers.source,
+        notes: buyers.notes,
+        tags: buyers.tags,
+        status: buyers.status
+      })
       .from(buyers)
-      .where(whereClause)
-      .orderBy(desc(buyers.updatedAt))
-      .limit(1000) // Prevent timeout on large datasets
+      .limit(500) // Keep it small for reliability
     
-    // Parse tags from JSON strings and format for CSV
-    const buyersForExport = results.map(buyer => ({
-      fullName: buyer.fullName,
-      email: buyer.email || "",
-      phone: buyer.phone,
-      city: buyer.city,
-      propertyType: buyer.propertyType,
-      bhk: buyer.bhk || "",
-      purpose: buyer.purpose,
-      budgetMin: buyer.budgetMin || "",
-      budgetMax: buyer.budgetMax || "",
-      timeline: buyer.timeline,
-      source: buyer.source,
-      notes: buyer.notes || "",
-      tags: buyer.tags ? JSON.parse(buyer.tags).join(", ") : "",
-      status: buyer.status,
-    }))
+    console.log(`Found ${results.length} buyers for export`);
     
-    // Generate CSV content
-    const csvHeader = "fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status"
-    const csvRows = buyersForExport.map(buyer => [
-      `"${(buyer.fullName || "").replace(/"/g, '""')}"`,
-      `"${(buyer.email || "").replace(/"/g, '""')}"`,
-      `"${(buyer.phone || "").replace(/"/g, '""')}"`,
-      `"${(buyer.city || "").replace(/"/g, '""')}"`,
-      `"${(buyer.propertyType || "").replace(/"/g, '""')}"`,
-      `"${(buyer.bhk || "").replace(/"/g, '""')}"`,
-      `"${(buyer.purpose || "").replace(/"/g, '""')}"`,
-      `"${(buyer.budgetMin || "").toString().replace(/"/g, '""')}"`,
-      `"${(buyer.budgetMax || "").toString().replace(/"/g, '""')}"`,
-      `"${(buyer.timeline || "").replace(/"/g, '""')}"`,
-      `"${(buyer.source || "").replace(/"/g, '""')}"`,
-      `"${(buyer.notes || "").replace(/"/g, '""')}"`,
-      `"${(buyer.tags || "").replace(/"/g, '""')}"`,
-      `"${(buyer.status || "").replace(/"/g, '""')}"`,
-    ].join(","))
+    // Simple CSV generation
+    const header = 'fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status';
+    const rows = results.map(buyer => {
+      const cleanValue = (value: any) => {
+        if (value === null || value === undefined) return '';
+        const str = String(value).replace(/"/g, '""');
+        return `"${str}"`;
+      };
+      
+      // Parse tags safely
+      let parsedTags = '';
+      if (buyer.tags) {
+        try {
+          const tagArray = JSON.parse(buyer.tags);
+          parsedTags = Array.isArray(tagArray) ? tagArray.join(';') : '';
+        } catch (e) {
+          parsedTags = '';
+        }
+      }
+      
+      return [
+        cleanValue(buyer.fullName),
+        cleanValue(buyer.email),
+        cleanValue(buyer.phone),
+        cleanValue(buyer.city),
+        cleanValue(buyer.propertyType),
+        cleanValue(buyer.bhk),
+        cleanValue(buyer.purpose),
+        cleanValue(buyer.budgetMin),
+        cleanValue(buyer.budgetMax),
+        cleanValue(buyer.timeline),
+        cleanValue(buyer.source),
+        cleanValue(buyer.notes),
+        cleanValue(parsedTags),
+        cleanValue(buyer.status)
+      ].join(',');
+    });
     
-    const csvContent = [csvHeader, ...csvRows].join("\n")
+    const csv = [header, ...rows].join('\n');
+    console.log("CSV generated successfully");
     
-    // Return CSV content with appropriate headers for Vercel
-    const fileName = `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`
-    
-    return new NextResponse(csvContent, {
-      status: 200,
+    // Return with simple headers
+    return new Response(csv, {
       headers: {
-        "Content-Type": "text/csv; charset=utf-8",
-        "Content-Disposition": `attachment; filename="${fileName}"`,
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0",
-      },
+        'Content-Type': 'text/csv',
+        'Content-Disposition': 'attachment; filename="buyers-export.csv"'
+      }
     })
   } catch (error) {
     console.error("Error exporting buyers:", error)
-    console.error("Stack trace:", error instanceof Error ? error.stack : "Unknown error")
     
-    return NextResponse.json(
-      { 
+    return new Response(
+      JSON.stringify({
         error: "Failed to export buyers",
-        message: error instanceof Error ? error.message : "Unknown error occurred",
-        timestamp: new Date().toISOString()
-      },
-      { status: 500 }
+        message: error instanceof Error ? error.message : "Unknown error"
+      }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
     )
   }
 }
