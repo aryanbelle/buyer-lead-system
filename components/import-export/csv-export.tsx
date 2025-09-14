@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Download, FileText } from "lucide-react"
 
+// Main branch deployment - CSV export fix
 export function CSVExport() {
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState("")
