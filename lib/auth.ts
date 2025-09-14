@@ -81,7 +81,22 @@ export function logout(): void {
 export function login(email: string): User | null {
   const user = demoUsers.find((u) => u.email === email)
   if (user) {
+    // Set in localStorage for client-side access
     setCurrentUser(user)
+    
+    // Trigger a storage event manually for cross-tab synchronization
+    if (typeof window !== "undefined") {
+      try {
+        window.dispatchEvent(new StorageEvent('storage', {
+          key: 'current-user',
+          newValue: JSON.stringify(user),
+          storageArea: localStorage
+        }))
+      } catch (error) {
+        console.error('Error triggering storage event:', error)
+      }
+    }
+    
     return user
   }
   return null

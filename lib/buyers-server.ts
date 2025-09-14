@@ -44,7 +44,8 @@ export async function getBuyersServer(
         or(
           like(buyers.fullName, `%${search}%`),
           like(buyers.email, `%${search}%`),
-          like(buyers.phone, `%${search}%`)
+          like(buyers.phone, `%${search}%`),
+          like(buyers.notes, `%${search}%`)
         )
       )
     }

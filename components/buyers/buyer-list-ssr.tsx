@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { BuyerFiltersSSR } from "./buyer-filters-ssr"
 import { BuyerRowActions } from "./buyer-row-actions"
+import { StatusQuickAction } from "./status-quick-action"
 import type { BuyerFilters, Buyer } from "@/lib/types"
 import { Phone, Mail, Plus, Upload } from "lucide-react"
 import type { User } from "@/lib/auth"
@@ -160,7 +161,14 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                               </AvatarFallback>
                             </Avatar>
                             <div>
-                              <div className="font-medium">{buyer.fullName}</div>
+                              <div className="flex items-center gap-2">
+                                <span className="font-medium">{buyer.fullName}</span>
+                                {buyer.ownerId === user.id ? (
+                                  <Badge variant="outline" className="text-xs px-1 py-0">Mine</Badge>
+                                ) : user.role === 'admin' ? (
+                                  <Badge variant="secondary" className="text-xs px-1 py-0">Other</Badge>
+                                ) : null}
+                              </div>
                               <div className="text-sm text-muted-foreground">{buyer.city}</div>
                             </div>
                           </div>
@@ -200,7 +208,17 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                           </div>
                         </TableCell>
                         <TableCell>
-                          <Badge className={getStatusColor(buyer.status)}>{buyer.status}</Badge>
+                          <StatusQuickAction 
+                            buyer={buyer} 
+                            onStatusChange={() => {
+                              // Trigger a refresh by updating the URL params to force re-fetch
+                              const currentUrl = new URL(window.location.href)
+                              const timestamp = Date.now().toString()
+                              currentUrl.searchParams.set('_refresh', timestamp)
+                              window.history.replaceState({}, '', currentUrl)
+                              window.location.reload()
+                            }}
+                          />
                         </TableCell>
                         <TableCell>
                           <div className="text-sm">{buyer.timeline}</div>
@@ -216,7 +234,7 @@ export function BuyerListSSR({ initialBuyers, initialFilters, pagination, user }
                           </div>
                         </TableCell>
                         <TableCell>
-                          <BuyerRowActions buyerId={buyer.id} />
+                          <BuyerRowActions buyerId={buyer.id} ownerId={buyer.ownerId} />
                         </TableCell>
                       </TableRow>
                     ))}

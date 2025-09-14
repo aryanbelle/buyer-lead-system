@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --background: oklch(0.9940 0 0);
   --foreground: oklch(0 0 0);
@@ -186,18 +188,28 @@
     letter-spacing: var(--tracking-normal);
     transition: color 0.3s ease, background-color 0.3s ease;
   }
-  
+
   /* Smooth theme transitions */
   html {
     transition: color-scheme 0.3s ease;
   }
-  
+
   * {
     transition: border-color 0.3s ease;
   }
 }
 
 @layer components {
+
+  /* Enhanced focus styles for accessibility */
+  .focus-visible\:ring-blue-500 {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .focus-visible\:ring-blue-500:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  }
   /* Cursor pointer for interactive elements */
   button,
   [role="button"],

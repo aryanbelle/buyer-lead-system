@@ -1,6 +1,7 @@
 "use client"
 
 import { useAuth } from "@/components/auth/auth-provider"
+import { RoleGuard } from "@/components/auth/role-guard"
 import { BuyerForm } from "@/components/forms/buyer-form"
 import { Header } from "@/components/layout/header"
 import { Navigation } from "@/components/layout/navigation"

@@ -1,10 +1,15 @@
 import type { Config } from "drizzle-kit"
+import * as dotenv from 'dotenv'
+import * as path from 'path'
+
+// Load environment variables
+dotenv.config({ path: path.join(process.cwd(), '.env.local') })
 
 export default {
     schema: "./lib/db/schema.ts",
     out: "./drizzle",
-    dialect: "sqlite",
+    dialect: "postgresql",
     dbCredentials: {
-        url: "./sqlite.db",
+        url: process.env.DATABASE_URL!,
     },
 } satisfies Config

@@ -1,27 +1,30 @@
-import Database from "better-sqlite3"
-import { drizzle } from "drizzle-orm/better-sqlite3"
-import { migrate } from "drizzle-orm/better-sqlite3/migrator"
-import * as schema from "./schema"
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
-// For production, you'll need to replace this with a cloud database
-// Examples:
-// - Vercel Postgres
-// - PlanetScale (MySQL)
-// - Neon (PostgreSQL)
-// - Turso (LibSQL/SQLite compatible)
+// Load environment variables first
+dotenv.config({ path: path.join(process.cwd(), '.env.local') });
 
-const databaseUrl = process.env.DATABASE_URL || "sqlite.db"
+import postgres from 'postgres';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import * as schema from './schema';
 
-// SQLite setup (development only)
-const sqlite = new Database(databaseUrl.replace("file:", ""))
-export const db = drizzle(sqlite, { schema })
+// Supabase PostgreSQL connection
+const connectionString = process.env.DATABASE_URL!;
+const client = postgres(connectionString);
+export const db = drizzle(client, { schema });
 
-// Run migrations on startup (development only)
-if (process.env.NODE_ENV !== "production") {
-  try {
-    migrate(db, { migrationsFolder: "drizzle" })
-    console.log("Database migrations completed successfully")
-  } catch (error) {
-    console.log("Migration error (this is normal on first run):", error)
+// Migration helper function
+export async function runMigrations() {
+  if (process.env.RUN_MIGRATIONS === 'true') {
+    try {
+      await migrate(db, { migrationsFolder: 'drizzle' });
+      console.log('Database migrations completed successfully');
+      return true;
+    } catch (error) {
+      console.log('Migration error:', error);
+      return false;
+    }
   }
+  return false;
 }

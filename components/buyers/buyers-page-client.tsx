@@ -17,20 +17,29 @@ interface BuyersPageClientProps {
     total: number
     totalPages: number
   }
+  serverUser: any
 }
 
 export function BuyersPageClient({ 
   initialBuyers, 
   initialFilters, 
-  pagination 
+  pagination,
+  serverUser 
 }: BuyersPageClientProps) {
   const { user, isLoading } = useAuth()
 
-  if (isLoading) {
+  // Use client-side user first, fallback to server user
+  const currentUser = user || serverUser
+
+  if (isLoading && !serverUser) {
     return <PageLoading />
   }
 
-  if (!user) {
+  if (!currentUser) {
+    // Redirect to login if no user found
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login'
+    }
     return <PageLoading />
   }
 
@@ -45,7 +54,7 @@ export function BuyersPageClient({
               initialBuyers={initialBuyers}
               initialFilters={initialFilters}
               pagination={pagination}
-              user={user}
+              user={currentUser}
             />
           </div>
         </main>

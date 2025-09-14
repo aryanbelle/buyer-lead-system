@@ -10,13 +10,10 @@ interface BuyersPageProps {
 }
 
 export default async function BuyersPage({ searchParams }: BuyersPageProps) {
-  // Server-side authentication check
+  // Try server-side authentication check, but don't fail hard
   const user = getCurrentUser()
-  if (!user) {
-    redirect('/login')
-  }
-
-  // Server-side data fetching
+  
+  // Always fetch data - let client-side handle auth redirect if needed
   const { buyers, pagination } = await getBuyersServer(searchParams)
   const filters = getFiltersFromSearchParams(searchParams)
 
@@ -26,6 +23,7 @@ export default async function BuyersPage({ searchParams }: BuyersPageProps) {
         initialBuyers={buyers}
         initialFilters={filters}
         pagination={pagination}
+        serverUser={user}
       />
     </Suspense>
   )

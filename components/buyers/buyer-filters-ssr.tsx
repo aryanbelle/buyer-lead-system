@@ -70,7 +70,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
     setSearchValue("")
   }
 
-  const activeFiltersCount = Object.keys(filters).length
+  const activeFiltersCount = Object.entries(filters).filter(([_, value]) => value !== undefined && value !== null && value !== '').length
 
   return (
     <Card className="shadow-sm">
@@ -96,7 +96,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search by name, email, or phone..."
+            placeholder="Search by name, email, phone, or notes..."
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value)
@@ -122,7 +122,9 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
         {/* Active Filters */}
         {activeFiltersCount > 0 && (
           <div className="flex flex-wrap gap-2">
-            {Object.entries(filters).map(([key, value]) => (
+            {Object.entries(filters)
+              .filter(([_, value]) => value !== undefined && value !== null && value !== '')
+              .map(([key, value]) => (
               <Badge key={key} variant="outline" className="gap-1">
                 <span className="capitalize">{key}:</span>
                 <span>{String(value)}</span>

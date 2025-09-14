@@ -16,6 +16,8 @@ import { addBuyer, updateBuyer } from "@/lib/storage"
 import { useAuth } from "@/components/auth/auth-provider"
 import type { Buyer } from "@/lib/types"
 import { ArrowLeft, Save } from "lucide-react"
+import { TagInput } from "@/components/ui/tag-input"
+import { useTagSuggestions } from "@/hooks/use-tag-suggestions"
 
 interface BuyerFormProps {
   buyer?: Buyer
@@ -27,6 +29,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
   const [error, setError] = useState("")
   const router = useRouter()
   const { user } = useAuth()
+  const { suggestions: tagSuggestions } = useTagSuggestions()
 
   const form = useForm<BuyerFormData>({
     resolver: zodResolver(buyerSchema),
@@ -406,19 +409,17 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                   <FormItem>
                     <FormLabel>Tags</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Enter tags separated by commas (e.g., urgent, family, premium)"
-                        value={field.value?.join(", ") || ""}
-                        onChange={(e) => {
-                          const tags = e.target.value
-                            .split(",")
-                            .map(tag => tag.trim())
-                            .filter(tag => tag.length > 0)
-                          field.onChange(tags)
-                        }}
+                      <TagInput
+                        value={field.value || []}
+                        onChange={field.onChange}
+                        suggestions={tagSuggestions}
+                        placeholder="Add tags (e.g., urgent, family, premium)"
+                        maxTags={10}
                       />
                     </FormControl>
-                    <FormDescription>Optional tags to categorize this buyer (comma-separated)</FormDescription>
+                    <FormDescription>
+                      Add tags to categorize this buyer. Type to see suggestions or create new tags.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}

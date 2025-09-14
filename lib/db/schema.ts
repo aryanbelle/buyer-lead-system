@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm"
-import { sqliteTable, text, integer, real } from "drizzle-orm/sqlite-core"
+import { pgTable, text, integer, timestamp, varchar } from "drizzle-orm/pg-core"
 
-export const buyers = sqliteTable("buyers", {
+export const buyers = pgTable("buyers", {
   id: text("id").primaryKey(),
   fullName: text("full_name").notNull(),
   email: text("email"),
@@ -18,14 +18,14 @@ export const buyers = sqliteTable("buyers", {
   notes: text("notes"),
   tags: text("tags"), // JSON string array
   ownerId: text("owner_id").notNull(),
-  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull().default(sql`(unixepoch())`),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
 })
 
-export const buyerHistory = sqliteTable("buyer_history", {
+export const buyerHistory = pgTable("buyer_history", {
   id: text("id").primaryKey(),
   buyerId: text("buyer_id").notNull().references(() => buyers.id, { onDelete: "cascade" }),
   changedBy: text("changed_by").notNull(),
-  changedAt: integer("changed_at", { mode: "timestamp" }).notNull().default(sql`(unixepoch())`),
+  changedAt: timestamp("changed_at").notNull().defaultNow(),
   diff: text("diff").notNull(), // JSON string of changes
 })
 

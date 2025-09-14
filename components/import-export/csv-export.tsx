@@ -4,13 +4,17 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { useAuth } from "@/components/auth/auth-provider"
 import { Download, FileText } from "lucide-react"
 
 export function CSVExport() {
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState("")
+  const { user } = useAuth()
 
   const handleExport = async () => {
+    if (!user) return
+    
     setExporting(true)
     setError("")
 
