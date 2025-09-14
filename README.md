@@ -268,9 +268,11 @@ John Doe,john@example.com,9876543210,Chandigarh,Apartment,2,Buy,4500000,5500000,
 ### 🎯 Nice-to-Haves Implemented
 
 - ✅ **Tag chips with typeahead**: Dynamic tag input with suggestions
-- ✅ **Status quick-actions**: Dropdown status updates in table view
-- ✅ **Full-text search**: Search across fullName, email, and notes
+- ✅ **Status quick-actions**: Dropdown status updates in table view with ownership validation
+- ✅ **Full-text search**: Search across fullName, email, and notes with debounced input
 - ✅ **Optimistic updates**: Immediate UI feedback with rollback
+- ✅ **Ownership indicators**: "Mine"/"Other" badges for lead ownership visibility
+- ✅ **Input field bug fixes**: Resolved controlled component issues with number inputs
 
 ## 🔄 What's Implemented vs Skipped
 
