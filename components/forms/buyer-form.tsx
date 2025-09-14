@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -184,7 +184,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>City *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select city" />
@@ -215,7 +215,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Property Type *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select property type" />
@@ -240,7 +240,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>BHK {(form.watch("propertyType") === "Apartment" || form.watch("propertyType") === "Villa") ? "*" : ""}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select BHK" />
@@ -263,41 +263,87 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                   <FormField
                     control={form.control}
                     name="budgetMin"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Budget Min (₹)</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="number"
-                            placeholder="5000000"
-                            value={field.value || ""}
-                            onChange={(e) => field.onChange(e.target.value ? Number(e.target.value) : undefined)}
-                          />
-                        </FormControl>
-                        <FormDescription>Minimum budget in rupees</FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    render={({ field }) => {
+                      const inputRef = React.useRef<HTMLInputElement>(null)
+                      
+                      React.useEffect(() => {
+                        if (inputRef.current) {
+                          inputRef.current.value = field.value ? String(field.value) : ""
+                        }
+                      }, [field.value])
+                      
+                      return (
+                        <FormItem>
+                          <FormLabel>Budget Min (₹)</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="number"
+                              placeholder="5000000"
+                              ref={inputRef}
+                              defaultValue={field.value || ""}
+                              onChange={(e) => {
+                                const value = e.target.value
+                                if (value === "") {
+                                  field.onChange(undefined)
+                                } else {
+                                  const numValue = parseFloat(value)
+                                  if (!isNaN(numValue)) {
+                                    field.onChange(numValue)
+                                  }
+                                }
+                              }}
+                              onBlur={field.onBlur}
+                              name={field.name}
+                            />
+                          </FormControl>
+                          <FormDescription>Minimum budget in rupees</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )
+                    }}
                   />
 
                   <FormField
                     control={form.control}
                     name="budgetMax"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Budget Max (₹)</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="number"
-                            placeholder="8000000"
-                            value={field.value || ""}
-                            onChange={(e) => field.onChange(e.target.value ? Number(e.target.value) : undefined)}
-                          />
-                        </FormControl>
-                        <FormDescription>Maximum budget in rupees</FormDescription>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    render={({ field }) => {
+                      const inputRef = React.useRef<HTMLInputElement>(null)
+                      
+                      React.useEffect(() => {
+                        if (inputRef.current) {
+                          inputRef.current.value = field.value ? String(field.value) : ""
+                        }
+                      }, [field.value])
+                      
+                      return (
+                        <FormItem>
+                          <FormLabel>Budget Max (₹)</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="number"
+                              placeholder="8000000"
+                              ref={inputRef}
+                              defaultValue={field.value || ""}
+                              onChange={(e) => {
+                                const value = e.target.value
+                                if (value === "") {
+                                  field.onChange(undefined)
+                                } else {
+                                  const numValue = parseFloat(value)
+                                  if (!isNaN(numValue)) {
+                                    field.onChange(numValue)
+                                  }
+                                }
+                              }}
+                              onBlur={field.onBlur}
+                              name={field.name}
+                            />
+                          </FormControl>
+                          <FormDescription>Maximum budget in rupees</FormDescription>
+                          <FormMessage />
+                        </FormItem>
+                      )
+                    }}
                   />
 
                   <FormField
@@ -306,7 +352,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Purpose *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select purpose" />
@@ -334,7 +380,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Timeline *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select timeline" />
@@ -358,7 +404,7 @@ export function BuyerForm({ buyer, mode }: BuyerFormProps) {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Source *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select source" />

@@ -20,12 +20,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
   const [isExpanded, setIsExpanded] = useState(false)
   const [searchValue, setSearchValue] = useState(filters.search || "")
 
-  // Update search value when filters prop changes
-  useEffect(() => {
-    setSearchValue(filters.search || "")
-  }, [filters.search])
-
-  // Debounced search - only trigger when searchValue actually changes by user input
+  // Debounced search function
   const debounceSearch = useCallback(
     (() => {
       let timeoutId: NodeJS.Timeout
@@ -39,16 +34,11 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
     [filters, onFiltersChange]
   )
 
-  // Only trigger debounced search when user manually changes search input
-  // Don't trigger when searchValue changes due to props update
-  const [isUserInput, setIsUserInput] = useState(false)
-  
-  useEffect(() => {
-    if (isUserInput) {
-      debounceSearch(searchValue)
-      setIsUserInput(false)
-    }
-  }, [searchValue, debounceSearch, isUserInput])
+  // Handle search input change
+  const handleSearchChange = useCallback((value: string) => {
+    setSearchValue(value)
+    debounceSearch(value)
+  }, [debounceSearch])
 
   const updateFilter = (key: keyof BuyerFilters, value: any) => {
     const newFilters = { ...filters, [key]: value }
@@ -66,8 +56,8 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
   }
 
   const clearAllFilters = () => {
-    onFiltersChange({})
     setSearchValue("")
+    onFiltersChange({})
   }
 
   const activeFiltersCount = Object.entries(filters).filter(([_, value]) => value !== undefined && value !== null && value !== '').length
@@ -98,10 +88,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
           <Input
             placeholder="Search by name, email, phone, or notes..."
             value={searchValue}
-            onChange={(e) => {
-              setSearchValue(e.target.value)
-              setIsUserInput(true)
-            }}
+            onChange={(e) => handleSearchChange(e.target.value)}
             className="pl-10"
           />
           {searchValue && (
@@ -110,8 +97,7 @@ export function BuyerFiltersSSR({ filters, onFiltersChange, totalCount }: BuyerF
               size="sm"
               className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0"
               onClick={() => {
-                setSearchValue("")
-                clearFilter("search")
+                handleSearchChange("")
               }}
             >
               <X className="h-3 w-3" />
