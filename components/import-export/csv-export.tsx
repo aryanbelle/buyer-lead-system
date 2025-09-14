@@ -18,7 +18,7 @@ export function CSVExport() {
     
     try {
       // Create a direct link to the CSV export API
-      const exportUrl = '/api/export-csv'
+      const exportUrl = '/api/buyers/export'
       console.log("Opening export URL:", exportUrl);
       
       // Open the CSV export URL in a new window/tab to trigger download
