@@ -1,0 +1,51 @@
+fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status
+Rajesh Kumar,rajesh.kumar@email.com,9876543210,Chandigarh,Apartment,3,Buy,4500000,5500000,3-6m,Website,Looking for 3BHK apartment in Sector 43,urgent,New
+Priya Sharma,priya.sharma@gmail.com,9123456789,Mohali,Villa,4,Buy,8000000,12000000,0-3m,Referral,Interested in premium villa with garden,premium,Qualified
+Amit Singh,amit.singh@email.com,9988776655,Panchkula,Plot,,Buy,2500000,3500000,>6m,Walk-in,Looking for residential plot,investment,Contacted
+Sunita Verma,sunita.verma@yahoo.com,9234567890,Zirakpur,Apartment,2,Rent,18000,25000,0-3m,Website,Family of 4 looking for 2BHK,family,New
+Vikash Gupta,vikash.gupta@gmail.com,9345678901,Chandigarh,Office,,Buy,6000000,8000000,3-6m,Call,Commercial space for IT company,business,Qualified
+Neha Agarwal,neha.agarwal@outlook.com,9456789012,Mohali,Apartment,1,Rent,15000,20000,Exploring,Website,Single professional looking for 1BHK,professional,New
+Rohit Jain,rohit.jain@email.com,9567890123,Panchkula,Villa,3,Buy,7500000,9500000,3-6m,Referral,Family home with parking space,family,Contacted
+Kavita Malhotra,kavita.malhotra@gmail.com,9678901234,Zirakpur,Retail,,Rent,45000,60000,0-3m,Walk-in,Shop space in main market area,business,Visited
+Suresh Chopra,suresh.chopra@yahoo.com,9789012345,Chandigarh,Apartment,4,Buy,6500000,8500000,>6m,Website,Spacious 4BHK for joint family,spacious,New
+Anita Sethi,anita.sethi@email.com,9890123456,Mohali,Plot,,Buy,3000000,4000000,3-6m,Call,Plot for future construction,future,Qualified
+Deepak Kapoor,deepak.kapoor@outlook.com,9901234567,Panchkula,Office,,Rent,35000,50000,0-3m,Website,Office space for startup,startup,New
+Pooja Bansal,pooja.bansal@gmail.com,9012345678,Zirakpur,Apartment,2,Buy,4000000,5000000,Exploring,Referral,Investment property near highway,investment,Contacted
+Manoj Singhal,manoj.singhal@email.com,9123456780,Chandigarh,Villa,4,Rent,40000,55000,3-6m,Walk-in,Luxury villa for corporate executive,luxury,Visited
+Ritu Goyal,ritu.goyal@yahoo.com,9234567801,Mohali,Apartment,3,Buy,5000000,6500000,0-3m,Website,3BHK near IT park,professional,New
+Sanjay Mittal,sanjay.mittal@gmail.com,9345678012,Panchkula,Retail,,Buy,8000000,10000000,>6m,Call,Retail showroom in commercial complex,commercial,Qualified
+Meera Aggarwal,meera.aggarwal@outlook.com,9456780123,Zirakpur,Plot,,Rent,25000,35000,Exploring,Website,Plot for temporary use,temporary,New
+Arun Sharma,arun.sharma@email.com,9567801234,Chandigarh,Apartment,1,Buy,3500000,4500000,3-6m,Referral,Studio apartment for bachelor,bachelor,Contacted
+Shanti Khanna,shanti.khanna@gmail.com,9678012345,Mohali,Office,,Buy,7000000,9000000,0-3m,Walk-in,Office building for expansion,expansion,Visited
+Ramesh Bajaj,ramesh.bajaj@yahoo.com,9780123456,Panchkula,Villa,3,Buy,9000000,12000000,>6m,Website,Premium villa with garden and pool,premium,New
+Geeta Sachdeva,geeta.sachdeva@email.com,9801234567,Zirakpur,Apartment,2,Rent,20000,28000,3-6m,Call,2BHK for nuclear family,family,Qualified
+Vinod Tandon,vinod.tandon@outlook.com,9012346789,Chandigarh,Retail,,Rent,50000,70000,Exploring,Website,Restaurant space in food court,restaurant,New
+Rekha Nanda,rekha.nanda@gmail.com,9123457890,Mohali,Plot,,Buy,4500000,6000000,0-3m,Referral,Corner plot for commercial use,corner,Contacted
+Ajay Kohli,ajay.kohli@email.com,9234568901,Panchkula,Apartment,4,Buy,7000000,9000000,3-6m,Walk-in,Penthouse with terrace garden,penthouse,Visited
+Seema Bhatia,seema.bhatia@yahoo.com,9345679012,Zirakpur,Office,,Rent,30000,40000,>6m,Website,Office for accounting firm,accounting,New
+Rakesh Dua,rakesh.dua@gmail.com,9456790123,Chandigarh,Villa,2,Rent,35000,45000,Exploring,Call,Villa for short-term stay,short-term,Qualified
+Sushma Jindal,sushma.jindal@outlook.com,9567901234,Mohali,Apartment,3,Buy,5500000,7000000,0-3m,Website,3BHK with modular kitchen,modern,New
+Naresh Kaul,naresh.kaul@email.com,9678012356,Panchkula,Retail,,Buy,6000000,8000000,3-6m,Referral,Electronics showroom space,electronics,Contacted
+Usha Anand,usha.anand@gmail.com,9789123456,Zirakpur,Plot,,Rent,20000,30000,>6m,Walk-in,Agricultural land for farming,agriculture,Visited
+Pankaj Goel,pankaj.goel@yahoo.com,9890234567,Chandigarh,Apartment,1,Buy,4000000,5000000,Exploring,Website,1BHK near metro station,metro,New
+Nisha Arora,nisha.arora@email.com,9901345678,Mohali,Office,,Buy,8500000,11000000,0-3m,Call,Head office for manufacturing unit,manufacturing,Qualified
+Santosh Tiwari,santosh.tiwari@outlook.com,9012456789,Panchkula,Villa,4,Buy,12000000,15000000,3-6m,Website,Luxury villa in gated community,gated,New
+Radha Yadav,radha.yadav@gmail.com,9123567890,Zirakpur,Apartment,2,Rent,22000,30000,>6m,Referral,2BHK with balcony and parking,parking,Contacted
+Ashok Pandey,ashok.pandey@email.com,9234678901,Chandigarh,Retail,,Rent,60000,80000,Exploring,Walk-in,Prime location retail space,prime,Visited
+Saroj Mishra,saroj.mishra@yahoo.com,9345789012,Mohali,Plot,,Buy,3500000,4500000,0-3m,Website,Residential plot in developed sector,developed,New
+Dinesh Joshi,dinesh.joshi@gmail.com,9456890123,Panchkula,Apartment,3,Buy,6000000,7500000,3-6m,Call,3BHK with servant room,servant-room,Qualified
+Asha Saxena,asha.saxena@outlook.com,9567901235,Zirakpur,Office,,Rent,40000,55000,>6m,Website,Corporate office with conference room,conference,New
+Krishan Verma,krishan.verma@email.com,9678012457,Chandigarh,Villa,3,Rent,45000,60000,Exploring,Referral,Furnished villa for expat family,furnished,Contacted
+Lata Sinha,lata.sinha@gmail.com,9789123457,Mohali,Apartment,4,Buy,8000000,10000000,0-3m,Walk-in,4BHK duplex with terrace,duplex,Visited
+Mahesh Gupta,mahesh.gupta@yahoo.com,9890234568,Panchkula,Retail,,Buy,7500000,9500000,3-6m,Website,Pharmacy space in medical complex,pharmacy,New
+Sudha Agarwal,sudha.agarwal@email.com,9901345679,Zirakpur,Plot,,Rent,15000,25000,>6m,Call,Vacant land for event management,events,Qualified
+Ravi Kumar,ravi.kumar@outlook.com,9012456790,Chandigarh,Apartment,2,Buy,4500000,5500000,Exploring,Website,2BHK with gym and swimming pool,amenities,New
+Kamala Sharma,kamala.sharma@gmail.com,9123567891,Mohali,Office,,Buy,9000000,12000000,0-3m,Referral,IT office with server room,server,Contacted
+Mohan Singh,mohan.singh@email.com,9234678902,Panchkula,Villa,4,Buy,13000000,16000000,3-6m,Walk-in,Villa with home theater and gym,entertainment,Visited
+Pushpa Bansal,pushpa.bansal@yahoo.com,9345789013,Zirakpur,Apartment,1,Rent,18000,24000,>6m,Website,Compact 1BHK for working professional,compact,New
+Lalit Malhotra,lalit.malhotra@gmail.com,9456890124,Chandigarh,Retail,,Rent,55000,75000,Exploring,Call,Fashion boutique space in mall,fashion,Qualified
+Sunila Chopra,sunila.chopra@outlook.com,9567901236,Mohali,Plot,,Buy,5000000,6500000,0-3m,Website,Commercial plot for warehouse,warehouse,New
+Gopal Sethi,gopal.sethi@email.com,9678012458,Panchkula,Apartment,3,Buy,5800000,7200000,3-6m,Referral,3BHK with study room for kids,study,Contacted
+Urmila Kapoor,urmila.kapoor@gmail.com,9789123458,Zirakpur,Office,,Rent,35000,48000,>6m,Walk-in,Law firm office with library,library,Visited
+Shyam Aggarwal,shyam.aggarwal@yahoo.com,9890234569,Chandigarh,Villa,2,Rent,30000,40000,Exploring,Website,Villa for senior citizens,senior,New
+Kiran Jindal,kiran.jindal@email.com,9901345680,Mohali,Apartment,4,Buy,7500000,9500000,0-3m,Call,Spacious 4BHK with walk-in closet,closet,Qualified
