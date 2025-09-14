@@ -19,22 +19,54 @@ export function CSVExport() {
     setError("")
 
     try {
+      console.log("Starting export...");
+      
       // Get current filters from URL if available
       const urlParams = new URLSearchParams(window.location.search)
       
       // Build export URL with current filters
       const exportUrl = `/api/buyers/export?${urlParams.toString()}`
+      console.log("Export URL:", exportUrl);
       
-      // Create a temporary link to download the CSV
+      // Fetch the CSV data
+      const response = await fetch(exportUrl)
+      console.log("Response status:", response.status);
+      
+      if (!response.ok) {
+        const errorData = await response.text()
+        console.error("Export API error:", errorData);
+        throw new Error(`Export failed: ${response.status}`)
+      }
+      
+      // Get the CSV content
+      const csvContent = await response.text()
+      console.log("CSV content length:", csvContent.length);
+      
+      if (!csvContent || csvContent.length === 0) {
+        throw new Error("No data to export")
+      }
+      
+      // Create blob and download
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
       const link = document.createElement('a')
-      link.href = exportUrl
-      link.download = `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`
+      const url = URL.createObjectURL(blob)
+      
+      link.setAttribute('href', url)
+      link.setAttribute('download', `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`)
+      link.style.visibility = 'hidden'
+      
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
+      
+      // Clean up the URL object
+      URL.revokeObjectURL(url)
+      
+      console.log("Export completed successfully");
+      
     } catch (error) {
       console.error("Export failed:", error)
-      setError("Export failed. Please try again.")
+      setError(error instanceof Error ? error.message : "Export failed. Please try again.")
     } finally {
       setExporting(false)
     }
