@@ -1,0 +1,92 @@
+fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status
+Rajesh Kumar,rajesh.kumar@email.com,9876543210,Chandigarh,Apartment,2,Buy,4500000,5500000,3-6m,Website,Looking for 2BHK near sector 17,urgent;family,New
+Priya Sharma,priya.sharma@email.com,9876543211,Mohali,Villa,3,Buy,8000000,12000000,0-3m,Referral,Needs villa with garden for kids,premium;villa,Contacted
+Amit Singh,amit.singh@email.com,9876543212,Zirakpur,Apartment,1,Rent,15000,25000,0-3m,Walk-in,Single professional looking for 1BHK,bachelor;rental,Qualified
+Sunita Gupta,sunita.gupta@email.com,9876543213,Panchkula,Plot,N/A,Buy,2500000,3500000,>6m,Call,Looking for residential plot in good locality,investment;plot,New
+Vikram Mehta,vikram.mehta@email.com,9876543214,Chandigarh,Office,N/A,Rent,50000,80000,3-6m,Website,Need office space for IT company,commercial;office,Visited
+Neha Agarwal,neha.agarwal@email.com,9876543215,Mohali,Apartment,2,Buy,3800000,4200000,0-3m,Referral,First time buyer looking for affordable 2BHK,firsttime;budget,Converted
+Rohit Kapoor,rohit.kapoor@email.com,9876543216,Zirakpur,Villa,4,Buy,15000000,20000000,3-6m,Website,Luxury villa with swimming pool,luxury;villa,New
+Anjali Verma,anjali.verma@email.com,9876543217,Chandigarh,Apartment,3,Buy,6500000,7500000,0-3m,Walk-in,Ready to move 3BHK with parking,readymove;parking,Negotiation
+Deepak Joshi,deepak.joshi@email.com,9876543218,Panchkula,Plot,N/A,Buy,1800000,2200000,>6m,Call,Small plot for future construction,future;construction,New
+Kavita Bansal,kavita.bansal@email.com,9876543219,Mohali,Apartment,Studio,Rent,12000,18000,0-3m,Website,Studio apartment for working professional,studio;professional,Contacted
+Manish Tiwari,manish.tiwari@email.com,9876543220,Chandigarh,Retail,N/A,Rent,100000,150000,3-6m,Referral,Shop in main market area,retail;shop,New
+Pooja Rani,pooja.rani@email.com,9876543221,Zirakpur,Apartment,2,Buy,4200000,4800000,0-3m,Website,2BHK with modular kitchen,kitchen;modern,Qualified
+Sanjay Kumar,sanjay.kumar@email.com,9876543222,Panchkula,Villa,3,Buy,9500000,11000000,3-6m,Call,Villa in gated community,community;security,Visited
+Rekha Sharma,rekha.sharma@email.com,9876543223,Mohali,Office,N/A,Buy,12000000,15000000,>6m,Website,Office building for investment,investment;commercial,New
+Arun Gupta,arun.gupta@email.com,9876543224,Chandigarh,Apartment,1,Rent,18000,22000,0-3m,Walk-in,1BHK near PGI hospital,hospital;medical,Contacted
+Simran Kaur,simran.kaur@email.com,9876543225,Zirakpur,Plot,N/A,Buy,3200000,3800000,3-6m,Referral,Corner plot for house construction,corner;residential,New
+Harish Chandra,harish.chandra@email.com,9876543226,Panchkula,Apartment,4,Buy,8500000,9500000,0-3m,Website,Large 4BHK for joint family,jointfamily;spacious,Negotiation
+Meera Singh,meera.singh@email.com,9876543227,Mohali,Villa,2,Rent,40000,50000,3-6m,Call,Independent villa on rent,independent;rental,New
+Rajinder Pal,rajinder.pal@email.com,9876543228,Chandigarh,Retail,N/A,Buy,8000000,10000000,>6m,Website,Showroom in commercial complex,showroom;prime,Qualified
+Nisha Aggarwal,nisha.aggarwal@email.com,9876543229,Zirakpur,Apartment,2,Buy,3900000,4300000,0-3m,Referral,2BHK with balcony and parking,balcony;parking,Visited
+Kiran Bala,kiran.bala@email.com,9876543230,Panchkula,Villa,3,Buy,10500000,12500000,3-6m,Walk-in,Villa with lawn and servant quarter,lawn;servant,Converted
+Suresh Chand,suresh.chand@email.com,9876543231,Mohali,Office,N/A,Rent,60000,75000,0-3m,Website,Furnished office for CA practice,furnished;professional,New
+Ritu Malhotra,ritu.malhotra@email.com,9876543232,Chandigarh,Apartment,3,Rent,25000,30000,3-6m,Call,Furnished 3BHK for family,furnished;family,Contacted
+Vikas Goel,vikas.goel@email.com,9876543233,Zirakpur,Plot,N/A,Buy,2800000,3200000,>6m,Referral,Plot near highway for commercial use,highway;commercial,New
+Seema Devi,seema.devi@email.com,9876543234,Panchkula,Apartment,1,Buy,2800000,3200000,0-3m,Website,Affordable 1BHK for investment,affordable;investment,Qualified
+Ashok Kumar,ashok.kumar@email.com,9876543235,Mohali,Villa,4,Buy,18000000,22000000,3-6m,Walk-in,Luxury villa with all amenities,luxury;amenities,New
+Sunita Rani,sunita.rani@email.com,9876543236,Chandigarh,Retail,N/A,Rent,80000,100000,0-3m,Call,Ground floor shop for restaurant,groundfloor;restaurant,Visited
+Naveen Sharma,naveen.sharma@email.com,9876543237,Zirakpur,Apartment,2,Buy,4100000,4700000,3-6m,Website,2BHK in high-rise building,highrise;modern,Negotiation
+Geeta Kumari,geeta.kumari@email.com,9876543238,Panchkula,Villa,3,Rent,35000,45000,>6m,Referral,Villa for company guest house,corporate;guest,New
+Ramesh Singh,ramesh.singh@email.com,9876543239,Mohali,Office,N/A,Buy,15000000,18000000,0-3m,Website,IT office space with parking,IT;parking,Contacted
+Preeti Gupta,preeti.gupta@email.com,9876543240,Chandigarh,Apartment,Studio,Buy,2200000,2600000,3-6m,Walk-in,Studio for student accommodation,student;studio,New
+Dinesh Kumar,dinesh.kumar@email.com,9876543241,Zirakpur,Plot,N/A,Buy,3500000,4000000,0-3m,Call,Residential plot in approved colony,approved;residential,Qualified
+Sushma Devi,sushma.devi@email.com,9876543242,Panchkula,Apartment,2,Rent,20000,25000,3-6m,Referral,2BHK near children school,school;children,Visited
+Yogesh Pal,yogesh.pal@email.com,9876543243,Mohali,Villa,3,Buy,11000000,13000000,>6m,Website,Villa with home theater,theater;entertainment,Converted
+Kamla Devi,kamla.devi@email.com,9876543244,Chandigarh,Retail,N/A,Buy,6000000,8000000,0-3m,Walk-in,Shop in busy market area,market;busy,New
+Satish Gupta,satish.gupta@email.com,9876543245,Zirakpur,Apartment,3,Buy,5800000,6500000,3-6m,Call,3BHK with modern amenities,modern;amenities,Contacted
+Usha Sharma,usha.sharma@email.com,9876543246,Panchkula,Villa,2,Rent,30000,38000,0-3m,Website,Small villa for nuclear family,nuclear;compact,New
+Mukesh Aggarwal,mukesh.aggarwal@email.com,9876543247,Mohali,Office,N/A,Rent,70000,85000,3-6m,Referral,Office with conference room,conference;professional,Qualified
+Babita Rani,babita.rani@email.com,9876543248,Chandigarh,Apartment,4,Buy,9200000,10500000,>6m,Website,Penthouse with terrace garden,penthouse;garden,Visited
+Jasbir Singh,jasbir.singh@email.com,9876543249,Zirakpur,Plot,N/A,Buy,2600000,3000000,0-3m,Walk-in,Plot for duplex construction,duplex;construction,New
+Manju Devi,manju.devi@email.com,9876543250,Panchkula,Apartment,1,Rent,16000,20000,3-6m,Call,1BHK near metro station,metro;transport,Negotiation
+Pawan Kumar,pawan.kumar@email.com,9876543251,Mohali,Villa,4,Buy,16500000,19500000,0-3m,Referral,Villa with swimming pool and gym,pool;gym,Converted
+Anita Gupta,anita.gupta@email.com,9876543252,Chandigarh,Retail,N/A,Rent,120000,140000,3-6m,Website,Large showroom for furniture,furniture;large,New
+Ravi Kant,ravi.kant@email.com,9876543253,Zirakpur,Apartment,2,Buy,4300000,4900000,>6m,Walk-in,2BHK with club facilities,club;facilities,Contacted
+Shashi Bala,shashi.bala@email.com,9876543254,Panchkula,Villa,3,Buy,12000000,14000000,0-3m,Call,Villa in premium location,premium;location,Qualified
+Manoj Sharma,manoj.sharma@email.com,9876543255,Mohali,Office,N/A,Buy,20000000,25000000,3-6m,Website,Commercial complex for investment,complex;investment,New
+Lata Devi,lata.devi@email.com,9876543256,Chandigarh,Apartment,3,Rent,28000,35000,>6m,Referral,3BHK with servant room,servant;spacious,Visited
+Sunil Kumar,sunil.kumar@email.com,9876543257,Zirakpur,Plot,N/A,Buy,4200000,4800000,0-3m,Website,Large plot for farmhouse,farmhouse;large,Negotiation
+Radha Rani,radha.rani@email.com,9876543258,Panchkula,Apartment,Studio,Buy,2100000,2400000,3-6m,Walk-in,Studio apartment for rental income,rental;income,New
+Vinod Gupta,vinod.gupta@email.com,9876543259,Mohali,Villa,2,Rent,32000,40000,0-3m,Call,Villa with modular kitchen,modular;kitchen,Contacted
+Pushpa Devi,pushpa.devi@email.com,9876543260,Chandigarh,Retail,N/A,Buy,7500000,9000000,3-6m,Referral,Shop in prime commercial area,prime;commercial,Qualified
+Ajay Singh,ajay.singh@email.com,9876543261,Zirakpur,Apartment,4,Buy,7800000,8800000,>6m,Website,4BHK duplex apartment,duplex;spacious,New
+Sarita Kumari,sarita.kumari@email.com,9876543262,Panchkula,Villa,3,Buy,13500000,15500000,0-3m,Walk-in,Villa with solar panels,solar;eco,Visited
+Bharat Singh,bharat.singh@email.com,9876543263,Mohali,Office,N/A,Rent,90000,110000,3-6m,Call,Corporate office with parking,corporate;parking,Converted
+Kanta Devi,kanta.devi@email.com,9876543264,Chandigarh,Apartment,2,Buy,4600000,5200000,0-3m,Website,2BHK with wooden flooring,wooden;premium,New
+Rakesh Kumar,rakesh.kumar@email.com,9876543265,Zirakpur,Plot,N/A,Buy,3300000,3700000,3-6m,Referral,Plot with boundary wall,boundary;ready,Contacted
+Veena Sharma,veena.sharma@email.com,9876543266,Panchkula,Apartment,1,Rent,17000,21000,>6m,Website,1BHK with balcony view,balcony;view,New
+Harbhajan Singh,harbhajan.singh@email.com,9876543267,Mohali,Villa,4,Buy,19000000,23000000,0-3m,Walk-in,Luxury villa with elevator,luxury;elevator,Qualified
+Santosh Devi,santosh.devi@email.com,9876543268,Chandigarh,Retail,N/A,Rent,95000,115000,3-6m,Call,Shop for electronics business,electronics;business,Visited
+Anil Gupta,anil.gupta@email.com,9876543269,Zirakpur,Apartment,3,Buy,6200000,7000000,>6m,Referral,3BHK with garden view,garden;view,Negotiation
+Urmila Devi,urmila.devi@email.com,9876543270,Panchkula,Villa,2,Rent,33000,41000,0-3m,Website,Villa for IT professional,IT;professional,New
+Jitender Kumar,jitender.kumar@email.com,9876543271,Mohali,Office,N/A,Buy,18000000,22000000,3-6m,Walk-in,Office building near airport,airport;prime,Contacted
+Savita Rani,savita.rani@email.com,9876543272,Chandigarh,Apartment,Studio,Buy,2300000,2700000,0-3m,Call,Studio near university,university;student,Qualified
+Sukhdev Singh,sukhdev.singh@email.com,9876543273,Zirakpur,Plot,N/A,Buy,3800000,4400000,3-6m,Referral,Corner plot with road access,corner;access,New
+Indira Devi,indira.devi@email.com,9876543274,Panchkula,Apartment,2,Rent,22000,27000,>6m,Website,2BHK with gym facilities,gym;facilities,Visited
+Tejpal Singh,tejpal.singh@email.com,9876543275,Mohali,Villa,3,Buy,14000000,16000000,0-3m,Walk-in,Villa with power backup,power;backup,Converted
+Shakuntala Devi,shakuntala.devi@email.com,9876543276,Chandigarh,Retail,N/A,Buy,9000000,11000000,3-6m,Call,Corner shop for pharmacy,corner;pharmacy,New
+Baldev Singh,baldev.singh@email.com,9876543277,Zirakpur,Apartment,4,Buy,8200000,9200000,>6m,Referral,4BHK with study room,study;spacious,Contacted
+Prem Lata,prem.lata@email.com,9876543278,Panchkula,Villa,3,Rent,38000,46000,0-3m,Website,Villa with servant quarter,servant;independent,New
+Jagdish Gupta,jagdish.gupta@email.com,9876543279,Mohali,Office,N/A,Rent,80000,100000,3-6m,Walk-in,Office with fiber internet,fiber;connectivity,Qualified
+Sheila Devi,sheila.devi@email.com,9876543280,Chandigarh,Apartment,1,Buy,3100000,3500000,0-3m,Call,1BHK for senior citizen,senior;accessible,Visited
+Mohan Lal,mohan.lal@email.com,9876543281,Zirakpur,Plot,N/A,Buy,2900000,3300000,3-6m,Referral,Rectangular plot for construction,rectangular;construction,Negotiation
+Bimla Devi,bimla.devi@email.com,9876543282,Panchkula,Apartment,2,Buy,4800000,5400000,>6m,Website,2BHK with marble flooring,marble;premium,New
+Kuldeep Singh,kuldeep.singh@email.com,9876543283,Mohali,Villa,4,Buy,17000000,20000000,0-3m,Walk-in,Villa with home automation,automation;smart,Contacted
+Raj Kumari,raj.kumari@email.com,9876543284,Chandigarh,Retail,N/A,Rent,110000,130000,3-6m,Call,Shop for clothing business,clothing;retail,Qualified
+Omprakash Sharma,omprakash.sharma@email.com,9876543285,Zirakpur,Apartment,3,Buy,5900000,6700000,>6m,Referral,3BHK with terrace access,terrace;access,New
+Kamlesh Devi,kamlesh.devi@email.com,9876543286,Panchkula,Villa,2,Rent,34000,42000,0-3m,Website,Compact villa for couple,compact;couple,Visited
+Paramjit Singh,paramjit.singh@email.com,9876543287,Mohali,Office,N/A,Buy,22000000,26000000,3-6m,Walk-in,Multi-story office building,multistory;investment,Converted
+Sudesh Kumari,sudesh.kumari@email.com,9876543288,Chandigarh,Apartment,Studio,Rent,13000,17000,0-3m,Call,Furnished studio for bachelor,furnished;bachelor,New
+Davinder Singh,davinder.singh@email.com,9876543289,Zirakpur,Plot,N/A,Buy,3600000,4200000,3-6m,Referral,Plot near school and hospital,school;hospital,Contacted
+Renu Bala,renu.bala@email.com,9876543290,Panchkula,Apartment,3,Buy,7200000,8000000,>6m,Website,3BHK with community hall,community;hall,New
+Gurdial Singh,gurdial.singh@email.com,9876543291,Mohali,Villa,3,Rent,42000,50000,0-3m,Walk-in,Villa with driver room,driver;accommodation,Qualified
+Varsha Gupta,varsha.gupta@email.com,9876543292,Chandigarh,Retail,N/A,Buy,8500000,10500000,3-6m,Call,Double story shop,doublestory;spacious,Visited
+Narinder Kumar,narinder.kumar@email.com,9876543293,Zirakpur,Apartment,4,Buy,8600000,9600000,>6m,Referral,4BHK with kids play area,kids;playarea,Negotiation
+Shanti Devi,shanti.devi@email.com,9876543294,Panchkula,Villa,3,Buy,15000000,17000000,0-3m,Website,Villa near golf course,golf;premium,New
+Jaswant Singh,jaswant.singh@email.com,9876543295,Mohali,Office,N/A,Rent,100000,120000,3-6m,Walk-in,Office with cafeteria,cafeteria;amenity,Contacted
+Kamaljit Kaur,kamaljit.kaur@email.com,9876543296,Chandigarh,Apartment,2,Buy,4900000,5500000,0-3m,Call,2BHK with reserved parking,parking;reserved,Qualified
+Tarsem Singh,tarsem.singh@email.com,9876543297,Zirakpur,Plot,N/A,Buy,4000000,4600000,3-6m,Referral,Plot with fruit trees,trees;landscaped,New
+Saroj Devi,saroj.devi@email.com,9876543298,Panchkula,Apartment,1,Rent,19000,23000,>6m,Website,1BHK with city view,city;view,Visited
+Surinder Kumar,surinder.kumar@email.com,9876543299,Mohali,Villa,4,Buy,20000000,24000000,0-3m,Walk-in,Villa with guest house,guest;accommodation,Converted
+Basanti Devi,basanti.devi@email.com,9876543300,Chandigarh,Retail,N/A,Rent,125000,145000,3-6m,Call,Premium location shop,premium;location,New
