@@ -6,7 +6,9 @@ import { buyers } from "@/lib/db/schema"
 // GET /api/buyers/export - Export filtered buyers as CSV
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url)
+    // For Vercel serverless - handle URL construction properly
+    const url = new URL(request.url)
+    const { searchParams } = url
     
     // Get the same filters as the main buyers list
     const search = searchParams.get("search")
@@ -60,12 +62,13 @@ export async function GET(request: NextRequest) {
     
     const whereClause = conditions.length > 0 ? and(...conditions) : undefined
     
-    // Get all matching results (no pagination for export)
+    // Get all matching results (limited to 1000 for Vercel performance)
     const results = await db
       .select()
       .from(buyers)
       .where(whereClause)
       .orderBy(desc(buyers.updatedAt))
+      .limit(1000) // Prevent timeout on large datasets
     
     // Parse tags from JSON strings and format for CSV
     const buyersForExport = results.map(buyer => ({
@@ -106,18 +109,29 @@ export async function GET(request: NextRequest) {
     
     const csvContent = [csvHeader, ...csvRows].join("\n")
     
-    // Return CSV content with appropriate headers
+    // Return CSV content with appropriate headers for Vercel
+    const fileName = `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`
+    
     return new NextResponse(csvContent, {
       status: 200,
       headers: {
-        "Content-Type": "text/csv",
-        "Content-Disposition": `attachment; filename="buyer-leads-${new Date().toISOString().split('T')[0]}.csv"`,
+        "Content-Type": "text/csv; charset=utf-8",
+        "Content-Disposition": `attachment; filename="${fileName}"`,
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
       },
     })
   } catch (error) {
     console.error("Error exporting buyers:", error)
+    console.error("Stack trace:", error instanceof Error ? error.stack : "Unknown error")
+    
     return NextResponse.json(
-      { error: "Failed to export buyers" },
+      { 
+        error: "Failed to export buyers",
+        message: error instanceof Error ? error.message : "Unknown error occurred",
+        timestamp: new Date().toISOString()
+      },
       { status: 500 }
     )
   }

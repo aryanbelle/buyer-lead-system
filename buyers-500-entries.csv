@@ -1,0 +1,521 @@
+fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status
+Pushpa Patel,pushpa.patel@email.com,9833495474,Panchkula,Apartment,2,Buy,4547372,6931433,>6m,Walk-in,"Family expanding, needs bigger space","[""urgent""]",Negotiation
+Lalit Srivastava,lalit.srivastava@email.com,9137462137,Panchkula,Apartment,2,Rent,18595,27357,0-3m,Website,"Investment purpose, looking for good rental yield","[""it-hub""]",Converted
+Lata Dua,lata.dua@company.com,9963401627,Other,Plot,,Rent,27390,34163,3-6m,Website,Good connectivity to IT hub required,"[""investment"",""rental""]",Negotiation
+Deepak Goyal,deepak.goyal@email.com,9656519716,Other,Apartment,3,Rent,23275,33904,3-6m,Website,Budget flexible for right property,"[""urgent"",""transfer""]",Converted
+Rohit Tiwari,,9799360980,Other,Plot,,Rent,19932,37396,>6m,Other,Good connectivity to IT hub required,"[""urgent"",""transfer""]",Qualified
+Seema Joshi,seema.joshi@outlook.com,9425021326,Other,Retail,,Rent,30099,76641,0-3m,Walk-in,Urgent requirement due to job transfer,"[""family""]",Visited
+Vikash Kapoor,vikash.kapoor@email.com,9253957602,Other,Apartment,1,Rent,20374,33409,Exploring,Referral,"Retirement home, prefers ground floor","[""hospital-nearby""]",New
+Kamala Agarwal,kamala.agarwal@outlook.com,9187375066,Other,Apartment,2,Buy,5895557,7731269,3-6m,Website,Close to schools and hospitals preferred,"[""urgent"",""transfer""]",Dropped
+Usha Aggarwal,usha.aggarwal@company.com,9120953708,Zirakpur,Plot,,Buy,4074864,4806134,Exploring,Other,"Retirement home, prefers ground floor","[""first-time""]",Visited
+Rakesh Arora,rakesh.arora@email.com,9494236018,Mohali,Retail,,Buy,4469964,6906899,0-3m,Call,Close to schools and hospitals preferred,"[""it-hub""]",New
+Meera Jain,meera.jain@gmail.com,9188508093,Chandigarh,Apartment,1,Buy,5009426,6386244,>6m,Website,Urgent requirement due to job transfer,"[""it-hub""]",New
+Dinesh Sharma,dinesh.sharma@outlook.com,9624332206,Chandigarh,Retail,,Buy,5711690,6782061,0-3m,Referral,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",Visited
+Sushma Sachdeva,sushma.sachdeva@yahoo.com,9939252065,Zirakpur,Retail,,Rent,41192,79182,Exploring,Walk-in,Budget flexible for right property,"[""retirement"",""ground-floor""]",Negotiation
+Ashok Goel,ashok.goel@gmail.com,9556711861,Chandigarh,Office,,Rent,25788,52690,>6m,Other,"Investment purpose, looking for good rental yield","[""investment""]",Dropped
+Santosh Saxena,santosh.saxena@company.com,9267185074,Zirakpur,Apartment,2,Buy,3196232,5608370,Exploring,Referral,"Retirement home, prefers ground floor","[""it-hub""]",Qualified
+Lata Mittal,lata.mittal@gmail.com,9134836078,Panchkula,Plot,,Rent,11679,25955,0-3m,Referral,Good connectivity to IT hub required,"[""urgent""]",New
+Vinod Agarwal,vinod.agarwal@outlook.com,9684925379,Other,Villa,3,Buy,14085774,17971877,Exploring,Walk-in,Budget flexible for right property,"[""investment""]",Dropped
+Pushpa Anand,pushpa.anand@company.com,9257537638,Zirakpur,Office,,Rent,44244,63255,3-6m,Call,"Family expanding, needs bigger space","[""urgent"",""family""]",Qualified
+Shanti Sharma,shanti.sharma@outlook.com,9571872450,Panchkula,Retail,,Buy,6814633,8519159,Exploring,Call,Budget flexible for right property,"[""investment""]",Contacted
+Kamala Joshi,kamala.joshi@outlook.com,9319876558,Other,Office,,Rent,29008,54581,0-3m,Referral,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Visited
+Nisha Khanna,,9128098982,Other,Villa,Studio,Rent,31930,50789,0-3m,Other,"Family expanding, needs bigger space","[""school-nearby""]",Contacted
+Sushma Khurana,,9845656658,Other,Office,,Buy,11514441,15048290,>6m,Call,Looking for spacious apartment in good locality,"[""premium"",""luxury""]",New
+Naresh Arora,naresh.arora@email.com,9315783200,Chandigarh,Office,,Rent,43695,58771,>6m,Walk-in,"Retirement home, prefers ground floor","[""school-nearby""]",New
+Priya Sethi,priya.sethi@yahoo.com,9136992908,Other,Plot,,Rent,27027,41563,>6m,Call,"Investment purpose, looking for good rental yield","[""urgent""]",New
+Sunila Bajaj,sunila.bajaj@email.com,9192434947,Panchkula,Apartment,Studio,Buy,5210500,6672734,3-6m,Other,Close to schools and hospitals preferred,"[""first-time""]",Contacted
+Kiran Verma,kiran.verma@company.com,9557495311,Panchkula,Apartment,2,Buy,3793887,6641627,Exploring,Other,Good connectivity to IT hub required,"[""premium"",""luxury""]",Converted
+Ajay Nanda,ajay.nanda@yahoo.com,9541947873,Zirakpur,Villa,1,Rent,32859,43604,Exploring,Other,Looking for spacious apartment in good locality,"[""budget-flexible""]",Negotiation
+Rajesh Dua,rajesh.dua@yahoo.com,9160943814,Chandigarh,Villa,4,Buy,9212668,13292553,3-6m,Walk-in,"Family expanding, needs bigger space","[""retirement"",""ground-floor""]",Dropped
+Ramesh Tandon,ramesh.tandon@company.com,9456968225,Mohali,Apartment,4,Buy,3113861,4702927,Exploring,Walk-in,Looking for spacious apartment in good locality,"[""family"",""spacious""]",New
+Saroj Verma,saroj.verma@gmail.com,9325979736,Other,Apartment,2,Buy,3542325,6169394,Exploring,Referral,"First-time buyer, needs assistance with documentation","[""first-time""]",Contacted
+Rekha Singh,rekha.singh@gmail.com,9190556356,Panchkula,Retail,,Buy,4899688,6369029,0-3m,Website,Close to schools and hospitals preferred,"[""budget-flexible""]",Converted
+Krishan Kaul,krishan.kaul@outlook.com,9557181422,Zirakpur,Office,,Buy,11422738,13473967,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""urgent"",""family""]",New
+Geeta Sharma,geeta.sharma@email.com,9730834187,Mohali,Retail,,Rent,35767,65516,0-3m,Website,Interested in premium property with modern amenities,"[""investment"",""rental""]",Negotiation
+Meera Kapoor,meera.kapoor@gmail.com,9688833964,Mohali,Office,,Buy,6775309,8730632,0-3m,Other,Good connectivity to IT hub required,"[""it-hub""]",Negotiation
+Pankaj Kohli,pankaj.kohli@outlook.com,9992615553,Zirakpur,Retail,,Rent,78686,104713,3-6m,Call,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Visited
+Ashok Mishra,ashok.mishra@email.com,9774459343,Other,Office,,Rent,48027,63870,3-6m,Website,"Family expanding, needs bigger space","[""hospital-nearby""]",Converted
+Ritu Shah,ritu.shah@outlook.com,9573896157,Panchkula,Plot,,Buy,2879484,4839913,>6m,Referral,Looking for spacious apartment in good locality,"[""investment""]",Dropped
+Deepak Kumar,deepak.kumar@company.com,9497726212,Chandigarh,Office,,Rent,21783,48931,>6m,Other,Looking for spacious apartment in good locality,"[""first-time""]",New
+Sunita Kapoor,sunita.kapoor@email.com,9143612807,Panchkula,Retail,,Rent,63247,107273,0-3m,Walk-in,Good connectivity to IT hub required,"[""it-hub""]",Contacted
+Shanti Srivastava,,9354358756,Panchkula,Office,,Rent,41464,61675,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""hospital-nearby""]",Negotiation
+Kamala Shah,kamala.shah@gmail.com,9468852495,Other,Apartment,3,Rent,20401,29466,3-6m,Call,Good connectivity to IT hub required,"[""family"",""spacious""]",Contacted
+Ashok Mittal,ashok.mittal@yahoo.com,9564459984,Other,Villa,1,Rent,34412,46996,0-3m,Referral,Good connectivity to IT hub required,"[""budget-flexible""]",New
+Asha Srivastava,asha.srivastava@outlook.com,9847560550,Mohali,Villa,3,Rent,28297,46000,Exploring,Website,Interested in premium property with modern amenities,"[""urgent"",""family""]",Contacted
+Ajay Srivastava,ajay.srivastava@email.com,9199191018,Zirakpur,Villa,1,Buy,14520546,19255192,3-6m,Other,Budget flexible for right property,"[""urgent"",""transfer""]",New
+Dinesh Saxena,dinesh.saxena@gmail.com,9269702259,Panchkula,Apartment,Studio,Buy,5787902,7713091,0-3m,Referral,Interested in premium property with modern amenities,"[""family"",""spacious""]",Qualified
+Rekha Kapoor,rekha.kapoor@yahoo.com,9857316547,Zirakpur,Villa,Studio,Buy,8957597,12534554,3-6m,Other,Good connectivity to IT hub required,"[""urgent"",""family""]",Visited
+Priya Bhatia,priya.bhatia@company.com,9728727142,Mohali,Plot,,Rent,11557,30969,3-6m,Call,"Retirement home, prefers ground floor","[""school-nearby""]",New
+Naresh Verma,naresh.verma@yahoo.com,9673053489,Panchkula,Villa,1,Buy,9059985,12088398,Exploring,Referral,"Retirement home, prefers ground floor","[""urgent""]",Visited
+Ajay Joshi,ajay.joshi@gmail.com,9982690889,Zirakpur,Apartment,4,Rent,18242,29719,>6m,Referral,Budget flexible for right property,"[""hospital-nearby""]",Dropped
+Vinod Goyal,vinod.goyal@gmail.com,9491101357,Other,Plot,,Rent,24201,36311,Exploring,Walk-in,Budget flexible for right property,"[""urgent""]",Qualified
+Pushpa Agarwal,pushpa.agarwal@yahoo.com,9771239617,Chandigarh,Villa,Studio,Rent,25299,44026,3-6m,Walk-in,Close to schools and hospitals preferred,"[""first-time""]",Converted
+Shyam Mittal,shyam.mittal@gmail.com,9528586643,Zirakpur,Retail,,Buy,4929202,6144720,3-6m,Walk-in,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",Visited
+Usha Srivastava,usha.srivastava@email.com,9499499087,Panchkula,Office,,Rent,34342,58852,3-6m,Other,"Investment purpose, looking for good rental yield","[""premium""]",Dropped
+Krishan Srivastava,krishan.srivastava@email.com,9625903841,Zirakpur,Apartment,4,Rent,21791,32895,3-6m,Website,Looking for spacious apartment in good locality,"[""urgent""]",Contacted
+Asha Nanda,asha.nanda@outlook.com,9326874836,Chandigarh,Retail,,Buy,7911711,9210837,3-6m,Call,"Family expanding, needs bigger space","[""family"",""spacious""]",Dropped
+Shanti Khurana,shanti.khurana@email.com,9651974955,Panchkula,Apartment,4,Buy,3007748,5869523,3-6m,Website,"Retirement home, prefers ground floor","[""it-hub""]",Converted
+Ashok Joshi,,9157650063,Zirakpur,Retail,,Rent,60863,90759,3-6m,Referral,"Investment purpose, looking for good rental yield","[""retirement"",""ground-floor""]",Dropped
+Kavita Joshi,kavita.joshi@gmail.com,9454046901,Panchkula,Plot,,Buy,3046668,3780580,Exploring,Referral,Looking for spacious apartment in good locality,"[""school-nearby""]",Qualified
+Ravi Singhal,ravi.singhal@outlook.com,9198903686,Zirakpur,Plot,,Rent,27933,43673,0-3m,Walk-in,Looking for spacious apartment in good locality,"[""investment""]",Visited
+Santosh Dua,,9677181185,Chandigarh,Apartment,4,Rent,24184,33089,Exploring,Call,Interested in premium property with modern amenities,"[""premium""]",New
+Mahesh Agarwal,mahesh.agarwal@outlook.com,9296371893,Panchkula,Villa,Studio,Rent,35696,47359,Exploring,Referral,Budget flexible for right property,"[""family"",""spacious""]",Negotiation
+Rohit Nanda,rohit.nanda@yahoo.com,9448768678,Mohali,Villa,3,Rent,25275,38736,Exploring,Walk-in,"Investment purpose, looking for good rental yield","[""urgent""]",Visited
+Usha Goyal,usha.goyal@outlook.com,9940472919,Mohali,Office,,Buy,7000457,8295537,>6m,Walk-in,"Retirement home, prefers ground floor","[""it-hub""]",Contacted
+Asha Khanna,asha.khanna@company.com,9893419202,Zirakpur,Office,,Buy,8114201,9608540,>6m,Call,"Investment purpose, looking for good rental yield","[""budget-flexible""]",Contacted
+Kiran Bhatia,kiran.bhatia@yahoo.com,9873341363,Other,Office,,Buy,5499913,9311840,Exploring,Call,"First-time buyer, needs assistance with documentation","[""urgent"",""transfer""]",Converted
+Sanjay Goel,sanjay.goel@gmail.com,9987792386,Other,Retail,,Buy,6623634,9286585,>6m,Walk-in,Interested in premium property with modern amenities,"[""hospital-nearby""]",Contacted
+Gopal Patel,gopal.patel@yahoo.com,9522122092,Panchkula,Villa,4,Buy,14596668,19106209,0-3m,Referral,Budget flexible for right property,"[""retirement"",""ground-floor""]",Visited
+Ajay Shah,ajay.shah@company.com,9951401811,Other,Plot,,Buy,4678389,5744200,3-6m,Walk-in,"First-time buyer, needs assistance with documentation","[""family""]",Visited
+Neha Singh,neha.singh@company.com,9352200310,Other,Office,,Buy,11222902,14686347,>6m,Other,"Family expanding, needs bigger space","[""premium""]",Visited
+Manoj Chopra,manoj.chopra@outlook.com,9412667605,Mohali,Plot,,Buy,4930612,6406434,Exploring,Website,Looking for spacious apartment in good locality,"[""family"",""spacious""]",Contacted
+Ravi Bhatia,ravi.bhatia@email.com,9248530122,Panchkula,Villa,Studio,Rent,28953,43952,3-6m,Referral,Budget flexible for right property,"[""urgent""]",Converted
+Kiran Gupta,kiran.gupta@gmail.com,9919906181,Panchkula,Plot,,Rent,23033,29390,>6m,Walk-in,Close to schools and hospitals preferred,"[""premium""]",New
+Lata Khurana,lata.khurana@outlook.com,9866360820,Other,Retail,,Rent,30243,62625,0-3m,Website,Close to schools and hospitals preferred,"[""investment"",""rental""]",Qualified
+Deepak Sethi,deepak.sethi@email.com,9916835445,Panchkula,Apartment,Studio,Buy,3562475,5138757,Exploring,Website,Interested in premium property with modern amenities,"[""urgent""]",Visited
+Mohan Sachdeva,mohan.sachdeva@email.com,9182562039,Zirakpur,Retail,,Rent,47320,80882,>6m,Other,"Family expanding, needs bigger space","[""first-time""]",New
+Sunila Kohli,sunila.kohli@yahoo.com,9719003742,Mohali,Office,,Buy,9598255,12420180,0-3m,Call,"Family expanding, needs bigger space","[""it-hub""]",Contacted
+Vinod Bhatia,vinod.bhatia@gmail.com,9399365082,Mohali,Apartment,4,Rent,16990,28060,>6m,Referral,Urgent requirement due to job transfer,"[""urgent""]",Negotiation
+Lalit Kumar,lalit.kumar@outlook.com,9127862008,Chandigarh,Apartment,4,Rent,23089,29260,3-6m,Website,Close to schools and hospitals preferred,"[""retirement"",""ground-floor""]",Converted
+Santosh Gupta,santosh.gupta@outlook.com,9262498809,Panchkula,Plot,,Buy,2655984,4193126,3-6m,Referral,"Investment purpose, looking for good rental yield","[""first-time""]",Qualified
+Shyam Khanna,shyam.khanna@company.com,9616817114,Other,Retail,,Buy,7381561,10134466,3-6m,Referral,Urgent requirement due to job transfer,"[""urgent"",""transfer""]",Dropped
+Santosh Tiwari,santosh.tiwari@outlook.com,9542163268,Mohali,Retail,,Buy,5735655,8289175,0-3m,Call,Interested in premium property with modern amenities,"[""family""]",Contacted
+Mohan Arora,mohan.arora@email.com,9452338350,Mohali,Villa,3,Buy,12601212,17556919,3-6m,Walk-in,Budget flexible for right property,"[""urgent"",""family""]",Contacted
+Manoj Saxena,manoj.saxena@company.com,9349229283,Zirakpur,Villa,1,Buy,13291919,16333165,Exploring,Website,Looking for spacious apartment in good locality,"[""retirement"",""ground-floor""]",Dropped
+Priya Srivastava,priya.srivastava@email.com,9481421164,Other,Office,,Buy,5058878,6147541,0-3m,Other,Budget flexible for right property,"[""school-nearby""]",Dropped
+Kiran Kumar,kiran.kumar@gmail.com,9849317947,Chandigarh,Retail,,Rent,33730,79287,3-6m,Call,Urgent requirement due to job transfer,"[""budget-flexible""]",Converted
+Naresh Verma,naresh.verma@company.com,9162689379,Zirakpur,Retail,,Rent,77350,109569,Exploring,Website,Close to schools and hospitals preferred,"[""investment"",""rental""]",Qualified
+Vikash Malhotra,vikash.malhotra@company.com,9566848623,Chandigarh,Retail,,Rent,47269,67992,Exploring,Other,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Converted
+Nisha Pandey,nisha.pandey@gmail.com,9252609960,Mohali,Apartment,3,Rent,23824,31978,>6m,Website,Urgent requirement due to job transfer,"[""hospital-nearby""]",Visited
+Meera Arora,meera.arora@yahoo.com,9576645621,Panchkula,Retail,,Rent,55242,79227,Exploring,Website,Looking for spacious apartment in good locality,"[""premium""]",Negotiation
+Krishan Kohli,krishan.kohli@outlook.com,9233593082,Mohali,Retail,,Rent,50322,98106,3-6m,Walk-in,"Investment purpose, looking for good rental yield","[""family"",""spacious""]",Dropped
+Lata Srivastava,lata.srivastava@outlook.com,9167337984,Other,Retail,,Rent,34556,84191,0-3m,Website,Interested in premium property with modern amenities,"[""retirement"",""ground-floor""]",Converted
+Dinesh Mishra,dinesh.mishra@gmail.com,9790864333,Chandigarh,Retail,,Buy,8050957,10244792,3-6m,Walk-in,"Family expanding, needs bigger space","[""urgent""]",Negotiation
+Arun Anand,arun.anand@gmail.com,9219429964,Mohali,Office,,Buy,11884520,14629353,0-3m,Referral,"Retirement home, prefers ground floor","[""urgent"",""transfer""]",Negotiation
+Geeta Chopra,geeta.chopra@gmail.com,9959277024,Panchkula,Retail,,Buy,9396840,12316714,3-6m,Call,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Qualified
+Suresh Mishra,,9680024720,Zirakpur,Apartment,2,Buy,4876233,7139197,Exploring,Walk-in,Looking for spacious apartment in good locality,"[""premium""]",Negotiation
+Seema Dua,seema.dua@gmail.com,9610948266,Zirakpur,Office,,Rent,34624,63756,>6m,Website,Interested in premium property with modern amenities,"[""hospital-nearby""]",Visited
+Naresh Khanna,naresh.khanna@yahoo.com,9250785942,Chandigarh,Retail,,Rent,59310,109062,Exploring,Website,Close to schools and hospitals preferred,"[""hospital-nearby""]",Dropped
+Sanjay Sharma,,9288942225,Other,Office,,Rent,25082,46984,0-3m,Referral,Good connectivity to IT hub required,"[""budget-flexible""]",Qualified
+Sushma Khanna,sushma.khanna@outlook.com,9512401372,Other,Apartment,Studio,Buy,3752872,6430265,3-6m,Walk-in,"Retirement home, prefers ground floor","[""premium"",""luxury""]",Qualified
+Ritu Goyal,ritu.goyal@yahoo.com,9545569241,Panchkula,Apartment,Studio,Rent,24643,31358,0-3m,Referral,Urgent requirement due to job transfer,"[""urgent"",""family""]",Qualified
+Kamala Joshi,kamala.joshi@company.com,9292935280,Panchkula,Retail,,Rent,52900,76295,Exploring,Other,Close to schools and hospitals preferred,"[""it-hub""]",New
+Sunita Anand,sunita.anand@yahoo.com,9135425628,Panchkula,Office,,Rent,42412,66670,Exploring,Call,"Retirement home, prefers ground floor","[""investment"",""rental""]",Qualified
+Saroj Agarwal,saroj.agarwal@company.com,9156783446,Chandigarh,Apartment,4,Rent,18421,26590,Exploring,Website,Interested in premium property with modern amenities,"[""urgent""]",Negotiation
+Deepak Bajaj,deepak.bajaj@outlook.com,9526222261,Mohali,Plot,,Rent,27208,33458,>6m,Other,Urgent requirement due to job transfer,"[""family""]",Contacted
+Deepak Bhatia,deepak.bhatia@outlook.com,9770344254,Zirakpur,Office,,Buy,8080314,11921504,3-6m,Walk-in,"Family expanding, needs bigger space","[""family"",""spacious""]",Converted
+Santosh Tandon,,9730278645,Chandigarh,Plot,,Buy,3417830,3924836,Exploring,Call,Good connectivity to IT hub required,"[""budget-flexible""]",New
+Rakesh Saxena,rakesh.saxena@yahoo.com,9783820072,Zirakpur,Apartment,2,Buy,4443741,5996811,>6m,Call,Close to schools and hospitals preferred,"[""urgent""]",Contacted
+Sunila Kaul,sunila.kaul@company.com,9734509610,Panchkula,Retail,,Rent,39857,89026,3-6m,Referral,Close to schools and hospitals preferred,"[""hospital-nearby""]",Negotiation
+Saroj Arora,,9216627464,Zirakpur,Office,,Buy,11966974,13032312,>6m,Other,Budget flexible for right property,"[""premium""]",New
+Radha Tiwari,radha.tiwari@outlook.com,9259185678,Chandigarh,Plot,,Buy,3128825,4804927,Exploring,Other,"Family expanding, needs bigger space","[""premium""]",Contacted
+Shanti Sethi,shanti.sethi@outlook.com,9550623292,Panchkula,Apartment,3,Buy,3092060,4283944,Exploring,Call,"Family expanding, needs bigger space","[""investment""]",Contacted
+Pushpa Kapoor,pushpa.kapoor@company.com,9463386729,Zirakpur,Villa,3,Rent,28569,39915,0-3m,Call,"First-time buyer, needs assistance with documentation","[""retirement"",""ground-floor""]",Negotiation
+Kavita Verma,kavita.verma@email.com,9360328135,Zirakpur,Office,,Buy,9411020,11323923,0-3m,Referral,Looking for spacious apartment in good locality,"[""investment"",""rental""]",New
+Saroj Bajaj,saroj.bajaj@outlook.com,9294537625,Other,Office,,Buy,9420399,10567209,3-6m,Call,Urgent requirement due to job transfer,"[""investment""]",Qualified
+Sudha Pandey,sudha.pandey@yahoo.com,9588318004,Zirakpur,Apartment,4,Buy,5656093,8544373,0-3m,Website,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",Negotiation
+Rekha Tandon,rekha.tandon@yahoo.com,9640337004,Mohali,Office,,Rent,21528,37114,Exploring,Walk-in,Budget flexible for right property,"[""first-time""]",Converted
+Sushma Kapoor,,9426170606,Panchkula,Plot,,Buy,3004762,4394074,Exploring,Call,Good connectivity to IT hub required,"[""family"",""spacious""]",Contacted
+Priya Patel,,9161883404,Other,Retail,,Buy,8043194,11014497,0-3m,Walk-in,"First-time buyer, needs assistance with documentation","[""premium"",""luxury""]",Contacted
+Pushpa Singh,pushpa.singh@yahoo.com,9394256358,Other,Apartment,2,Rent,17640,32428,0-3m,Referral,"Retirement home, prefers ground floor","[""family"",""spacious""]",Visited
+Anita Bansal,anita.bansal@email.com,9687682668,Chandigarh,Office,,Rent,39802,67424,>6m,Referral,Close to schools and hospitals preferred,"[""school-nearby""]",Negotiation
+Pushpa Kumar,,9737852623,Chandigarh,Retail,,Buy,7055255,9168334,3-6m,Other,"Investment purpose, looking for good rental yield","[""hospital-nearby""]",Converted
+Rajesh Mittal,rajesh.mittal@company.com,9967949526,Other,Villa,Studio,Buy,12712522,14921676,3-6m,Call,Good connectivity to IT hub required,"[""premium""]",Negotiation
+Mahesh Singh,mahesh.singh@outlook.com,9389935859,Chandigarh,Plot,,Buy,4684143,6544020,3-6m,Walk-in,Interested in premium property with modern amenities,"[""premium"",""luxury""]",Contacted
+Shanti Bansal,shanti.bansal@yahoo.com,9134292394,Other,Apartment,2,Buy,5646915,7063426,3-6m,Walk-in,"First-time buyer, needs assistance with documentation","[""budget-flexible""]",Qualified
+Sushma Patel,sushma.patel@company.com,9342795307,Other,Villa,Studio,Rent,32722,50588,>6m,Call,Budget flexible for right property,"[""urgent"",""transfer""]",Contacted
+Urmila Jain,urmila.jain@email.com,9725277565,Chandigarh,Retail,,Buy,7088974,9403408,3-6m,Call,Budget flexible for right property,"[""urgent"",""family""]",Converted
+Krishan Saxena,krishan.saxena@gmail.com,9580724942,Chandigarh,Villa,Studio,Buy,10638505,15244349,3-6m,Referral,Urgent requirement due to job transfer,"[""retirement"",""ground-floor""]",Dropped
+Krishan Dua,krishan.dua@outlook.com,9723473480,Other,Office,,Rent,21945,47077,3-6m,Walk-in,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Contacted
+Ravi Sharma,ravi.sharma@email.com,9753165251,Chandigarh,Retail,,Rent,76150,98881,>6m,Walk-in,Looking for spacious apartment in good locality,"[""first-time""]",Contacted
+Asha Srivastava,,9790604351,Zirakpur,Villa,2,Buy,12736383,17561006,0-3m,Walk-in,"Retirement home, prefers ground floor","[""it-hub""]",Visited
+Pooja Bansal,pooja.bansal@outlook.com,9385584208,Zirakpur,Plot,,Buy,4944316,6126555,3-6m,Call,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",Qualified
+Sudha Kaul,sudha.kaul@company.com,9942828592,Mohali,Villa,1,Rent,36349,53781,Exploring,Referral,Interested in premium property with modern amenities,"[""premium"",""luxury""]",Converted
+Arun Dua,arun.dua@yahoo.com,9678706890,Other,Apartment,3,Buy,4479142,5666079,>6m,Walk-in,Looking for spacious apartment in good locality,"[""budget-flexible""]",Dropped
+Sushma Sharma,sushma.sharma@company.com,9831673320,Other,Plot,,Rent,12350,19305,3-6m,Call,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Qualified
+Seema Tandon,,9964367911,Chandigarh,Villa,Studio,Buy,11115311,15254627,3-6m,Call,Interested in premium property with modern amenities,"[""budget-flexible""]",Converted
+Dinesh Pandey,dinesh.pandey@gmail.com,9245203298,Other,Plot,,Buy,4960125,6588844,0-3m,Website,Urgent requirement due to job transfer,"[""it-hub""]",Qualified
+Geeta Mishra,geeta.mishra@gmail.com,9948966138,Other,Apartment,Studio,Buy,3159338,5882715,3-6m,Other,"Family expanding, needs bigger space","[""investment""]",Negotiation
+Priya Chopra,priya.chopra@yahoo.com,9345843298,Other,Plot,,Buy,2886459,3407202,3-6m,Website,"First-time buyer, needs assistance with documentation","[""first-time""]",Negotiation
+Lata Sharma,lata.sharma@email.com,9212506298,Zirakpur,Plot,,Rent,13491,23377,0-3m,Call,Close to schools and hospitals preferred,"[""investment"",""rental""]",Qualified
+Pushpa Kumar,pushpa.kumar@outlook.com,9174382483,Mohali,Office,,Buy,11342907,14490570,0-3m,Referral,Urgent requirement due to job transfer,"[""premium""]",New
+Lalit Malhotra,,9717139556,Zirakpur,Retail,,Rent,47724,81197,0-3m,Walk-in,Budget flexible for right property,"[""retirement"",""ground-floor""]",Converted
+Lalit Malhotra,lalit.malhotra@gmail.com,9512317532,Mohali,Retail,,Buy,6362419,8961348,Exploring,Referral,Budget flexible for right property,"[""first-time""]",Qualified
+Vikash Khurana,vikash.khurana@email.com,9423169957,Mohali,Villa,3,Rent,39415,50475,Exploring,Website,Looking for spacious apartment in good locality,"[""family"",""spacious""]",Converted
+Gopal Bansal,gopal.bansal@yahoo.com,9195553654,Chandigarh,Office,,Buy,9823689,12111874,>6m,Referral,Urgent requirement due to job transfer,"[""premium""]",Dropped
+Krishan Khurana,krishan.khurana@gmail.com,9324431608,Chandigarh,Villa,1,Rent,29735,46252,>6m,Website,Budget flexible for right property,"[""urgent""]",Qualified
+Usha Dua,usha.dua@company.com,9467424860,Panchkula,Office,,Buy,8477419,10073599,>6m,Referral,Urgent requirement due to job transfer,"[""urgent"",""transfer""]",Visited
+Sanjay Shah,sanjay.shah@email.com,9339576447,Other,Apartment,3,Buy,4448385,7307776,0-3m,Other,"Retirement home, prefers ground floor","[""budget-flexible""]",Dropped
+Anita Nanda,anita.nanda@email.com,9751150687,Chandigarh,Villa,Studio,Buy,9761754,13594349,3-6m,Website,Looking for spacious apartment in good locality,"[""it-hub""]",New
+Naresh Bhatia,naresh.bhatia@gmail.com,9426616442,Mohali,Apartment,4,Rent,15977,24367,>6m,Walk-in,Good connectivity to IT hub required,"[""school-nearby""]",Negotiation
+Sunita Mehta,sunita.mehta@gmail.com,9897082165,Chandigarh,Villa,1,Rent,27344,46278,>6m,Website,Budget flexible for right property,"[""investment""]",New
+Sushma Patel,sushma.patel@yahoo.com,9232261491,Panchkula,Plot,,Buy,3700001,5427648,Exploring,Referral,Close to schools and hospitals preferred,"[""urgent""]",Contacted
+Seema Singhal,seema.singhal@gmail.com,9736577113,Panchkula,Retail,,Rent,73543,112249,3-6m,Call,Budget flexible for right property,"[""budget-flexible""]",Contacted
+Arun Jain,arun.jain@email.com,9588421115,Zirakpur,Apartment,2,Rent,20241,26777,0-3m,Walk-in,Interested in premium property with modern amenities,"[""urgent"",""transfer""]",Negotiation
+Ajay Arora,ajay.arora@outlook.com,9632536736,Panchkula,Villa,1,Rent,39694,53232,0-3m,Other,Budget flexible for right property,"[""investment""]",Dropped
+Rohit Jain,rohit.jain@email.com,9734554723,Other,Retail,,Rent,47248,78225,Exploring,Referral,"First-time buyer, needs assistance with documentation","[""hospital-nearby""]",Negotiation
+Meera Pandey,meera.pandey@gmail.com,9743892228,Chandigarh,Plot,,Rent,21513,41228,3-6m,Referral,Close to schools and hospitals preferred,"[""investment""]",Dropped
+Usha Bhatia,,9130118696,Panchkula,Plot,,Buy,2130392,3520463,3-6m,Website,Good connectivity to IT hub required,"[""retirement"",""ground-floor""]",New
+Mohan Anand,mohan.anand@company.com,9221334527,Mohali,Office,,Buy,8040102,11044424,Exploring,Walk-in,Good connectivity to IT hub required,"[""retirement"",""ground-floor""]",Contacted
+Rekha Pandey,rekha.pandey@gmail.com,9881501296,Panchkula,Villa,Studio,Buy,8896533,12193244,0-3m,Call,"Family expanding, needs bigger space","[""premium"",""luxury""]",Dropped
+Anita Gupta,anita.gupta@company.com,9249433524,Panchkula,Apartment,1,Buy,5123024,6736585,Exploring,Other,"Family expanding, needs bigger space","[""urgent""]",Contacted
+Geeta Srivastava,geeta.srivastava@company.com,9214148665,Chandigarh,Apartment,Studio,Rent,22679,33443,>6m,Other,"Investment purpose, looking for good rental yield","[""hospital-nearby""]",Visited
+Ritu Joshi,ritu.joshi@outlook.com,9574985687,Other,Apartment,4,Rent,17447,25289,Exploring,Website,"First-time buyer, needs assistance with documentation","[""school-nearby""]",New
+Naresh Tiwari,naresh.tiwari@email.com,9683338201,Panchkula,Villa,2,Buy,13700981,17020582,Exploring,Call,Close to schools and hospitals preferred,"[""family""]",Converted
+Pushpa Goyal,pushpa.goyal@outlook.com,9914444995,Mohali,Apartment,1,Buy,3350736,5217436,0-3m,Other,Good connectivity to IT hub required,"[""investment""]",Converted
+Lata Arora,lata.arora@yahoo.com,9257002779,Zirakpur,Retail,,Buy,9518115,10611923,3-6m,Website,"First-time buyer, needs assistance with documentation","[""budget-flexible""]",Visited
+Pankaj Aggarwal,pankaj.aggarwal@company.com,9841303209,Mohali,Office,,Rent,33163,62351,>6m,Referral,"Investment purpose, looking for good rental yield","[""first-time""]",Dropped
+Ritu Mittal,ritu.mittal@gmail.com,9229159011,Chandigarh,Office,,Rent,32002,45333,>6m,Call,Looking for spacious apartment in good locality,"[""retirement"",""ground-floor""]",Qualified
+Kiran Mittal,,9176227211,Mohali,Apartment,3,Rent,22167,29593,0-3m,Referral,"First-time buyer, needs assistance with documentation","[""retirement"",""ground-floor""]",Qualified
+Deepak Srivastava,deepak.srivastava@outlook.com,9727858648,Other,Apartment,Studio,Buy,3244634,5585872,>6m,Walk-in,"Family expanding, needs bigger space","[""family"",""spacious""]",Dropped
+Kavita Mittal,kavita.mittal@email.com,9710110854,Zirakpur,Office,,Buy,5678809,6830588,>6m,Walk-in,"Retirement home, prefers ground floor","[""retirement"",""ground-floor""]",Negotiation
+Asha Yadav,asha.yadav@email.com,9842112082,Zirakpur,Plot,,Buy,4171325,4711838,>6m,Other,"Investment purpose, looking for good rental yield","[""retirement"",""ground-floor""]",Visited
+Kamala Yadav,kamala.yadav@outlook.com,9951146843,Mohali,Retail,,Buy,9560837,11606669,3-6m,Website,Interested in premium property with modern amenities,"[""urgent""]",Converted
+Priya Singh,priya.singh@company.com,9653781338,Mohali,Villa,2,Buy,10472270,13350184,Exploring,Other,Close to schools and hospitals preferred,"[""premium"",""luxury""]",Converted
+Urmila Sachdeva,urmila.sachdeva@company.com,9428863860,Zirakpur,Villa,4,Buy,13755705,18296782,3-6m,Other,Looking for spacious apartment in good locality,"[""premium"",""luxury""]",Qualified
+Urmila Saxena,urmila.saxena@company.com,9570114535,Chandigarh,Office,,Rent,49475,68381,0-3m,Referral,Looking for spacious apartment in good locality,"[""family"",""spacious""]",Converted
+Vinod Jindal,vinod.jindal@company.com,9788263542,Other,Plot,,Rent,20699,29874,>6m,Walk-in,Looking for spacious apartment in good locality,"[""premium""]",Qualified
+Shyam Jindal,shyam.jindal@gmail.com,9121856848,Zirakpur,Plot,,Buy,3323651,5304049,0-3m,Call,Urgent requirement due to job transfer,"[""retirement"",""ground-floor""]",Qualified
+Kamala Dua,kamala.dua@yahoo.com,9487041767,Other,Apartment,4,Buy,5636228,7044816,3-6m,Referral,"Investment purpose, looking for good rental yield","[""family""]",Qualified
+Mahesh Sachdeva,mahesh.sachdeva@email.com,9680192192,Other,Office,,Buy,5222965,6774619,0-3m,Referral,Looking for spacious apartment in good locality,"[""family""]",Negotiation
+Kamala Bajaj,kamala.bajaj@outlook.com,9483950886,Other,Retail,,Rent,76473,102843,0-3m,Walk-in,Good connectivity to IT hub required,"[""premium""]",Qualified
+Nisha Goel,nisha.goel@gmail.com,9558064436,Zirakpur,Apartment,2,Rent,18236,26068,0-3m,Other,Looking for spacious apartment in good locality,"[""urgent"",""family""]",Negotiation
+Dinesh Bhatia,dinesh.bhatia@yahoo.com,9935020869,Zirakpur,Retail,,Buy,8968457,11429744,Exploring,Referral,Budget flexible for right property,"[""urgent""]",Visited
+Amit Bhatia,amit.bhatia@yahoo.com,9889430816,Panchkula,Retail,,Buy,9515419,10817556,Exploring,Call,"Investment purpose, looking for good rental yield","[""family"",""spacious""]",Visited
+Vinod Goel,vinod.goel@email.com,9232681785,Chandigarh,Apartment,1,Rent,16617,27380,Exploring,Referral,Urgent requirement due to job transfer,"[""school-nearby""]",Converted
+Anita Malhotra,anita.malhotra@yahoo.com,9463768585,Panchkula,Villa,2,Rent,25078,40467,0-3m,Other,Close to schools and hospitals preferred,"[""premium"",""luxury""]",Contacted
+Naresh Shah,naresh.shah@yahoo.com,9656949247,Panchkula,Plot,,Rent,24490,34388,>6m,Walk-in,Looking for spacious apartment in good locality,"[""premium"",""luxury""]",Converted
+Ritu Agarwal,ritu.agarwal@yahoo.com,9130528675,Other,Plot,,Rent,12418,20968,>6m,Walk-in,Good connectivity to IT hub required,"[""school-nearby""]",Qualified
+Rajesh Kapoor,rajesh.kapoor@gmail.com,9296077822,Panchkula,Office,,Buy,7973489,10730111,0-3m,Other,Good connectivity to IT hub required,"[""premium"",""luxury""]",Contacted
+Sunila Goel,sunila.goel@email.com,9488032859,Zirakpur,Office,,Buy,5930849,9751823,>6m,Call,"Investment purpose, looking for good rental yield","[""first-time""]",Qualified
+Ravi Mittal,ravi.mittal@gmail.com,9935328382,Mohali,Villa,Studio,Buy,14231113,18959443,Exploring,Referral,Budget flexible for right property,"[""family""]",Contacted
+Geeta Bhatia,geeta.bhatia@gmail.com,9859248958,Other,Retail,,Rent,69019,107097,0-3m,Other,Urgent requirement due to job transfer,"[""school-nearby""]",Qualified
+Lata Malhotra,lata.malhotra@gmail.com,9240928284,Zirakpur,Plot,,Rent,16632,29161,>6m,Referral,Close to schools and hospitals preferred,"[""family""]",Visited
+Geeta Agarwal,geeta.agarwal@email.com,9314135788,Other,Office,,Rent,21048,38255,0-3m,Other,Interested in premium property with modern amenities,"[""school-nearby""]",New
+Seema Goyal,seema.goyal@yahoo.com,9261564552,Zirakpur,Villa,3,Buy,8098527,11916054,Exploring,Website,"First-time buyer, needs assistance with documentation","[""retirement"",""ground-floor""]",Negotiation
+Geeta Mehta,geeta.mehta@email.com,9669615902,Chandigarh,Apartment,4,Buy,4867903,6645526,3-6m,Other,"First-time buyer, needs assistance with documentation","[""premium"",""luxury""]",Converted
+Priya Verma,priya.verma@outlook.com,9418450029,Panchkula,Office,,Buy,6175837,9637914,0-3m,Walk-in,Budget flexible for right property,"[""investment"",""rental""]",New
+Saroj Nanda,saroj.nanda@yahoo.com,9832487377,Other,Office,,Buy,11236974,13392008,Exploring,Walk-in,Urgent requirement due to job transfer,"[""budget-flexible""]",Dropped
+Nisha Arora,nisha.arora@email.com,9612007033,Zirakpur,Apartment,1,Buy,4013291,5798025,3-6m,Call,Budget flexible for right property,"[""investment"",""rental""]",Visited
+Deepak Aggarwal,,9113127157,Zirakpur,Office,,Buy,10621489,12375416,0-3m,Call,Good connectivity to IT hub required,"[""investment""]",Converted
+Pushpa Kohli,pushpa.kohli@company.com,9259625737,Panchkula,Plot,,Buy,3684379,5218488,3-6m,Website,Urgent requirement due to job transfer,"[""family"",""spacious""]",Visited
+Lata Nanda,lata.nanda@gmail.com,9993815564,Chandigarh,Apartment,2,Buy,5605278,6628854,3-6m,Walk-in,Looking for spacious apartment in good locality,"[""first-time""]",Dropped
+Urmila Jindal,urmila.jindal@outlook.com,9249764504,Mohali,Retail,,Rent,66539,94760,3-6m,Website,Close to schools and hospitals preferred,"[""urgent""]",Qualified
+Amit Bansal,amit.bansal@yahoo.com,9224997239,Chandigarh,Retail,,Rent,33476,78993,3-6m,Website,Urgent requirement due to job transfer,"[""family""]",Qualified
+Kiran Jindal,kiran.jindal@email.com,9425974422,Panchkula,Retail,,Rent,51717,98462,>6m,Other,"First-time buyer, needs assistance with documentation","[""investment"",""rental""]",Visited
+Asha Bajaj,asha.bajaj@yahoo.com,9145434797,Mohali,Plot,,Rent,11784,19485,Exploring,Website,Looking for spacious apartment in good locality,"[""it-hub""]",Contacted
+Nisha Nanda,nisha.nanda@email.com,9724324170,Panchkula,Office,,Buy,8092498,10960767,Exploring,Website,"Retirement home, prefers ground floor","[""urgent"",""family""]",New
+Suresh Kaul,suresh.kaul@yahoo.com,9935412249,Mohali,Office,,Rent,45255,68960,0-3m,Other,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Qualified
+Shanti Shah,shanti.shah@yahoo.com,9215273537,Other,Office,,Rent,29672,45376,0-3m,Website,Urgent requirement due to job transfer,"[""budget-flexible""]",Converted
+Shyam Goyal,shyam.goyal@gmail.com,9978876370,Mohali,Apartment,Studio,Rent,15087,28193,Exploring,Other,"First-time buyer, needs assistance with documentation","[""family"",""spacious""]",Qualified
+Sunita Khurana,sunita.khurana@email.com,9211813330,Other,Plot,,Buy,3875972,5003755,Exploring,Other,Budget flexible for right property,"[""hospital-nearby""]",Dropped
+Usha Goyal,usha.goyal@gmail.com,9147779345,Panchkula,Plot,,Rent,25144,39113,Exploring,Other,Close to schools and hospitals preferred,"[""urgent"",""transfer""]",Contacted
+Geeta Kaul,geeta.kaul@gmail.com,9343552983,Mohali,Villa,2,Buy,10938978,14574373,Exploring,Other,Good connectivity to IT hub required,"[""school-nearby""]",Dropped
+Geeta Jindal,geeta.jindal@gmail.com,9763104726,Other,Office,,Buy,10054166,11326303,>6m,Referral,Urgent requirement due to job transfer,"[""school-nearby""]",Negotiation
+Rohit Nanda,rohit.nanda@email.com,9996211630,Mohali,Apartment,Studio,Rent,16856,26774,Exploring,Other,Close to schools and hospitals preferred,"[""retirement"",""ground-floor""]",Visited
+Sushma Tandon,sushma.tandon@yahoo.com,9256392974,Other,Office,,Rent,47381,62916,3-6m,Other,Budget flexible for right property,"[""premium"",""luxury""]",Dropped
+Mahesh Nanda,mahesh.nanda@gmail.com,9723837246,Chandigarh,Office,,Buy,9447403,11017206,Exploring,Referral,Budget flexible for right property,"[""school-nearby""]",Converted
+Kamala Khanna,kamala.khanna@email.com,9365428131,Chandigarh,Plot,,Buy,4067683,5740355,0-3m,Call,"Family expanding, needs bigger space","[""family""]",Converted
+Arun Singhal,arun.singhal@yahoo.com,9995908349,Chandigarh,Plot,,Buy,3560829,4763242,3-6m,Other,"First-time buyer, needs assistance with documentation","[""urgent"",""family""]",New
+Geeta Kapoor,geeta.kapoor@company.com,9930549540,Mohali,Office,,Rent,43812,66835,3-6m,Walk-in,"Investment purpose, looking for good rental yield","[""first-time""]",Dropped
+Dinesh Chopra,dinesh.chopra@outlook.com,9313271961,Other,Plot,,Rent,16650,31916,0-3m,Website,"Retirement home, prefers ground floor","[""premium""]",New
+Kamala Anand,kamala.anand@outlook.com,9885463556,Other,Office,,Buy,11144387,15077556,0-3m,Website,Budget flexible for right property,"[""family""]",Contacted
+Deepak Aggarwal,deepak.aggarwal@gmail.com,9554999557,Chandigarh,Plot,,Buy,4404849,5973274,Exploring,Referral,Looking for spacious apartment in good locality,"[""urgent""]",New
+Seema Goel,seema.goel@company.com,9844426042,Other,Retail,,Rent,59996,82635,>6m,Walk-in,Interested in premium property with modern amenities,"[""family"",""spacious""]",Contacted
+Kavita Bhatia,kavita.bhatia@email.com,9463042279,Chandigarh,Villa,Studio,Buy,14612939,18273360,Exploring,Website,Good connectivity to IT hub required,"[""investment"",""rental""]",Dropped
+Suresh Chopra,,9787390562,Zirakpur,Plot,,Rent,11035,18421,0-3m,Call,Interested in premium property with modern amenities,"[""urgent""]",Contacted
+Sushma Singh,sushma.singh@company.com,9498438788,Other,Villa,2,Buy,14970323,17851781,3-6m,Website,"First-time buyer, needs assistance with documentation","[""urgent"",""transfer""]",Visited
+Anita Dua,anita.dua@email.com,9797058429,Zirakpur,Office,,Rent,31904,58008,0-3m,Other,Close to schools and hospitals preferred,"[""budget-flexible""]",New
+Vikash Goyal,vikash.goyal@yahoo.com,9821632076,Panchkula,Office,,Buy,11850635,15383881,3-6m,Referral,Good connectivity to IT hub required,"[""premium"",""luxury""]",Converted
+Rekha Mittal,rekha.mittal@gmail.com,9825872617,Panchkula,Villa,3,Rent,34500,49675,0-3m,Other,Good connectivity to IT hub required,"[""investment"",""rental""]",Contacted
+Arun Khanna,arun.khanna@company.com,9920928756,Other,Plot,,Rent,17242,32439,Exploring,Referral,"Investment purpose, looking for good rental yield","[""premium""]",Negotiation
+Geeta Agarwal,geeta.agarwal@yahoo.com,9654213228,Chandigarh,Office,,Buy,8227257,11226934,3-6m,Website,Urgent requirement due to job transfer,"[""hospital-nearby""]",Negotiation
+Radha Saxena,radha.saxena@outlook.com,9623020426,Other,Retail,,Buy,4869352,7347396,0-3m,Website,Budget flexible for right property,"[""urgent"",""transfer""]",Dropped
+Rohit Mishra,rohit.mishra@email.com,9936484463,Other,Retail,,Rent,57659,104880,0-3m,Walk-in,Urgent requirement due to job transfer,"[""premium""]",Visited
+Kavita Shah,kavita.shah@gmail.com,9751779414,Mohali,Office,,Rent,49419,78779,0-3m,Call,"Retirement home, prefers ground floor","[""it-hub""]",Converted
+Gopal Anand,gopal.anand@email.com,9287697686,Zirakpur,Retail,,Buy,6100791,7351642,Exploring,Walk-in,Close to schools and hospitals preferred,"[""urgent"",""family""]",Dropped
+Usha Tiwari,usha.tiwari@company.com,9380739675,Panchkula,Apartment,Studio,Buy,3967120,5119588,>6m,Walk-in,Budget flexible for right property,"[""retirement"",""ground-floor""]",New
+Sunita Aggarwal,sunita.aggarwal@email.com,9820433038,Chandigarh,Office,,Buy,6882150,8557247,Exploring,Walk-in,Looking for spacious apartment in good locality,"[""family""]",Visited
+Suresh Goyal,suresh.goyal@gmail.com,9195838731,Mohali,Apartment,2,Rent,18731,31256,>6m,Other,Close to schools and hospitals preferred,"[""school-nearby""]",Dropped
+Saroj Mehta,saroj.mehta@yahoo.com,9112497995,Zirakpur,Retail,,Buy,7094643,8253334,0-3m,Walk-in,"Family expanding, needs bigger space","[""retirement"",""ground-floor""]",Visited
+Mohan Jain,mohan.jain@gmail.com,9165631609,Other,Apartment,4,Buy,5997110,8960170,Exploring,Referral,"Family expanding, needs bigger space","[""family""]",New
+Ajay Joshi,ajay.joshi@email.com,9157070402,Other,Plot,,Rent,24369,34379,Exploring,Other,"Family expanding, needs bigger space","[""investment""]",Qualified
+Amit Pandey,amit.pandey@outlook.com,9568310532,Mohali,Apartment,1,Buy,4694873,7041091,0-3m,Referral,Interested in premium property with modern amenities,"[""investment""]",Qualified
+Rekha Yadav,rekha.yadav@outlook.com,9912370455,Zirakpur,Plot,,Rent,17751,35283,0-3m,Referral,Interested in premium property with modern amenities,"[""it-hub""]",Converted
+Ravi Jain,ravi.jain@yahoo.com,9626608201,Mohali,Villa,3,Rent,25744,39424,Exploring,Referral,Looking for spacious apartment in good locality,"[""premium""]",Negotiation
+Shanti Goyal,shanti.goyal@gmail.com,9248417366,Mohali,Plot,,Rent,13947,22004,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""investment"",""rental""]",Visited
+Sudha Kohli,sudha.kohli@email.com,9751347702,Chandigarh,Apartment,3,Rent,19661,28022,0-3m,Referral,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Visited
+Santosh Shah,santosh.shah@gmail.com,9285313528,Mohali,Office,,Rent,29839,42378,>6m,Referral,"Retirement home, prefers ground floor","[""family"",""spacious""]",Converted
+Rakesh Anand,rakesh.anand@company.com,9988231059,Other,Plot,,Buy,3793163,4600943,>6m,Call,Urgent requirement due to job transfer,"[""investment""]",New
+Shyam Kumar,shyam.kumar@email.com,9851616187,Zirakpur,Apartment,1,Buy,3800746,5394780,Exploring,Referral,Budget flexible for right property,"[""school-nearby""]",Contacted
+Deepak Sachdeva,deepak.sachdeva@email.com,9216423053,Chandigarh,Office,,Buy,11388629,13006381,Exploring,Website,Urgent requirement due to job transfer,"[""premium""]",Converted
+Dinesh Anand,dinesh.anand@outlook.com,9278162559,Mohali,Plot,,Rent,21320,34436,3-6m,Call,"Investment purpose, looking for good rental yield","[""retirement"",""ground-floor""]",Contacted
+Arun Bhatia,arun.bhatia@outlook.com,9975846012,Other,Apartment,1,Rent,17766,25768,3-6m,Call,Close to schools and hospitals preferred,"[""family"",""spacious""]",Contacted
+Meera Kohli,meera.kohli@yahoo.com,9954053781,Chandigarh,Office,,Rent,36881,49937,3-6m,Referral,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Contacted
+Gopal Sethi,gopal.sethi@gmail.com,9247551538,Panchkula,Plot,,Buy,4775804,6320886,>6m,Website,"Retirement home, prefers ground floor","[""family"",""spacious""]",Qualified
+Asha Kapoor,asha.kapoor@outlook.com,9791458575,Panchkula,Office,,Buy,7175596,8317652,>6m,Referral,Good connectivity to IT hub required,"[""investment"",""rental""]",Contacted
+Anita Singhal,anita.singhal@email.com,9570501504,Other,Plot,,Rent,12598,31484,>6m,Website,Budget flexible for right property,"[""retirement"",""ground-floor""]",Converted
+Geeta Kohli,geeta.kohli@email.com,9466702820,Chandigarh,Villa,2,Rent,27083,45378,3-6m,Other,"Investment purpose, looking for good rental yield","[""urgent"",""transfer""]",Negotiation
+Sunila Tandon,,9427405321,Mohali,Villa,3,Buy,13344834,16758791,>6m,Walk-in,Close to schools and hospitals preferred,"[""urgent"",""transfer""]",New
+Ravi Chopra,ravi.chopra@company.com,9965607292,Panchkula,Villa,4,Rent,39985,50952,>6m,Referral,Good connectivity to IT hub required,"[""hospital-nearby""]",Negotiation
+Lalit Mehta,lalit.mehta@yahoo.com,9613297686,Other,Retail,,Rent,59529,98517,3-6m,Website,Good connectivity to IT hub required,"[""premium""]",Contacted
+Ravi Khanna,ravi.khanna@yahoo.com,9843764337,Chandigarh,Office,,Rent,27165,56868,0-3m,Walk-in,Urgent requirement due to job transfer,"[""premium""]",Negotiation
+Pankaj Joshi,pankaj.joshi@gmail.com,9512249061,Mohali,Plot,,Rent,15487,33358,Exploring,Other,Urgent requirement due to job transfer,"[""it-hub""]",New
+Naresh Nanda,naresh.nanda@company.com,9912534878,Mohali,Retail,,Rent,35791,58000,3-6m,Website,Budget flexible for right property,"[""premium"",""luxury""]",Contacted
+Deepak Kohli,deepak.kohli@email.com,9961427839,Panchkula,Villa,1,Buy,12972554,15304553,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""family"",""spacious""]",Qualified
+Rakesh Dua,rakesh.dua@yahoo.com,9451747357,Chandigarh,Office,,Buy,9274954,11936892,3-6m,Other,Urgent requirement due to job transfer,"[""urgent""]",Converted
+Urmila Jindal,urmila.jindal@outlook.com,9949022363,Other,Office,,Buy,8804511,11160859,Exploring,Referral,"Retirement home, prefers ground floor","[""hospital-nearby""]",Qualified
+Kavita Sethi,kavita.sethi@yahoo.com,9689984288,Chandigarh,Villa,Studio,Rent,34344,50378,>6m,Other,"Retirement home, prefers ground floor","[""hospital-nearby""]",Visited
+Anita Joshi,,9215644778,Chandigarh,Office,,Rent,23327,40238,3-6m,Walk-in,Urgent requirement due to job transfer,"[""urgent""]",Visited
+Kamala Goel,kamala.goel@outlook.com,9245765320,Zirakpur,Office,,Buy,11221846,13564030,3-6m,Walk-in,Good connectivity to IT hub required,"[""it-hub""]",Dropped
+Kiran Goyal,kiran.goyal@email.com,9867700168,Chandigarh,Plot,,Buy,4498642,5600029,Exploring,Referral,Good connectivity to IT hub required,"[""urgent"",""transfer""]",New
+Dinesh Sharma,dinesh.sharma@company.com,9220164623,Other,Retail,,Rent,74158,111896,>6m,Referral,"Family expanding, needs bigger space","[""budget-flexible""]",Contacted
+Kavita Bhatia,kavita.bhatia@gmail.com,9847531531,Other,Apartment,Studio,Buy,4671959,6096395,3-6m,Referral,Close to schools and hospitals preferred,"[""family""]",Contacted
+Gopal Mehta,gopal.mehta@outlook.com,9384506850,Zirakpur,Villa,1,Rent,32534,49414,Exploring,Other,"First-time buyer, needs assistance with documentation","[""school-nearby""]",Contacted
+Usha Goyal,,9993693233,Mohali,Office,,Buy,9187461,10290481,3-6m,Call,Good connectivity to IT hub required,"[""it-hub""]",Negotiation
+Krishan Jain,krishan.jain@gmail.com,9758890032,Panchkula,Retail,,Rent,51440,82107,3-6m,Website,"First-time buyer, needs assistance with documentation","[""urgent"",""transfer""]",Qualified
+Lata Yadav,lata.yadav@company.com,9787726543,Zirakpur,Plot,,Rent,14231,20884,0-3m,Referral,Budget flexible for right property,"[""first-time""]",Qualified
+Ashok Jain,ashok.jain@yahoo.com,9822900803,Other,Plot,,Rent,11783,25673,>6m,Other,Interested in premium property with modern amenities,"[""investment""]",Converted
+Suresh Kumar,suresh.kumar@outlook.com,9514930252,Mohali,Villa,3,Buy,8405113,10444708,Exploring,Website,"Family expanding, needs bigger space","[""first-time""]",New
+Usha Khurana,usha.khurana@email.com,9810325282,Chandigarh,Villa,1,Rent,36458,55574,0-3m,Website,"Investment purpose, looking for good rental yield","[""school-nearby""]",Negotiation
+Sushma Srivastava,sushma.srivastava@company.com,9127328572,Other,Plot,,Rent,19945,26494,>6m,Call,Budget flexible for right property,"[""first-time""]",Converted
+Ajay Shah,ajay.shah@outlook.com,9253265332,Mohali,Office,,Rent,30339,57449,3-6m,Referral,Interested in premium property with modern amenities,"[""urgent"",""transfer""]",Visited
+Dinesh Shah,dinesh.shah@gmail.com,9288820945,Panchkula,Office,,Rent,21867,49356,Exploring,Other,Urgent requirement due to job transfer,"[""retirement"",""ground-floor""]",Dropped
+Pankaj Singhal,pankaj.singhal@yahoo.com,9365459899,Panchkula,Villa,Studio,Buy,9596141,12510399,>6m,Website,Interested in premium property with modern amenities,"[""investment""]",Qualified
+Ritu Kaul,ritu.kaul@gmail.com,9865292082,Panchkula,Villa,3,Rent,37276,56172,>6m,Call,"Investment purpose, looking for good rental yield","[""urgent"",""transfer""]",Qualified
+Manoj Yadav,manoj.yadav@email.com,9981416350,Panchkula,Office,,Rent,39295,59845,0-3m,Website,Good connectivity to IT hub required,"[""urgent""]",Visited
+Geeta Kaul,geeta.kaul@email.com,9273033458,Panchkula,Plot,,Rent,24970,33267,3-6m,Website,Urgent requirement due to job transfer,"[""hospital-nearby""]",Dropped
+Dinesh Jindal,dinesh.jindal@gmail.com,9443602379,Panchkula,Plot,,Buy,2184037,3076543,3-6m,Other,Close to schools and hospitals preferred,"[""budget-flexible""]",New
+Priya Kumar,priya.kumar@outlook.com,9530931035,Mohali,Apartment,4,Rent,20521,35346,>6m,Other,Urgent requirement due to job transfer,"[""family"",""spacious""]",Contacted
+Arun Sethi,arun.sethi@gmail.com,9574174096,Panchkula,Office,,Rent,38557,65160,3-6m,Other,Budget flexible for right property,"[""school-nearby""]",Qualified
+Vinod Mishra,vinod.mishra@email.com,9452676695,Other,Apartment,Studio,Buy,3904968,6666584,>6m,Referral,Close to schools and hospitals preferred,"[""retirement"",""ground-floor""]",New
+Asha Kohli,asha.kohli@outlook.com,9862711008,Panchkula,Villa,3,Rent,38673,58327,Exploring,Call,Interested in premium property with modern amenities,"[""urgent"",""family""]",Negotiation
+Ajay Goel,ajay.goel@yahoo.com,9121713616,Zirakpur,Retail,,Buy,7901016,10231381,Exploring,Other,"First-time buyer, needs assistance with documentation","[""it-hub""]",Converted
+Anita Shah,anita.shah@outlook.com,9213698829,Other,Plot,,Buy,2536540,3485478,Exploring,Referral,"Investment purpose, looking for good rental yield","[""family"",""spacious""]",Contacted
+Ashok Saxena,ashok.saxena@yahoo.com,9860796681,Panchkula,Apartment,1,Buy,4156729,5527689,Exploring,Walk-in,"Retirement home, prefers ground floor","[""family"",""spacious""]",Contacted
+Amit Singh,amit.singh@gmail.com,9323738850,Panchkula,Retail,,Buy,6218375,9018458,>6m,Call,"First-time buyer, needs assistance with documentation","[""budget-flexible""]",Visited
+Vinod Tandon,vinod.tandon@yahoo.com,9518583375,Zirakpur,Office,,Buy,8760841,9799436,3-6m,Referral,Interested in premium property with modern amenities,"[""budget-flexible""]",New
+Dinesh Kohli,,9774712244,Mohali,Office,,Rent,41288,59914,3-6m,Referral,Close to schools and hospitals preferred,"[""family""]",New
+Ajay Bajaj,ajay.bajaj@yahoo.com,9822337897,Other,Retail,,Buy,6082484,8481085,3-6m,Walk-in,Budget flexible for right property,"[""urgent"",""transfer""]",Dropped
+Pooja Chopra,pooja.chopra@yahoo.com,9816433130,Zirakpur,Office,,Buy,10311555,13193322,>6m,Referral,Budget flexible for right property,"[""premium"",""luxury""]",Contacted
+Ramesh Sachdeva,ramesh.sachdeva@company.com,9770343197,Other,Villa,4,Buy,11419912,16025576,Exploring,Call,Good connectivity to IT hub required,"[""budget-flexible""]",New
+Nisha Kaul,nisha.kaul@outlook.com,9614657749,Panchkula,Office,,Rent,36682,50226,0-3m,Website,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Negotiation
+Rajesh Patel,rajesh.patel@email.com,9997023696,Zirakpur,Office,,Rent,24213,41421,0-3m,Other,"First-time buyer, needs assistance with documentation","[""premium"",""luxury""]",New
+Rohit Goel,rohit.goel@gmail.com,9584183939,Mohali,Villa,4,Rent,27136,44534,Exploring,Referral,"Investment purpose, looking for good rental yield","[""hospital-nearby""]",Contacted
+Nisha Srivastava,nisha.srivastava@outlook.com,9259886680,Zirakpur,Office,,Buy,7359671,11117129,>6m,Referral,Urgent requirement due to job transfer,"[""urgent""]",Qualified
+Suresh Kaul,suresh.kaul@company.com,9821362640,Other,Office,,Buy,6376515,8331104,0-3m,Referral,Interested in premium property with modern amenities,"[""budget-flexible""]",Visited
+Pushpa Khurana,pushpa.khurana@company.com,9589726009,Other,Retail,,Rent,58895,103064,>6m,Call,Close to schools and hospitals preferred,"[""family"",""spacious""]",New
+Suresh Gupta,suresh.gupta@company.com,9620976104,Mohali,Villa,2,Buy,11770876,13794410,Exploring,Other,"Investment purpose, looking for good rental yield","[""school-nearby""]",New
+Shyam Jindal,shyam.jindal@company.com,9231568691,Mohali,Office,,Rent,31137,58109,>6m,Website,Budget flexible for right property,"[""urgent"",""transfer""]",Dropped
+Deepak Agarwal,deepak.agarwal@email.com,9488874889,Panchkula,Plot,,Buy,2045606,3143955,Exploring,Call,Good connectivity to IT hub required,"[""urgent""]",Contacted
+Ramesh Mittal,ramesh.mittal@email.com,9362618109,Chandigarh,Retail,,Rent,52587,80796,0-3m,Walk-in,Looking for spacious apartment in good locality,"[""budget-flexible""]",Negotiation
+Kamala Gupta,kamala.gupta@email.com,9350960095,Mohali,Apartment,3,Buy,3992612,5036025,Exploring,Walk-in,"Retirement home, prefers ground floor","[""budget-flexible""]",Visited
+Ajay Jain,ajay.jain@email.com,9255270413,Other,Retail,,Rent,48063,87843,0-3m,Other,Interested in premium property with modern amenities,"[""budget-flexible""]",Qualified
+Geeta Patel,geeta.patel@gmail.com,9957134711,Chandigarh,Apartment,Studio,Buy,4873133,7040309,Exploring,Referral,"Investment purpose, looking for good rental yield","[""budget-flexible""]",Dropped
+Dinesh Chopra,dinesh.chopra@gmail.com,9851231425,Chandigarh,Plot,,Buy,2268772,3233809,>6m,Other,"Investment purpose, looking for good rental yield","[""urgent""]",Negotiation
+Seema Sethi,seema.sethi@outlook.com,9165909989,Zirakpur,Plot,,Buy,3401496,4991702,Exploring,Referral,"First-time buyer, needs assistance with documentation","[""premium""]",Contacted
+Sunila Tandon,sunila.tandon@gmail.com,9290756653,Zirakpur,Retail,,Buy,8240002,10081087,Exploring,Referral,"Investment purpose, looking for good rental yield","[""investment"",""rental""]",Qualified
+Sunila Sachdeva,sunila.sachdeva@gmail.com,9668681588,Panchkula,Apartment,3,Buy,4209925,5501953,3-6m,Other,Close to schools and hospitals preferred,"[""investment""]",Contacted
+Rohit Aggarwal,rohit.aggarwal@company.com,9257411671,Mohali,Apartment,2,Buy,3482576,5955794,>6m,Referral,Urgent requirement due to job transfer,"[""urgent"",""family""]",Qualified
+Usha Chopra,usha.chopra@company.com,9715274876,Zirakpur,Plot,,Buy,3109195,4577672,Exploring,Other,Urgent requirement due to job transfer,"[""hospital-nearby""]",Negotiation
+Dinesh Kumar,dinesh.kumar@gmail.com,9897471791,Other,Office,,Rent,37503,52963,>6m,Referral,Urgent requirement due to job transfer,"[""family"",""spacious""]",Contacted
+Neha Mishra,neha.mishra@email.com,9733349381,Panchkula,Villa,2,Buy,10663062,15226259,Exploring,Call,"Retirement home, prefers ground floor","[""retirement"",""ground-floor""]",Converted
+Pankaj Shah,pankaj.shah@email.com,9429947558,Panchkula,Office,,Buy,11156598,12319627,Exploring,Website,"First-time buyer, needs assistance with documentation","[""urgent"",""transfer""]",Contacted
+Vikash Aggarwal,vikash.aggarwal@company.com,9875447802,Other,Apartment,Studio,Rent,22481,31820,>6m,Website,Looking for spacious apartment in good locality,"[""hospital-nearby""]",Dropped
+Lalit Sethi,lalit.sethi@yahoo.com,9788655834,Zirakpur,Apartment,3,Rent,16808,26978,Exploring,Website,Urgent requirement due to job transfer,"[""retirement"",""ground-floor""]",Visited
+Sudha Kapoor,sudha.kapoor@company.com,9758809557,Chandigarh,Villa,Studio,Rent,30817,41973,3-6m,Referral,"Family expanding, needs bigger space","[""it-hub""]",Visited
+Seema Tandon,,9637543998,Panchkula,Villa,Studio,Rent,39761,56337,>6m,Referral,Looking for spacious apartment in good locality,"[""it-hub""]",Contacted
+Urmila Chopra,urmila.chopra@yahoo.com,9586600383,Other,Apartment,3,Buy,3828040,5919247,0-3m,Referral,Urgent requirement due to job transfer,"[""family"",""spacious""]",New
+Priya Gupta,priya.gupta@yahoo.com,9187455027,Zirakpur,Retail,,Rent,70467,115994,>6m,Call,Good connectivity to IT hub required,"[""hospital-nearby""]",Contacted
+Dinesh Malhotra,dinesh.malhotra@company.com,9394963621,Other,Retail,,Buy,6793795,8372925,0-3m,Website,Looking for spacious apartment in good locality,"[""urgent""]",Visited
+Radha Saxena,radha.saxena@company.com,9877289730,Mohali,Office,,Buy,8327263,10541084,3-6m,Referral,"First-time buyer, needs assistance with documentation","[""family"",""spacious""]",Qualified
+Ritu Arora,ritu.arora@company.com,9875830875,Mohali,Plot,,Buy,4299959,5938739,Exploring,Walk-in,"Investment purpose, looking for good rental yield","[""investment"",""rental""]",Visited
+Pushpa Bhatia,pushpa.bhatia@company.com,9148729013,Mohali,Plot,,Rent,23582,32123,3-6m,Call,"Retirement home, prefers ground floor","[""investment"",""rental""]",Converted
+Sanjay Tiwari,sanjay.tiwari@email.com,9147229993,Panchkula,Villa,Studio,Buy,9340016,12086620,0-3m,Walk-in,"Family expanding, needs bigger space","[""hospital-nearby""]",New
+Santosh Sharma,,9537102358,Mohali,Plot,,Buy,4017025,5883590,3-6m,Website,Urgent requirement due to job transfer,"[""family""]",Visited
+Gopal Mishra,gopal.mishra@outlook.com,9238002396,Zirakpur,Apartment,1,Buy,3732171,6648093,>6m,Website,"Investment purpose, looking for good rental yield","[""budget-flexible""]",Contacted
+Mohan Mittal,mohan.mittal@outlook.com,9879849354,Other,Apartment,3,Buy,3993582,6967998,Exploring,Website,"First-time buyer, needs assistance with documentation","[""premium""]",Contacted
+Kiran Nanda,kiran.nanda@email.com,9129405061,Panchkula,Apartment,2,Rent,16156,26147,0-3m,Referral,Good connectivity to IT hub required,"[""premium""]",Contacted
+Manoj Joshi,manoj.joshi@email.com,9877769426,Panchkula,Retail,,Rent,41690,63948,>6m,Referral,"Retirement home, prefers ground floor","[""first-time""]",Dropped
+Sushma Kapoor,sushma.kapoor@outlook.com,9214182658,Zirakpur,Retail,,Buy,5713279,8082170,>6m,Call,"Family expanding, needs bigger space","[""urgent""]",Dropped
+Ritu Saxena,ritu.saxena@yahoo.com,9458895439,Mohali,Retail,,Buy,8604388,9647640,Exploring,Referral,Urgent requirement due to job transfer,"[""it-hub""]",Negotiation
+Seema Joshi,seema.joshi@outlook.com,9816092213,Other,Apartment,1,Buy,4534388,7229685,Exploring,Referral,"Family expanding, needs bigger space","[""school-nearby""]",Converted
+Mohan Tandon,mohan.tandon@yahoo.com,9426284010,Other,Retail,,Buy,9908841,12881976,Exploring,Website,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Visited
+Lalit Mittal,lalit.mittal@gmail.com,9281603624,Other,Retail,,Buy,7871996,10291399,Exploring,Walk-in,"Retirement home, prefers ground floor","[""school-nearby""]",Dropped
+Sanjay Anand,sanjay.anand@outlook.com,9393084761,Chandigarh,Villa,3,Buy,9353830,13316319,Exploring,Other,Budget flexible for right property,"[""premium"",""luxury""]",Visited
+Anita Srivastava,anita.srivastava@outlook.com,9534574714,Mohali,Apartment,3,Rent,22553,31737,>6m,Website,Good connectivity to IT hub required,"[""urgent""]",Visited
+Kiran Nanda,kiran.nanda@company.com,9263620781,Other,Villa,3,Buy,12456964,17175691,>6m,Call,"Investment purpose, looking for good rental yield","[""investment"",""rental""]",Negotiation
+Mahesh Malhotra,mahesh.malhotra@yahoo.com,9539089883,Zirakpur,Office,,Rent,38465,53142,>6m,Referral,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Visited
+Shanti Bajaj,shanti.bajaj@yahoo.com,9180508136,Mohali,Retail,,Buy,7638314,10379792,Exploring,Referral,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Visited
+Sudha Mehta,sudha.mehta@yahoo.com,9312431575,Other,Apartment,3,Rent,17029,27719,Exploring,Call,Good connectivity to IT hub required,"[""urgent""]",Converted
+Manoj Anand,manoj.anand@gmail.com,9848404566,Zirakpur,Plot,,Buy,4469038,6247481,0-3m,Other,Urgent requirement due to job transfer,"[""urgent""]",Converted
+Pushpa Bhatia,pushpa.bhatia@outlook.com,9443694020,Other,Apartment,Studio,Buy,5715659,7293623,Exploring,Walk-in,Interested in premium property with modern amenities,"[""first-time""]",Negotiation
+Kamala Tiwari,,9397618053,Mohali,Villa,2,Buy,11065515,15564972,>6m,Website,Looking for spacious apartment in good locality,"[""urgent""]",Contacted
+Vikash Sethi,vikash.sethi@gmail.com,9886231523,Other,Retail,,Rent,71319,93365,>6m,Call,Interested in premium property with modern amenities,"[""it-hub""]",Dropped
+Arun Chopra,arun.chopra@company.com,9195139889,Panchkula,Apartment,1,Rent,23416,34570,0-3m,Call,Good connectivity to IT hub required,"[""budget-flexible""]",Dropped
+Vikash Khanna,vikash.khanna@company.com,9281864708,Chandigarh,Plot,,Rent,19143,35816,3-6m,Call,Looking for spacious apartment in good locality,"[""urgent""]",Qualified
+Usha Aggarwal,usha.aggarwal@company.com,9645237374,Panchkula,Office,,Rent,29009,57621,0-3m,Website,Urgent requirement due to job transfer,"[""first-time""]",New
+Nisha Tiwari,nisha.tiwari@yahoo.com,9945478812,Zirakpur,Apartment,Studio,Rent,23220,36106,>6m,Walk-in,"First-time buyer, needs assistance with documentation","[""investment""]",Dropped
+Lalit Pandey,lalit.pandey@yahoo.com,9126024022,Zirakpur,Retail,,Rent,40596,80961,3-6m,Call,Interested in premium property with modern amenities,"[""retirement"",""ground-floor""]",Negotiation
+Sunila Singhal,sunila.singhal@gmail.com,9990813914,Other,Office,,Buy,6794990,9476393,>6m,Referral,Interested in premium property with modern amenities,"[""urgent"",""transfer""]",Converted
+Amit Singhal,amit.singhal@yahoo.com,9215713056,Panchkula,Retail,,Buy,9613023,12057611,>6m,Walk-in,Close to schools and hospitals preferred,"[""retirement"",""ground-floor""]",Converted
+Anita Kapoor,anita.kapoor@company.com,9984209966,Other,Plot,,Buy,2105797,3196522,Exploring,Other,Urgent requirement due to job transfer,"[""school-nearby""]",Negotiation
+Lalit Arora,lalit.arora@outlook.com,9519440038,Other,Retail,,Rent,45989,84784,>6m,Website,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Contacted
+Meera Chopra,meera.chopra@email.com,9214525291,Panchkula,Villa,3,Rent,25976,38186,Exploring,Referral,"Investment purpose, looking for good rental yield","[""hospital-nearby""]",New
+Santosh Kumar,,9265536702,Other,Office,,Rent,48630,61585,3-6m,Other,"Investment purpose, looking for good rental yield","[""urgent"",""family""]",Visited
+Priya Goel,priya.goel@email.com,9751381938,Panchkula,Plot,,Buy,2183411,4083979,>6m,Call,"First-time buyer, needs assistance with documentation","[""urgent""]",Qualified
+Manoj Saxena,manoj.saxena@email.com,9612477139,Mohali,Office,,Buy,11224298,13963163,0-3m,Referral,"Investment purpose, looking for good rental yield","[""hospital-nearby""]",Dropped
+Urmila Kapoor,urmila.kapoor@company.com,9581209136,Mohali,Retail,,Buy,6283986,7816813,0-3m,Website,Looking for spacious apartment in good locality,"[""budget-flexible""]",Dropped
+Nisha Mehta,nisha.mehta@outlook.com,9137461533,Mohali,Villa,3,Buy,13167112,15681400,>6m,Website,Urgent requirement due to job transfer,"[""hospital-nearby""]",Negotiation
+Priya Goel,priya.goel@email.com,9643402420,Mohali,Apartment,Studio,Rent,21608,26615,3-6m,Referral,Urgent requirement due to job transfer,"[""budget-flexible""]",New
+Pushpa Goyal,pushpa.goyal@company.com,9132135225,Zirakpur,Office,,Buy,6742434,8462525,>6m,Website,Urgent requirement due to job transfer,"[""family"",""spacious""]",New
+Mahesh Bhatia,mahesh.bhatia@outlook.com,9871719247,Mohali,Apartment,1,Rent,16261,22918,>6m,Walk-in,Looking for spacious apartment in good locality,"[""premium""]",Dropped
+Priya Singh,priya.singh@company.com,9883220068,Mohali,Apartment,2,Rent,19333,26790,Exploring,Walk-in,Urgent requirement due to job transfer,"[""urgent"",""family""]",Converted
+Radha Dua,radha.dua@email.com,9162929000,Mohali,Retail,,Buy,7098868,9891811,>6m,Walk-in,Budget flexible for right property,"[""budget-flexible""]",Contacted
+Mohan Pandey,mohan.pandey@company.com,9581703940,Panchkula,Apartment,1,Buy,5396248,7775197,3-6m,Other,"Family expanding, needs bigger space","[""first-time""]",Contacted
+Rekha Kohli,rekha.kohli@company.com,9453933500,Zirakpur,Plot,,Buy,2131748,3594523,>6m,Website,"Investment purpose, looking for good rental yield","[""urgent"",""transfer""]",New
+Ashok Verma,ashok.verma@email.com,9867602487,Mohali,Office,,Buy,9178927,10961771,Exploring,Website,Good connectivity to IT hub required,"[""budget-flexible""]",Contacted
+Arun Agarwal,arun.agarwal@outlook.com,9579312937,Chandigarh,Office,,Rent,26293,42018,Exploring,Call,Looking for spacious apartment in good locality,"[""budget-flexible""]",Contacted
+Manoj Jindal,manoj.jindal@yahoo.com,9262807285,Chandigarh,Retail,,Buy,8222661,9436914,0-3m,Referral,"First-time buyer, needs assistance with documentation","[""premium"",""luxury""]",Contacted
+Mohan Tiwari,mohan.tiwari@outlook.com,9482255545,Chandigarh,Villa,4,Rent,32558,44703,0-3m,Other,Interested in premium property with modern amenities,"[""investment"",""rental""]",Converted
+Anita Kaul,anita.kaul@outlook.com,9856438349,Chandigarh,Apartment,Studio,Buy,5145379,6280534,3-6m,Referral,"First-time buyer, needs assistance with documentation","[""premium""]",Dropped
+Sunila Mittal,,9481810936,Zirakpur,Plot,,Buy,2699918,3600584,0-3m,Referral,Close to schools and hospitals preferred,"[""investment""]",Qualified
+Manoj Chopra,manoj.chopra@outlook.com,9269667912,Panchkula,Office,,Rent,25067,43829,>6m,Walk-in,"First-time buyer, needs assistance with documentation","[""urgent""]",Qualified
+Santosh Khurana,santosh.khurana@outlook.com,9454515823,Chandigarh,Retail,,Rent,45227,88445,0-3m,Website,"Family expanding, needs bigger space","[""first-time""]",Dropped
+Priya Jindal,priya.jindal@gmail.com,9730527448,Zirakpur,Retail,,Buy,7528050,10238924,>6m,Call,Good connectivity to IT hub required,"[""family""]",Qualified
+Sudha Saxena,sudha.saxena@outlook.com,9795155195,Panchkula,Villa,2,Rent,32291,47665,>6m,Referral,"First-time buyer, needs assistance with documentation","[""investment"",""rental""]",Qualified
+Pankaj Kumar,pankaj.kumar@email.com,9827581199,Zirakpur,Plot,,Buy,3864128,4611453,3-6m,Other,Close to schools and hospitals preferred,"[""investment"",""rental""]",Converted
+Rajesh Pandey,,9242737586,Chandigarh,Apartment,4,Buy,4139742,6732332,Exploring,Other,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",New
+Sanjay Tandon,sanjay.tandon@yahoo.com,9122135130,Other,Retail,,Buy,9582296,11700785,>6m,Website,Budget flexible for right property,"[""urgent""]",Negotiation
+Arun Anand,arun.anand@company.com,9830045702,Panchkula,Plot,,Rent,29434,38950,>6m,Other,Interested in premium property with modern amenities,"[""first-time""]",Negotiation
+Gopal Agarwal,,9899617162,Chandigarh,Office,,Buy,5643048,8390848,>6m,Referral,"Investment purpose, looking for good rental yield","[""investment""]",Dropped
+Gopal Goel,gopal.goel@company.com,9736639799,Chandigarh,Apartment,3,Buy,3630898,5153752,>6m,Website,Close to schools and hospitals preferred,"[""family"",""spacious""]",Converted
+Amit Jain,amit.jain@gmail.com,9914752242,Chandigarh,Plot,,Rent,24867,34039,3-6m,Referral,"Retirement home, prefers ground floor","[""it-hub""]",Dropped
+Asha Aggarwal,asha.aggarwal@yahoo.com,9550429515,Mohali,Plot,,Rent,15371,31046,3-6m,Referral,Close to schools and hospitals preferred,"[""urgent"",""family""]",Qualified
+Kavita Singhal,kavita.singhal@gmail.com,9983668391,Chandigarh,Retail,,Buy,8964826,11425588,>6m,Call,Urgent requirement due to job transfer,"[""investment""]",Qualified
+Usha Patel,usha.patel@company.com,9488500528,Panchkula,Office,,Buy,11198600,14067324,3-6m,Call,"Retirement home, prefers ground floor","[""urgent""]",Visited
+Ramesh Tandon,ramesh.tandon@email.com,9170028753,Chandigarh,Apartment,4,Buy,5204016,8059818,Exploring,Other,Looking for spacious apartment in good locality,"[""urgent""]",Converted
+Saroj Kapoor,saroj.kapoor@email.com,9582913735,Mohali,Retail,,Buy,6827431,9217856,>6m,Other,"Family expanding, needs bigger space","[""hospital-nearby""]",Negotiation
+Usha Sethi,usha.sethi@email.com,9361812203,Other,Villa,Studio,Rent,37254,50989,>6m,Walk-in,"Retirement home, prefers ground floor","[""it-hub""]",New
+Usha Malhotra,usha.malhotra@email.com,9652231747,Mohali,Apartment,3,Rent,15896,22772,0-3m,Walk-in,Good connectivity to IT hub required,"[""investment""]",Qualified
+Ravi Agarwal,ravi.agarwal@yahoo.com,9919732335,Mohali,Apartment,3,Buy,5744411,7197333,3-6m,Walk-in,"First-time buyer, needs assistance with documentation","[""it-hub""]",Contacted
+Santosh Jain,santosh.jain@yahoo.com,9910782145,Panchkula,Plot,,Rent,21500,31342,>6m,Other,Urgent requirement due to job transfer,"[""it-hub""]",New
+Usha Tandon,usha.tandon@yahoo.com,9755009745,Panchkula,Plot,,Buy,2954466,4135782,Exploring,Call,Looking for spacious apartment in good locality,"[""budget-flexible""]",Negotiation
+Lata Kohli,lata.kohli@gmail.com,9181159731,Mohali,Apartment,1,Rent,22711,30589,3-6m,Call,"Retirement home, prefers ground floor","[""budget-flexible""]",New
+Amit Dua,,9999080719,Chandigarh,Apartment,3,Buy,3506661,5631407,0-3m,Walk-in,"Investment purpose, looking for good rental yield","[""budget-flexible""]",Dropped
+Ritu Dua,ritu.dua@company.com,9922797108,Mohali,Villa,3,Buy,10455737,12993434,0-3m,Walk-in,Interested in premium property with modern amenities,"[""premium""]",Visited
+Nisha Tandon,nisha.tandon@gmail.com,9651679442,Panchkula,Villa,Studio,Buy,11795658,14385540,0-3m,Other,Looking for spacious apartment in good locality,"[""family""]",New
+Suresh Bansal,suresh.bansal@gmail.com,9168200352,Chandigarh,Apartment,1,Buy,5555258,7951447,0-3m,Other,Urgent requirement due to job transfer,"[""hospital-nearby""]",Dropped
+Shyam Singhal,shyam.singhal@outlook.com,9346033165,Mohali,Plot,,Rent,25175,36536,Exploring,Walk-in,"Family expanding, needs bigger space","[""family""]",Contacted
+Anita Gupta,anita.gupta@yahoo.com,9427299463,Mohali,Plot,,Buy,4150593,5122111,Exploring,Call,"First-time buyer, needs assistance with documentation","[""premium"",""luxury""]",Visited
+Vikash Chopra,vikash.chopra@yahoo.com,9279302648,Mohali,Villa,1,Buy,12417334,15179515,3-6m,Walk-in,Close to schools and hospitals preferred,"[""retirement"",""ground-floor""]",New
+Rekha Kohli,rekha.kohli@gmail.com,9642934573,Panchkula,Plot,,Rent,27501,40948,>6m,Website,"First-time buyer, needs assistance with documentation","[""urgent"",""family""]",Contacted
+Geeta Dua,geeta.dua@outlook.com,9694446071,Mohali,Apartment,2,Buy,3155344,4658088,0-3m,Walk-in,"Investment purpose, looking for good rental yield","[""school-nearby""]",Negotiation
+Pooja Jain,pooja.jain@yahoo.com,9321354895,Zirakpur,Villa,3,Rent,37030,56426,Exploring,Website,Looking for spacious apartment in good locality,"[""hospital-nearby""]",Contacted
+Lalit Verma,,9348652467,Chandigarh,Apartment,4,Buy,3619374,6282171,Exploring,Website,"First-time buyer, needs assistance with documentation","[""premium""]",Visited
+Mohan Yadav,mohan.yadav@email.com,9796135642,Chandigarh,Plot,,Rent,16449,30383,Exploring,Website,"First-time buyer, needs assistance with documentation","[""budget-flexible""]",Negotiation
+Rohit Bhatia,rohit.bhatia@yahoo.com,9537876603,Chandigarh,Apartment,2,Buy,4865780,6509401,>6m,Walk-in,Budget flexible for right property,"[""urgent"",""family""]",Visited
+Radha Joshi,radha.joshi@outlook.com,9460837533,Zirakpur,Villa,1,Buy,13966869,18887352,>6m,Other,Budget flexible for right property,"[""urgent"",""transfer""]",Dropped
+Deepak Sachdeva,,9214551562,Zirakpur,Villa,Studio,Buy,14110061,18242287,Exploring,Website,Urgent requirement due to job transfer,"[""premium""]",Qualified
+Priya Sachdeva,priya.sachdeva@email.com,9354362323,Panchkula,Retail,,Rent,44346,69174,>6m,Walk-in,"Investment purpose, looking for good rental yield","[""family""]",Converted
+Shanti Verma,shanti.verma@yahoo.com,9525421391,Zirakpur,Office,,Rent,42256,72170,3-6m,Walk-in,Urgent requirement due to job transfer,"[""premium""]",Converted
+Meera Joshi,meera.joshi@company.com,9725995246,Chandigarh,Apartment,2,Buy,5769437,8330343,0-3m,Other,Good connectivity to IT hub required,"[""investment""]",Visited
+Shanti Mittal,shanti.mittal@gmail.com,9898547508,Panchkula,Retail,,Rent,63558,102849,Exploring,Website,"Family expanding, needs bigger space","[""first-time""]",Visited
+Ramesh Bhatia,ramesh.bhatia@company.com,9964694278,Mohali,Plot,,Buy,4789895,5939052,>6m,Call,"First-time buyer, needs assistance with documentation","[""investment""]",Contacted
+Ramesh Chopra,,9483407010,Zirakpur,Office,,Buy,8032965,9355418,3-6m,Referral,Good connectivity to IT hub required,"[""family""]",Converted
+Amit Jain,amit.jain@yahoo.com,9489764738,Chandigarh,Apartment,4,Rent,22907,31523,Exploring,Referral,Close to schools and hospitals preferred,"[""urgent""]",Negotiation
+Ashok Jain,ashok.jain@outlook.com,9698996045,Other,Apartment,2,Buy,5910380,7251462,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""first-time""]",Visited
+Deepak Chopra,deepak.chopra@outlook.com,9167258361,Panchkula,Office,,Buy,7125992,10566947,Exploring,Walk-in,Close to schools and hospitals preferred,"[""investment""]",Contacted
+Arun Bhatia,,9242104175,Panchkula,Villa,1,Rent,30905,42498,0-3m,Referral,Urgent requirement due to job transfer,"[""urgent"",""transfer""]",New
+Priya Sethi,priya.sethi@outlook.com,9214048107,Panchkula,Office,,Rent,46021,67807,Exploring,Call,"First-time buyer, needs assistance with documentation","[""family"",""spacious""]",Converted
+Asha Bhatia,asha.bhatia@yahoo.com,9827804053,Panchkula,Plot,,Buy,2058172,3817107,>6m,Call,Interested in premium property with modern amenities,"[""family""]",Negotiation
+Naresh Bansal,naresh.bansal@company.com,9565102785,Zirakpur,Apartment,Studio,Rent,19129,24508,3-6m,Referral,Budget flexible for right property,"[""it-hub""]",Converted
+Sunila Jindal,sunila.jindal@email.com,9747211393,Mohali,Plot,,Buy,4253004,5517463,>6m,Referral,"Retirement home, prefers ground floor","[""premium""]",Converted
+Rekha Pandey,rekha.pandey@company.com,9251029643,Chandigarh,Villa,4,Buy,13297352,15393827,0-3m,Referral,"Retirement home, prefers ground floor","[""hospital-nearby""]",Visited
+Vinod Sachdeva,,9811499613,Mohali,Apartment,1,Rent,20215,33622,0-3m,Walk-in,Budget flexible for right property,"[""investment""]",New
+Amit Khurana,amit.khurana@email.com,9328449757,Chandigarh,Villa,2,Buy,14140598,17311648,>6m,Other,"Retirement home, prefers ground floor","[""premium""]",Converted
+Pushpa Singhal,pushpa.singhal@yahoo.com,9467908370,Mohali,Villa,4,Rent,32084,44363,>6m,Walk-in,Close to schools and hospitals preferred,"[""investment""]",Qualified
+Ashok Aggarwal,ashok.aggarwal@company.com,9366175314,Zirakpur,Apartment,2,Buy,5196039,7814807,>6m,Walk-in,"Retirement home, prefers ground floor","[""school-nearby""]",Dropped
+Arun Saxena,arun.saxena@company.com,9756504756,Panchkula,Villa,3,Buy,8217717,10904320,>6m,Other,Interested in premium property with modern amenities,"[""investment"",""rental""]",Dropped
+Ashok Goyal,ashok.goyal@company.com,9755417625,Other,Retail,,Rent,73738,111580,Exploring,Call,Budget flexible for right property,"[""school-nearby""]",Negotiation
+Sudha Anand,sudha.anand@email.com,9624249239,Other,Apartment,3,Buy,3010250,5842329,>6m,Call,Urgent requirement due to job transfer,"[""premium""]",Converted
+Vikash Pandey,vikash.pandey@gmail.com,9191133730,Mohali,Office,,Rent,28901,46397,0-3m,Other,Close to schools and hospitals preferred,"[""first-time""]",Visited
+Radha Gupta,radha.gupta@yahoo.com,9719163687,Chandigarh,Retail,,Rent,69639,108969,Exploring,Referral,"Retirement home, prefers ground floor","[""premium"",""luxury""]",Contacted
+Rekha Goyal,rekha.goyal@gmail.com,9276618055,Panchkula,Apartment,2,Buy,3268144,5840712,3-6m,Referral,"Family expanding, needs bigger space","[""urgent"",""family""]",Contacted
+Gopal Kaul,gopal.kaul@outlook.com,9124853749,Chandigarh,Plot,,Rent,20189,27354,Exploring,Other,Budget flexible for right property,"[""hospital-nearby""]",Negotiation
+Ritu Saxena,ritu.saxena@company.com,9428079241,Mohali,Office,,Buy,9891170,11140488,0-3m,Other,Interested in premium property with modern amenities,"[""it-hub""]",New
+Sudha Singh,sudha.singh@email.com,9829951557,Panchkula,Villa,3,Rent,30469,46074,Exploring,Walk-in,"Family expanding, needs bigger space","[""investment""]",Converted
+Sudha Arora,sudha.arora@company.com,9848204715,Chandigarh,Plot,,Buy,3727106,5587947,>6m,Call,Interested in premium property with modern amenities,"[""investment""]",Converted
+Rohit Goel,rohit.goel@company.com,9241657651,Zirakpur,Office,,Rent,41451,57884,>6m,Other,Urgent requirement due to job transfer,"[""family""]",Converted
+Pankaj Chopra,pankaj.chopra@email.com,9877613805,Panchkula,Retail,,Buy,5408142,6591801,Exploring,Referral,Looking for spacious apartment in good locality,"[""budget-flexible""]",Dropped
+Urmila Arora,urmila.arora@yahoo.com,9413378409,Mohali,Office,,Rent,47567,76649,>6m,Website,"Family expanding, needs bigger space","[""investment"",""rental""]",New
+Sudha Aggarwal,sudha.aggarwal@gmail.com,9869991753,Other,Apartment,Studio,Buy,5353042,6464914,3-6m,Call,"First-time buyer, needs assistance with documentation","[""school-nearby""]",Qualified
+Sanjay Goyal,sanjay.goyal@gmail.com,9695600085,Zirakpur,Villa,3,Rent,26474,44557,0-3m,Call,Looking for spacious apartment in good locality,"[""it-hub""]",Qualified
+Sushma Mishra,sushma.mishra@outlook.com,9848928808,Mohali,Apartment,1,Rent,21201,33384,3-6m,Other,Budget flexible for right property,"[""it-hub""]",Dropped
+Seema Anand,seema.anand@outlook.com,9693057367,Mohali,Apartment,2,Rent,17582,24228,0-3m,Walk-in,Good connectivity to IT hub required,"[""urgent"",""transfer""]",Negotiation
+Dinesh Tandon,dinesh.tandon@email.com,9836729735,Panchkula,Villa,3,Rent,36553,54897,Exploring,Call,Good connectivity to IT hub required,"[""urgent""]",Negotiation
+Krishan Joshi,krishan.joshi@outlook.com,9567786577,Zirakpur,Office,,Rent,28305,53435,3-6m,Other,Budget flexible for right property,"[""premium""]",Dropped
+Pankaj Kaul,pankaj.kaul@gmail.com,9159891072,Chandigarh,Plot,,Rent,22381,35334,>6m,Other,"Family expanding, needs bigger space","[""urgent"",""transfer""]",Dropped
+Usha Mehta,usha.mehta@gmail.com,9426754876,Mohali,Retail,,Rent,32056,78439,3-6m,Walk-in,Looking for spacious apartment in good locality,"[""investment""]",Visited
+Arun Bansal,arun.bansal@email.com,9868851403,Chandigarh,Retail,,Buy,4301392,5956678,Exploring,Website,Interested in premium property with modern amenities,"[""urgent"",""family""]",Negotiation
+Suresh Bansal,,9850130550,Other,Office,,Rent,27552,50623,Exploring,Referral,Close to schools and hospitals preferred,"[""first-time""]",Negotiation
+Ramesh Jindal,,9468984203,Zirakpur,Plot,,Buy,4701910,6282716,0-3m,Walk-in,Budget flexible for right property,"[""school-nearby""]",Converted
+Asha Mittal,asha.mittal@gmail.com,9726205734,Panchkula,Office,,Buy,11458969,12460721,0-3m,Referral,Urgent requirement due to job transfer,"[""premium"",""luxury""]",New
+Kamala Agarwal,kamala.agarwal@outlook.com,9366592070,Chandigarh,Plot,,Buy,3801816,5655871,Exploring,Walk-in,"Retirement home, prefers ground floor","[""family""]",Visited
+Lalit Agarwal,lalit.agarwal@gmail.com,9742645301,Other,Retail,,Rent,64626,88290,Exploring,Call,Interested in premium property with modern amenities,"[""family""]",Qualified
+Vikash Aggarwal,vikash.aggarwal@email.com,9856143298,Other,Apartment,Studio,Buy,5501646,7935423,>6m,Referral,Budget flexible for right property,"[""urgent"",""family""]",Contacted
+Vinod Khanna,,9193911425,Other,Plot,,Buy,2445464,4190825,3-6m,Website,"First-time buyer, needs assistance with documentation","[""family""]",Visited
+Seema Dua,seema.dua@yahoo.com,9888190812,Panchkula,Office,,Rent,24551,42632,0-3m,Call,Looking for spacious apartment in good locality,"[""school-nearby""]",New
+Sanjay Nanda,sanjay.nanda@gmail.com,9985486907,Zirakpur,Retail,,Rent,51949,95642,0-3m,Walk-in,"Family expanding, needs bigger space","[""hospital-nearby""]",Visited
+Krishan Saxena,krishan.saxena@email.com,9257226534,Chandigarh,Office,,Rent,42648,54507,>6m,Other,Good connectivity to IT hub required,"[""family""]",Contacted
+Vikash Shah,vikash.shah@gmail.com,9533047674,Other,Plot,,Buy,4131850,5865364,3-6m,Walk-in,"Retirement home, prefers ground floor","[""premium""]",Dropped
+Pankaj Kaul,pankaj.kaul@yahoo.com,9166601068,Chandigarh,Retail,,Buy,9803542,10904156,>6m,Call,"Investment purpose, looking for good rental yield","[""premium"",""luxury""]",Dropped
+Naresh Sharma,naresh.sharma@gmail.com,9661025649,Mohali,Apartment,4,Buy,3194138,5922767,0-3m,Walk-in,Close to schools and hospitals preferred,"[""premium"",""luxury""]",Visited
+Sanjay Tandon,,9657594965,Mohali,Office,,Buy,8393851,9492542,>6m,Call,Interested in premium property with modern amenities,"[""urgent"",""transfer""]",New
+Lata Tandon,lata.tandon@company.com,9333530600,Mohali,Villa,2,Buy,11947630,15495863,0-3m,Referral,Good connectivity to IT hub required,"[""retirement"",""ground-floor""]",Converted
+Sunila Khurana,sunila.khurana@company.com,9872213028,Mohali,Apartment,4,Rent,19494,28133,3-6m,Other,"First-time buyer, needs assistance with documentation","[""urgent""]",Qualified
+Ajay Tandon,ajay.tandon@gmail.com,9338044053,Zirakpur,Retail,,Rent,53704,77479,Exploring,Walk-in,"Retirement home, prefers ground floor","[""hospital-nearby""]",Visited
+Krishan Kapoor,krishan.kapoor@yahoo.com,9898721839,Zirakpur,Plot,,Rent,24393,37096,3-6m,Call,"First-time buyer, needs assistance with documentation","[""school-nearby""]",Visited
+Anita Dua,anita.dua@company.com,9598217624,Zirakpur,Villa,2,Rent,33469,51948,3-6m,Call,Interested in premium property with modern amenities,"[""school-nearby""]",Visited
+Kamala Saxena,,9352333282,Panchkula,Retail,,Buy,6122119,7955551,3-6m,Referral,"Retirement home, prefers ground floor","[""investment""]",Dropped
+Krishan Patel,krishan.patel@email.com,9255154391,Other,Plot,,Buy,3335182,4489423,3-6m,Walk-in,Close to schools and hospitals preferred,"[""investment""]",Contacted
+Rekha Goel,rekha.goel@yahoo.com,9222950961,Chandigarh,Villa,3,Buy,12361027,16657176,>6m,Other,Good connectivity to IT hub required,"[""hospital-nearby""]",Visited
+Meera Kohli,meera.kohli@yahoo.com,9655149875,Other,Retail,,Rent,67586,88380,Exploring,Referral,Looking for spacious apartment in good locality,"[""family""]",Dropped
+Amit Agarwal,amit.agarwal@email.com,9918149533,Panchkula,Villa,Studio,Buy,14173148,19125027,0-3m,Walk-in,Interested in premium property with modern amenities,"[""premium""]",Visited
+Kiran Singhal,kiran.singhal@gmail.com,9292418281,Chandigarh,Apartment,4,Buy,4672356,7531057,>6m,Walk-in,Close to schools and hospitals preferred,"[""it-hub""]",Contacted
+Shyam Kaul,shyam.kaul@gmail.com,9837171758,Panchkula,Plot,,Buy,4743583,5538367,>6m,Website,"First-time buyer, needs assistance with documentation","[""urgent"",""transfer""]",Converted
+Ashok Singhal,ashok.singhal@company.com,9876257314,Chandigarh,Retail,,Buy,5379276,7803473,>6m,Referral,"Family expanding, needs bigger space","[""retirement"",""ground-floor""]",Visited
+Kavita Agarwal,kavita.agarwal@outlook.com,9625183927,Chandigarh,Office,,Buy,9302734,10303490,>6m,Website,Interested in premium property with modern amenities,"[""family""]",Contacted
+Geeta Tiwari,geeta.tiwari@gmail.com,9748694679,Mohali,Retail,,Buy,4697295,7143082,3-6m,Call,Close to schools and hospitals preferred,"[""first-time""]",Negotiation
+Mohan Anand,mohan.anand@yahoo.com,9883126347,Panchkula,Plot,,Buy,2678131,4367065,0-3m,Referral,Looking for spacious apartment in good locality,"[""urgent"",""transfer""]",Qualified
+Shanti Sethi,shanti.sethi@outlook.com,9776766273,Panchkula,Plot,,Buy,4679756,5269402,Exploring,Call,Close to schools and hospitals preferred,"[""first-time""]",Dropped
+Ajay Jindal,ajay.jindal@email.com,9840140847,Zirakpur,Retail,,Buy,8719929,10176543,0-3m,Website,"First-time buyer, needs assistance with documentation","[""premium""]",Negotiation
+Asha Arora,asha.arora@email.com,9450991636,Other,Office,,Buy,8892079,9896847,Exploring,Website,Looking for spacious apartment in good locality,"[""family"",""spacious""]",Converted
+Shanti Kaul,shanti.kaul@gmail.com,9736015299,Zirakpur,Plot,,Buy,2688896,4489715,Exploring,Walk-in,"First-time buyer, needs assistance with documentation","[""urgent"",""family""]",Visited
+Manoj Mittal,manoj.mittal@email.com,9744214463,Chandigarh,Retail,,Buy,5523706,8205101,0-3m,Referral,Close to schools and hospitals preferred,"[""investment""]",New
+Saroj Bansal,saroj.bansal@gmail.com,9112483954,Chandigarh,Villa,2,Buy,10563963,12969189,3-6m,Referral,Budget flexible for right property,"[""urgent"",""transfer""]",New
+Pushpa Joshi,pushpa.joshi@email.com,9151812339,Zirakpur,Apartment,3,Buy,3882849,5846128,>6m,Referral,Urgent requirement due to job transfer,"[""family""]",New
+Rekha Srivastava,rekha.srivastava@email.com,9136840294,Zirakpur,Retail,,Rent,53645,95828,>6m,Walk-in,Close to schools and hospitals preferred,"[""premium"",""luxury""]",Visited
+Ajay Chopra,ajay.chopra@email.com,9193864387,Zirakpur,Plot,,Rent,14085,22276,3-6m,Website,Good connectivity to IT hub required,"[""investment"",""rental""]",Dropped
+Vikash Sethi,vikash.sethi@yahoo.com,9476081629,Panchkula,Office,,Buy,8369107,10755769,Exploring,Other,"Retirement home, prefers ground floor","[""school-nearby""]",Negotiation
+Neha Khurana,neha.khurana@company.com,9328106183,Other,Villa,1,Buy,13614241,17815559,0-3m,Call,Budget flexible for right property,"[""retirement"",""ground-floor""]",New
+Ramesh Goel,ramesh.goel@yahoo.com,9447861897,Mohali,Office,,Buy,5307552,9051805,0-3m,Other,"Family expanding, needs bigger space","[""school-nearby""]",New
+Kiran Patel,kiran.patel@company.com,9422312374,Chandigarh,Plot,,Rent,22707,41217,Exploring,Walk-in,Close to schools and hospitals preferred,"[""urgent"",""transfer""]",Negotiation
+Sanjay Shah,sanjay.shah@outlook.com,9754644982,Other,Plot,,Rent,15564,27585,Exploring,Other,"Retirement home, prefers ground floor","[""investment"",""rental""]",Visited
+Mahesh Anand,mahesh.anand@company.com,9150571726,Mohali,Villa,1,Rent,32000,48788,Exploring,Website,"Family expanding, needs bigger space","[""family"",""spacious""]",Qualified
+Asha Mittal,asha.mittal@yahoo.com,9281744924,Chandigarh,Apartment,1,Rent,24197,33723,Exploring,Walk-in,Looking for spacious apartment in good locality,"[""premium"",""luxury""]",Contacted
+Krishan Gupta,krishan.gupta@outlook.com,9380551772,Mohali,Apartment,3,Buy,3601227,4734864,Exploring,Other,Budget flexible for right property,"[""urgent"",""transfer""]",New
+Sunila Malhotra,sunila.malhotra@email.com,9955811046,Panchkula,Office,,Buy,7811418,11611128,>6m,Other,"Retirement home, prefers ground floor","[""premium""]",Dropped
+Deepak Gupta,deepak.gupta@outlook.com,9792452098,Other,Apartment,3,Buy,4545147,6354775,Exploring,Call,Close to schools and hospitals preferred,"[""investment""]",Qualified
+Meera Singhal,meera.singhal@email.com,9541000824,Chandigarh,Villa,1,Buy,12107648,16819164,Exploring,Website,Urgent requirement due to job transfer,"[""family"",""spacious""]",New
+Sunila Yadav,sunila.yadav@email.com,9366655905,Other,Villa,4,Buy,9668171,13375082,Exploring,Walk-in,Budget flexible for right property,"[""investment"",""rental""]",Qualified
+Seema Aggarwal,seema.aggarwal@yahoo.com,9223449437,Zirakpur,Villa,4,Buy,12687161,16925380,0-3m,Walk-in,"Retirement home, prefers ground floor","[""hospital-nearby""]",Visited
+Mahesh Singh,mahesh.singh@company.com,9897877398,Panchkula,Office,,Rent,27575,43525,>6m,Call,Close to schools and hospitals preferred,"[""urgent""]",Converted
+Vinod Saxena,,9966258600,Mohali,Retail,,Rent,41076,82199,3-6m,Other,Interested in premium property with modern amenities,"[""urgent""]",Negotiation
+Geeta Saxena,geeta.saxena@email.com,9368305951,Chandigarh,Office,,Rent,39253,65936,0-3m,Walk-in,Close to schools and hospitals preferred,"[""urgent"",""transfer""]",Converted
+Suresh Aggarwal,suresh.aggarwal@email.com,9675123423,Panchkula,Plot,,Rent,26929,36499,0-3m,Walk-in,Interested in premium property with modern amenities,"[""school-nearby""]",Contacted
+Priya Singhal,priya.singhal@gmail.com,9164853703,Mohali,Retail,,Rent,52982,92365,>6m,Walk-in,Urgent requirement due to job transfer,"[""retirement"",""ground-floor""]",Dropped
+Manoj Tiwari,manoj.tiwari@email.com,9367158962,Other,Plot,,Buy,4915173,6314350,3-6m,Referral,Good connectivity to IT hub required,"[""urgent"",""family""]",Visited
+Pushpa Jain,pushpa.jain@email.com,9856469650,Panchkula,Office,,Buy,8381050,11016602,0-3m,Website,"Retirement home, prefers ground floor","[""investment""]",Visited
+Ravi Gupta,ravi.gupta@company.com,9227498310,Zirakpur,Apartment,1,Rent,22304,32391,3-6m,Call,"First-time buyer, needs assistance with documentation","[""it-hub""]",Qualified
+Shanti Mehta,shanti.mehta@yahoo.com,9520635480,Chandigarh,Apartment,3,Rent,20787,29675,0-3m,Call,Looking for spacious apartment in good locality,"[""budget-flexible""]",Qualified
