@@ -10,135 +10,106 @@ import { Download, FileText } from "lucide-react"
 export function CSVExport() {
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState("")
-  const [useClientSide, setUseClientSide] = useState(false)
   const { user } = useAuth()
-  
-  // Fallback: Client-side CSV generation
-  const handleClientSideExport = async () => {
+
+  const handleExport = async () => {
+    if (!user) {
+      setError("Please sign in to export data")
+      return
+    }
+    
+    setExporting(true)
+    setError("")
+
     try {
-      console.log("Using client-side export fallback...");
+      console.log("Starting CSV export...");
       
-      // Fetch buyers data from API
-      const response = await fetch('/api/buyers?limit=500')
-      if (!response.ok) throw new Error('Failed to fetch buyers data')
+      // Get current filters from URL
+      const urlParams = new URLSearchParams(window.location.search)
+      const dataUrl = `/api/buyers/data?${urlParams.toString()}`
       
-      const data = await response.json()
-      const buyers = data.buyers || []
+      console.log("Fetching data from:", dataUrl);
       
-      if (buyers.length === 0) {
-        throw new Error('No buyers data found')
+      // Fetch buyer data as JSON
+      const response = await fetch(dataUrl)
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.status} - ${response.statusText}`)
       }
       
-      // Generate CSV content
-      const header = 'fullName,email,phone,city,propertyType,bhk,purpose,budgetMin,budgetMax,timeline,source,notes,tags,status'
-      const rows = buyers.map((buyer: any) => {
+      const result = await response.json()
+      
+      if (!result.success) {
+        throw new Error(result.error || "Failed to fetch buyer data")
+      }
+      
+      const buyers = result.data || []
+      console.log(`Processing ${buyers.length} buyers for export`);
+      
+      if (buyers.length === 0) {
+        throw new Error("No data to export. Try adjusting your filters or add some buyers first.")
+      }
+      
+      // Generate CSV content with proper headers
+      const headers = ['Name', 'Email', 'Phone', 'Company', 'Status', 'Budget', 'Notes', 'Created Date', 'Updated Date']
+      const csvRows = [headers.join(',')]
+      
+      buyers.forEach((buyer: any) => {
         const cleanValue = (value: any) => {
           if (value === null || value === undefined) return ''
           const str = String(value).replace(/"/g, '""')
           return `"${str}"`
         }
         
-        return [
-          cleanValue(buyer.fullName),
-          cleanValue(buyer.email),
-          cleanValue(buyer.phone),
-          cleanValue(buyer.city),
-          cleanValue(buyer.propertyType),
-          cleanValue(buyer.bhk),
-          cleanValue(buyer.purpose),
-          cleanValue(buyer.budgetMin),
-          cleanValue(buyer.budgetMax),
-          cleanValue(buyer.timeline),
-          cleanValue(buyer.source),
-          cleanValue(buyer.notes),
-          cleanValue(Array.isArray(buyer.tags) ? buyer.tags.join(';') : ''),
-          cleanValue(buyer.status)
-        ].join(',')
+        const row = [
+          cleanValue(buyer.name || ''),
+          cleanValue(buyer.email || ''),
+          cleanValue(buyer.phone || ''),
+          cleanValue(buyer.company || ''),
+          cleanValue(buyer.status || ''),
+          cleanValue(buyer.budget || ''),
+          cleanValue(buyer.notes || ''),
+          cleanValue(buyer.createdAt ? new Date(buyer.createdAt).toLocaleDateString() : ''),
+          cleanValue(buyer.updatedAt ? new Date(buyer.updatedAt).toLocaleDateString() : '')
+        ]
+        
+        csvRows.push(row.join(','))
       })
       
-      const csvContent = [header, ...rows].join('\n')
+      const csvContent = csvRows.join('\n')
+      console.log("Generated CSV content, length:", csvContent.length);
       
-      // Download the CSV
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
-      const link = document.createElement('a')
+      // Create and download file with BOM for Excel compatibility
+      const BOM = "\uFEFF"
+      const blob = new Blob([BOM + csvContent], { 
+        type: 'text/csv;charset=utf-8;' 
+      })
+      
+      // Generate filename with timestamp
+      const timestamp = new Date().toISOString().split('T')[0]
+      const filename = `buyer-leads-${timestamp}.csv`
+      
+      // Create download link and trigger download
       const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
       
-      link.setAttribute('href', url)
-      link.setAttribute('download', `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`)
-      link.style.visibility = 'hidden'
+      link.href = url
+      link.download = filename
+      link.style.display = 'none'
       
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
+      
+      // Cleanup
       URL.revokeObjectURL(url)
       
-      console.log(`Client-side export completed: ${buyers.length} buyers`);
-      
-    } catch (error) {
-      console.error("Client-side export failed:", error)
-      throw error
-    }
-  }
-
-  const handleExport = async () => {
-    if (!user) return
-    
-    setExporting(true)
-    setError("")
-
-    try {
-      if (useClientSide) {
-        // Use client-side generation
-        await handleClientSideExport()
-      } else {
-        console.log("Trying server-side export first...");
-        
-        try {
-          // Try server-side export first
-          const urlParams = new URLSearchParams(window.location.search)
-          const exportUrl = `/api/buyers/export?${urlParams.toString()}`
-          console.log("Export URL:", exportUrl);
-          
-          const response = await fetch(exportUrl)
-          console.log("Response status:", response.status);
-          
-          if (!response.ok) {
-            throw new Error(`Server export failed: ${response.status}`)
-          }
-          
-          const csvContent = await response.text()
-          console.log("CSV content length:", csvContent.length);
-          
-          if (!csvContent || csvContent.length === 0) {
-            throw new Error("No data to export")
-          }
-          
-          // Create blob and download
-          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
-          const link = document.createElement('a')
-          const url = URL.createObjectURL(blob)
-          
-          link.setAttribute('href', url)
-          link.setAttribute('download', `buyer-leads-${new Date().toISOString().split('T')[0]}.csv`)
-          link.style.visibility = 'hidden'
-          
-          document.body.appendChild(link)
-          link.click()
-          document.body.removeChild(link)
-          URL.revokeObjectURL(url)
-          
-          console.log("Server-side export completed successfully");
-          
-        } catch (serverError) {
-          console.log("Server-side export failed, trying client-side fallback...");
-          // Fallback to client-side export
-          await handleClientSideExport()
-        }
-      }
+      console.log(`CSV export completed successfully! Downloaded ${buyers.length} buyers as ${filename}`);
       
     } catch (error) {
       console.error("Export failed:", error)
-      setError(error instanceof Error ? error.message : "Export failed. Please try again.")
+      const errorMessage = error instanceof Error ? error.message : "Export failed. Please try again."
+      setError(errorMessage)
     } finally {
       setExporting(false)
     }
