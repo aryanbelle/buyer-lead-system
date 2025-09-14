@@ -1,6 +1,7 @@
 "use client"
 
 import { useAuth } from "@/components/auth/auth-provider"
+import { RoleGuard } from "@/components/auth/role-guard"
 import { BuyerForm } from "@/components/forms/buyer-form"
 import { Header } from "@/components/layout/header"
 import { Navigation } from "@/components/layout/navigation"
@@ -59,7 +60,14 @@ export default function EditBuyerPage({ params }: { params: { id: string } }) {
       <div className="min-h-screen bg-background">
         <Header />
         <Navigation />
-        <BuyerForm mode="edit" buyer={buyer} />
+        {(user.role === 'admin' || user.id === buyer.ownerId) ? (
+          <BuyerForm mode="edit" buyer={buyer} />
+        ) : (
+          <div className="text-center p-8">
+            <h3 className="text-lg font-semibold text-muted-foreground">Access Denied</h3>
+            <p className="text-sm text-muted-foreground mt-2">You can only edit your own buyer leads.</p>
+          </div>
+        )}
       </div>
     </ErrorBoundary>
   )

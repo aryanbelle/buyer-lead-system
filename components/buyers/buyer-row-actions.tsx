@@ -26,9 +26,10 @@ import { toast } from "sonner"
 
 interface BuyerRowActionsProps {
   buyerId: string
+  ownerId: string
 }
 
-export function BuyerRowActions({ buyerId }: BuyerRowActionsProps) {
+export function BuyerRowActions({ buyerId, ownerId }: BuyerRowActionsProps) {
   const router = useRouter()
   const { user } = useAuth()
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
@@ -69,6 +70,9 @@ export function BuyerRowActions({ buyerId }: BuyerRowActionsProps) {
     }
   }
 
+  // User can edit/delete if they own the buyer OR if they are admin
+  const canEdit = user?.role === 'admin' || user?.id === ownerId
+
   return (
     <>
       <DropdownMenu modal={false}>
@@ -86,18 +90,22 @@ export function BuyerRowActions({ buyerId }: BuyerRowActionsProps) {
             <Eye className="mr-2 h-4 w-4" />
             View Details
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={handleEdit}>
-            <Edit className="mr-2 h-4 w-4" />
-            Edit
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem 
-            onClick={() => setShowDeleteDialog(true)}
-            className="text-destructive focus:text-destructive"
-          >
-            <Trash2 className="mr-2 h-4 w-4" />
-            Delete
-          </DropdownMenuItem>
+          {canEdit && (
+            <>
+              <DropdownMenuItem onClick={handleEdit}>
+                <Edit className="mr-2 h-4 w-4" />
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem 
+                onClick={() => setShowDeleteDialog(true)}
+                className="text-destructive focus:text-destructive"
+              >
+                <Trash2 className="mr-2 h-4 w-4" />
+                Delete
+              </DropdownMenuItem>
+            </>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
 

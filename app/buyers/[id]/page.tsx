@@ -31,9 +31,12 @@ export default function BuyerDetailPage({ params }: { params: { id: string } }) 
     if (user) {
       const fetchBuyer = async () => {
         try {
+          console.log('Fetching buyer with ID:', params.id)
           const foundBuyer = await getBuyerById(params.id)
+          console.log('Found buyer:', foundBuyer)
           
           if (!foundBuyer) {
+            console.log('Buyer not found, redirecting to /buyers')
             router.push("/buyers")
             return
           }
@@ -41,6 +44,7 @@ export default function BuyerDetailPage({ params }: { params: { id: string } }) 
           setBuyer(foundBuyer)
 
           const buyerHistory = await getBuyerHistory(params.id)
+          console.log('Buyer history:', buyerHistory)
           setHistory(buyerHistory)
         } catch (error) {
           console.error("Error fetching buyer:", error)
@@ -106,10 +110,12 @@ export default function BuyerDetailPage({ params }: { params: { id: string } }) 
                 <p className="text-muted-foreground">Buyer Details</p>
               </div>
             </div>
-            <Button onClick={() => router.push(`/buyers/${buyer.id}/edit`)}>
-              <Edit className="h-4 w-4 mr-2" />
-              Edit
-            </Button>
+            {(user.role === 'admin' || user.id === buyer.ownerId) && (
+              <Button onClick={() => router.push(`/buyers/${buyer.id}/edit`)}>
+                <Edit className="h-4 w-4 mr-2" />
+                Edit
+              </Button>
+            )}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

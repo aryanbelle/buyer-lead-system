@@ -69,7 +69,10 @@ export async function addBuyer(buyer: Omit<Buyer, "id" | "updatedAt">): Promise<
       body: JSON.stringify(buyer),
     })
 
-    if (!response.ok) throw new Error("Failed to create buyer")
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.error || "Failed to create buyer")
+    }
     
     return await response.json()
   } catch (error) {
